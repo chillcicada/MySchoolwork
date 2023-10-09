@@ -2,6 +2,8 @@
 venv/
 .idea/
 dist/
+build/
+temp/
 
 # files
 *.spec

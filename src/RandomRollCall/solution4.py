@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Coded by LLK
 # 代码已上传至 GitHub: https://github.com/chillcicada/MySchoolwork
 
