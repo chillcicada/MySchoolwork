@@ -1,0 +1,7 @@
+# folders
+venv/
+.idea/
+dist/
+
+# files
+*.spec
