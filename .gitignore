@@ -3,7 +3,9 @@ venv/
 .idea/
 dist/
 build/
+# for temp files
 temp/
 
 # files
 *.spec
+*.manifest
