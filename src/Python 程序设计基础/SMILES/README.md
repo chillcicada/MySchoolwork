@@ -1,6 +1,6 @@
 # SMILES
 
-If u don't know what is SMILES, please read [SMILE 规则](../../doc/SMILES/SMILES%20规则.md) first.
+If u don't know what is SMILES, please read [SMILE 规则](../../../doc/Python%20程序设计基础/SMILES/SMILES%20规则.md) first.
 
 ---
 
