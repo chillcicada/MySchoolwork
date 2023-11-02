@@ -3,6 +3,7 @@ venv/
 .idea/
 dist/
 build/
+
 # for temp files
 temp/
 
@@ -10,3 +11,7 @@ temp/
 *.spec
 *.manifest
 *.exe
+
+# for personal info
+info.typ
+info.pdf
