@@ -3,6 +3,8 @@ venv/
 .idea/
 dist/
 build/
+.history/
+.ipynb_checkpoints/
 
 # for temp files
 temp/
