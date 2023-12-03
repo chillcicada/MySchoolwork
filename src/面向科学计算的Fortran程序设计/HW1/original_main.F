@@ -1,3 +1,6 @@
+! original_main.F
+! 找出并更正该文件中的错误，并用不同的参数输出调试，调试结果以报告形式返回。
+! 修改后文件对应 modified_main
       program main
 b        this is a homework
          implicit none

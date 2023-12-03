@@ -1,3 +1,4 @@
+! modified_main.F
       program main
 c        this is a homework
          implicit none

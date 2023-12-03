@@ -5,9 +5,10 @@ dist/
 build/
 .history/
 .ipynb_checkpoints/
+.vscode/
 
 # for temp files
-temp/
+/temp/
 
 # files
 *.spec

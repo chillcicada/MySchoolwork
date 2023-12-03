@@ -1,4 +1,5 @@
 #import "../info.typ": *
+#import "../template.typ": *
 #set text(11pt)
 
 = 实验报告（一）
