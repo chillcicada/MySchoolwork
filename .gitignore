@@ -5,7 +5,7 @@ dist/
 build/
 .history/
 .ipynb_checkpoints/
-.vscode/
+# .vscode/
 
 # for temp files
 /temp/

@@ -1,0 +1,32 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "flushdns",
+    "icpc",
+    "ifort",
+    "matplotlib",
+    "nslookup",
+    "numpy",
+    "openmpi",
+    "scipy",
+    "tracert",
+    "vite"
+  ],
+  "flagWords": [
+    "mian",
+    "tpyst"
+  ],
+  "ignorePaths": [
+    ".*",
+    "node_modules/",
+    "dist/",
+    "build/",
+    "coverage/",
+    "test/",
+    "tmp/",
+    "temp/",
+    "vendor/",
+    "venv/"
+  ]
+}
