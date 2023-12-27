@@ -1,8 +1,8 @@
 program main
   implicit none
   ! for output prompt
-  character(len=22) :: pmt1 = 'The minimum srting is:'
-  character(len=30) :: pmt2 = 'The minimum two srtings are:'
+  character(len=22) :: pmt1 = 'The minimum string is:'
+  character(len=30) :: pmt2 = 'The minimum two strings are:'
   character(len=24) :: pmt3 = 'The sorting result is:'
   ! for input
   character(len=30), dimension(:), allocatable :: arr
