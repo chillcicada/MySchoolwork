@@ -1,0 +1,4 @@
+&input
+fileName= "file1.txt"
+maxElements= 5
+/
