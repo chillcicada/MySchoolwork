@@ -5,6 +5,7 @@ dist/
 build/
 .history/
 .ipynb_checkpoints/
+__pycache__/
 # .vscode/
 
 # for temp files
@@ -14,6 +15,7 @@ build/
 *.spec
 *.manifest
 *.exe
+*.py[cod]
 
 # for personal info
 info.typ
