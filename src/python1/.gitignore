@@ -1,0 +1,29 @@
+# python
+__pycache__
+venv
+.venv
+*.py[cod]
+
+# jupyter
+.ipynb_checkpoints
+
+# ruff
+.ruff_cache
+
+# ide
+.idea
+.vscode
+.history
+.temp
+
+# env
+.env*
+!.env*.example
+
+# dist
+chapter*/*.pdf
+chapter*/*.typ
+.dist
+
+# pytest
+.pytest_cache

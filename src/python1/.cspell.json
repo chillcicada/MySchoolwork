@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "cpython",
+    "dotenv",
+    "ipynb",
+    "pycache",
+    "zipf"
+  ],
+  "ignorePaths": [
+    ".*",
+    "venv",
+    "settings*",
+    "*.lock",
+    "pyproject.toml"
+  ]
+}
