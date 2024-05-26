@@ -1,0 +1,25 @@
+# folders
+.venv/
+.idea/
+dist/
+build/
+cache/
+.history/
+.ipynb_checkpoints/
+__pycache__/
+.vscode/
+node_modules/
+
+# for temp files
+temp/
+.temp/
+
+# files
+*.spec
+*.manifest
+*.exe
+*.py[cod]
+
+# assets
+*.pdf
+.pytest_cache

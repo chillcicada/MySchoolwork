@@ -1,0 +1,44 @@
+{
+  "name": "cc-schoolwork",
+  "displayName": "Cc Schoolwork",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "chillcicada's schoolwork",
+  "author": "chillcicada",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "npx simple-git-hooks"
+  },
+  "dependencies": {
+    "vue": "3.4.14"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "2.15.0",
+    "@types/node": "20.12.12",
+    "eslint": "8.57.0",
+    "eslint-plugin-format": "0.1.0",
+    "lint-staged": "15.2.2",
+    "markdown-it-mathjax3": "4.3.2",
+    "simple-git-hooks": "2.11.0",
+    "typescript": "5.3.3",
+    "vitepress": "1.2.2",
+    "vitepress-plugin-twoslash": "0.10.2",
+    "vue-tsc": "1.8.27"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "docs/.vitepress/*": "eslint --fix",
+    "*.{py,ipynb}": [
+      "ruff check --fix",
+      "ruff format"
+    ]
+  }
+}
