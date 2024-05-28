@@ -3,18 +3,23 @@ import { defineConfig } from 'vitepress'
 import nav from './nav'
 import sidebar from './sidebar'
 import markdown from './markdown'
+import { blog, ncm } from './icons'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Cc\'s Schoolwork',
-  description: 'A VitePress Site',
+  description: 'A Simple Site',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav,
 
     sidebar,
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/chillcicada/MySchoolwork' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/chillcicada/MySchoolwork' },
+      { icon: { svg: ncm }, link: 'https://music.163.com/#/user/home?id=1403030074' },
+      { icon: { svg: blog }, link: 'https://chillcicada.com' },
+    ],
 
     editLink: {
       pattern: 'https://github.com/chillcicada/MySchoolwork/issues/new',
