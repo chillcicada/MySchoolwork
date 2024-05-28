@@ -52,6 +52,13 @@ const sidebar: DefaultTheme.Sidebar = [
       },
     ],
   },
+  {
+    text: '其他',
+    collapsed: true,
+    items: [
+      { text: 'SMILES', link: '/others/SMILES' },
+    ],
+  },
 ] satisfies DefaultTheme.Sidebar
 
 export default sidebar
