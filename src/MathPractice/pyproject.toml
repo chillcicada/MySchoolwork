@@ -1,6 +1,6 @@
 [project]
 name = "math-practice"
-version = "0.0.8rc3"
+version = "0.0.9"
 description = "Math Practice"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [

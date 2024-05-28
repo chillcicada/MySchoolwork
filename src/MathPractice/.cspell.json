@@ -18,6 +18,7 @@
     "DSLs",
     "dtype",
     "figsize",
+    "fmin",
     "fontsize",
     "fsolve",
     "gurobipy",
