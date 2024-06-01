@@ -1,6 +1,6 @@
 [project]
 name = "course4py"
-version = "0.4.0rc1"
+version = "0.0.4"
 description = "The source code of the python course."
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = ["python-dotenv>=1.0.1"]
