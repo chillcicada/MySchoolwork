@@ -1,3 +1,7 @@
+# Python
+
+> 本着拿学分上的课，大作业在 `../python1f` 目录下。
+
 ## Features
 
 - Use jupyter notebook mainly instead of pure python (python codes are also provided for committing to homework)
