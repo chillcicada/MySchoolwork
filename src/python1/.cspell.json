@@ -2,10 +2,13 @@
   "version": "0.2",
   "language": "en",
   "words": [
+    "CDHS",
     "cpython",
     "dotenv",
     "ipynb",
+    "nums",
     "pycache",
+    "TJQKA",
     "zipf"
   ],
   "ignorePaths": [

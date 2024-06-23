@@ -1,0 +1,41 @@
+#!/usr/bin/bash
+
+# @file justfile
+# @author chillcicada (2210227279@qq.com)
+# @brief
+# @version 0.1
+# @date 2024-06-18
+#
+# @copyright Copyright (c) 2024
+
+build:
+  xmake f -p windows -a x64 -m release
+  xmake
+
+debug:
+  xmake f -p windows -a x64 -m debug
+  xmake
+
+dev:
+  xmake
+  xmake run
+
+clean:
+  rm *.zip
+
+docs:
+  doxygen
+  ./docs/latex/make.bat
+  cp ./docs/latex/refman.pdf ./docs/
+
+release: build docs
+  cp ./build/windows/x64/release/*.exe ./dist/
+  node ./zip.mjs
+
+preview:
+  npx serve docs/html
+
+xmake:
+  xmake project -k vsxmake -m "debug,release"
+  xmake project -k cmake -m "debug,release"
+  xmake project -k make -m "debug,release"

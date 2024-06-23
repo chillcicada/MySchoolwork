@@ -1,0 +1,30 @@
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+.temp/
+.history/
+
+# doxygen
+docs/
+
+# exe
+*.exe
+*.dat
+
+# xmake
+makefile
+CMakeLists.txt
+vsxmake*
+
+# release
+dist/
+node_modules/
+*.zip
+*lock*

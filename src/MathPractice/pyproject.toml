@@ -1,6 +1,6 @@
 [project]
 name = "math-practice"
-version = "0.0.9"
+version = "0.1.0"
 description = "Math Practice"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
@@ -9,6 +9,7 @@ dependencies = [
   "matplotlib>=3.8.4",
   "scipy>=1.13.0",
   "gurobipy>=11.0.2",
+  "statsmodels>=0.14.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.9"
@@ -20,10 +21,9 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
+  # lint
   "ruff>=0.4.2",
-  # ! optional
   "pandas>=2.2.2",
-  # "jupyterlab-quarto>=0.3.3"
 ]
 
 [tool.hatch.metadata]

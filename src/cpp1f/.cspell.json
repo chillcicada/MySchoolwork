@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "**/.*",
+    "build",
+    "dist",
+    "docs"
+  ],
+  "words": [
+    "doxyfile",
+    "doxygen",
+    "IPLAYER",
+    "justfile",
+    "miktex",
+    "msvc",
+    "NOMINMAX",
+    "WASD",
+    "xmake"
+  ]
+}
