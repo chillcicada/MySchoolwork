@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "all dependencies",
+      "groupSlug": "all"
+    }
+  ],
+  "schedule": [
+    "every weekend"
+  ]
+}
