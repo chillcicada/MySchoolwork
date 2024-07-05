@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fs from 'node:fs'
 import archiver from 'archiver'
 
@@ -8,7 +9,7 @@ const archiveFile = path => archive.file(path, { name: path })
 const archiveDir = path => archive.directory(path, path)
 
 output.on('close', () => {
-  console.log(archive.pointer() + ' total bytes')
+  console.log(`${archive.pointer()} total bytes`)
   console.log('archiver has been finalized and the output file descriptor has closed.')
 })
 
@@ -18,14 +19,8 @@ archive.on('warning', err => console.warn(err))
 
 archive.pipe(output)
 
-archiveFile('LICENSE')
-archiveFile('README.md')
-archiveFile('xmake.lua')
-archiveFile('doxyfile')
-archiveFile('justfile')
+void ['LICENSE', 'README.md', 'xmake.lua', 'doxyfile', 'justfile'].forEach(archiveFile)
 
-archiveDir('src')
-archiveDir('dist')
-archiveDir('docs')
+void ['src', 'dist', 'docs'].forEach(archiveDir)
 
 archive.finalize()
