@@ -121,6 +121,10 @@ just zip
 
 more commands in the `justfile`.
 
+## others
+
+This homework got 98/100 points (109 \* 0.9).
+
 ---
 
 This zip is built via scripts, if you want to get the complete project structure and source code, please check the [github repo](https://github.com/chillcicada/MySchoolwork/tree/main/src/cpp1f).
