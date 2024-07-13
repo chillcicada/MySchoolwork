@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "**/.*",
+    "src/data/*"
+  ],
+  "ignoreWords": [],
+  "words": [
+    "figsize",
+    "interp",
+    "loadtxt",
+    "skiprows",
+    "symlog",
+    "xlabel",
+    "xlim",
+    "xscale",
+    "ylabel"
+  ]
+}
