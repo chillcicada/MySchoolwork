@@ -9,5 +9,6 @@
   "separateMajorMinor": false,
   "ignoreDeps": [
     "pyenv"
-  ]
+  ],
+  "ignoreTests": true
 }
