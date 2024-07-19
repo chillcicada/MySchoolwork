@@ -16,7 +16,7 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
-    "vue": "3.4.32"
+    "vue": "3.4.33"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.23.0",
