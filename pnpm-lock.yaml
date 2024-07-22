@@ -16,8 +16,8 @@ importers:
         specifier: 2.23.1
         version: 2.23.1(@vue/compiler-sfc@3.4.33)(eslint-plugin-format@0.1.2(eslint@9.7.0))(eslint@9.7.0)(typescript@5.5.3)
       '@shikijs/vitepress-twoslash':
-        specifier: 1.10.3
-        version: 1.10.3(typescript@5.5.3)
+        specifier: 1.11.0
+        version: 1.11.0(typescript@5.5.3)
       '@types/node':
         specifier: 20.14.11
         version: 20.14.11
@@ -552,14 +552,17 @@ packages:
   '@shikijs/core@1.10.3':
     resolution: {integrity: sha512-D45PMaBaeDHxww+EkcDQtDAtzv00Gcsp72ukBtaLSmqRvh0WgGMq3Al0rl1QQBZfuneO75NXMIzEZGFitThWbg==}
 
+  '@shikijs/core@1.11.0':
+    resolution: {integrity: sha512-VbEhDAhT/2ozO0TPr5/ZQBO/NWLqtk4ZiBf6NplYpF38mKjNfMMied5fNEfIfYfN+cdKvhDB4VMcKvG/g9c3zg==}
+
   '@shikijs/transformers@1.10.3':
     resolution: {integrity: sha512-MNjsyye2WHVdxfZUSr5frS97sLGe6G1T+1P41QjyBFJehZphMcr4aBlRLmq6OSPBslYe9byQPVvt/LJCOfxw8Q==}
 
-  '@shikijs/twoslash@1.10.3':
-    resolution: {integrity: sha512-9HlQgvy51jnO46Tcr87A7v6gxlzdKzcpYk15/CQfO48svAslOf+6QYXf0Gao3HWPywOwVj2alMAe0zQhT59y9w==}
+  '@shikijs/twoslash@1.11.0':
+    resolution: {integrity: sha512-fyqUlij+Qm1MigL2JvXmeIJYSzvfrvO+SRULJco1y9XjIOe7SawvgUQf2BXhjZJPmrTKVqi4mbqECpj1KYtmKA==}
 
-  '@shikijs/vitepress-twoslash@1.10.3':
-    resolution: {integrity: sha512-rTfayHA8J4B0z9J9XspwQRg40m0xYLzBgNRhjBWGVGgfymh3OdM0CpEsqwGEFxGgRmDRYCEpf3jqdBejWMekgQ==}
+  '@shikijs/vitepress-twoslash@1.11.0':
+    resolution: {integrity: sha512-ntZKY0Io1P05eiZ75zwIl1IG/5DXqQjKchuSIhkX8cGjdKbGW4cp8EabTmVlW0cevJy5OJBDyGTHhW79GXLH2g==}
 
   '@stylistic/eslint-plugin-js@2.6.0-beta.0':
     resolution: {integrity: sha512-KQiNvzNzvl9AmMs1MiIBszLIy/Xy1bTExnyaVy5dSzOF9c+yT64JQfH0p0jP6XpGwoCnZsrPUNflwP30G42QBQ==}
@@ -2346,6 +2349,9 @@ packages:
   shiki@1.10.3:
     resolution: {integrity: sha512-eneCLncGuvPdTutJuLyUGS8QNPAVFO5Trvld2wgEq1e002mwctAhJKeMGWtWVXOIEzmlcLRqcgPSorR6AVzOmQ==}
 
+  shiki@1.11.0:
+    resolution: {integrity: sha512-NqH/O1zRHvnuk/WfSL6b7+DtI7/kkMMSQGlZhm9DyzSU+SoIHhaw/fBZMr+zp9R8KjdIzkk3JKSC6hORuGDyng==}
+
   signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
 
@@ -3220,26 +3226,30 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
+  '@shikijs/core@1.11.0':
+    dependencies:
+      '@types/hast': 3.0.4
+
   '@shikijs/transformers@1.10.3':
     dependencies:
       shiki: 1.10.3
 
-  '@shikijs/twoslash@1.10.3(typescript@5.5.3)':
+  '@shikijs/twoslash@1.11.0(typescript@5.5.3)':
     dependencies:
-      '@shikijs/core': 1.10.3
+      '@shikijs/core': 1.11.0
       twoslash: 0.2.9(typescript@5.5.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@shikijs/vitepress-twoslash@1.10.3(typescript@5.5.3)':
+  '@shikijs/vitepress-twoslash@1.11.0(typescript@5.5.3)':
     dependencies:
-      '@shikijs/twoslash': 1.10.3(typescript@5.5.3)
+      '@shikijs/twoslash': 1.11.0(typescript@5.5.3)
       floating-vue: 5.2.2(vue@3.4.33(typescript@5.5.3))
       mdast-util-from-markdown: 2.0.1
       mdast-util-gfm: 3.0.0
       mdast-util-to-hast: 13.2.0
-      shiki: 1.10.3
+      shiki: 1.11.0
       twoslash: 0.2.9(typescript@5.5.3)
       twoslash-vue: 0.2.9(typescript@5.5.3)
       vue: 3.4.33(typescript@5.5.3)
@@ -5360,6 +5370,11 @@ snapshots:
   shiki@1.10.3:
     dependencies:
       '@shikijs/core': 1.10.3
+      '@types/hast': 3.0.4
+
+  shiki@1.11.0:
+    dependencies:
+      '@shikijs/core': 1.11.0
       '@types/hast': 3.0.4
 
   signal-exit@3.0.7: {}
