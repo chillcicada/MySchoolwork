@@ -19,8 +19,8 @@ importers:
         specifier: 1.11.1
         version: 1.11.1(typescript@5.5.4)
       '@types/node':
-        specifier: 20.14.11
-        version: 20.14.11
+        specifier: 20.14.12
+        version: 20.14.12
       eslint:
         specifier: 9.7.0
         version: 9.7.0
@@ -41,7 +41,7 @@ importers:
         version: 5.5.4
       vitepress:
         specifier: 1.3.1
-        version: 1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.11)(markdown-it-mathjax3@4.3.2)(postcss@8.4.39)(sass@1.69.7)(search-insights@2.13.0)(typescript@5.5.4)
+        version: 1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.12)(markdown-it-mathjax3@4.3.2)(postcss@8.4.39)(sass@1.69.7)(search-insights@2.13.0)(typescript@5.5.4)
       vue-tsc:
         specifier: 2.0.28
         version: 2.0.28(typescript@5.5.4)
@@ -616,8 +616,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.14.11':
-    resolution: {integrity: sha512-kprQpL8MMeszbz6ojB5/tU8PLN4kesnN8Gjzw349rDlNgsSzg90lAVj3llK99Dh7JON+t9AuscPPFW6mPbTnSA==}
+  '@types/node@20.14.12':
+    resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -3323,7 +3323,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.14.11':
+  '@types/node@20.14.12':
     dependencies:
       undici-types: 5.26.5
 
@@ -3500,9 +3500,9 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@5.0.5(vite@5.3.3(@types/node@20.14.11)(sass@1.69.7))(vue@3.4.33(typescript@5.5.4))':
+  '@vitejs/plugin-vue@5.0.5(vite@5.3.3(@types/node@20.14.12)(sass@1.69.7))(vue@3.4.33(typescript@5.5.4))':
     dependencies:
-      vite: 5.3.3(@types/node@20.14.11)(sass@1.69.7)
+      vite: 5.3.3(@types/node@20.14.12)(sass@1.69.7)
       vue: 3.4.33(typescript@5.5.4)
 
   '@volar/language-core@2.4.0-alpha.18':
@@ -5616,24 +5616,24 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.3.3(@types/node@20.14.11)(sass@1.69.7):
+  vite@5.3.3(@types/node@20.14.12)(sass@1.69.7):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 20.14.11
+      '@types/node': 20.14.12
       fsevents: 2.3.3
       sass: 1.69.7
 
-  vitepress@1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.11)(markdown-it-mathjax3@4.3.2)(postcss@8.4.39)(sass@1.69.7)(search-insights@2.13.0)(typescript@5.5.4):
+  vitepress@1.3.1(@algolia/client-search@4.23.3)(@types/node@20.14.12)(markdown-it-mathjax3@4.3.2)(postcss@8.4.39)(sass@1.69.7)(search-insights@2.13.0)(typescript@5.5.4):
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.13.0)
       '@shikijs/core': 1.10.3
       '@shikijs/transformers': 1.10.3
       '@types/markdown-it': 14.1.1
-      '@vitejs/plugin-vue': 5.0.5(vite@5.3.3(@types/node@20.14.11)(sass@1.69.7))(vue@3.4.33(typescript@5.5.4))
+      '@vitejs/plugin-vue': 5.0.5(vite@5.3.3(@types/node@20.14.12)(sass@1.69.7))(vue@3.4.33(typescript@5.5.4))
       '@vue/devtools-api': 7.3.5
       '@vue/shared': 3.4.31
       '@vueuse/core': 10.11.0(vue@3.4.33(typescript@5.5.4))
@@ -5642,7 +5642,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.0.0
       shiki: 1.10.3
-      vite: 5.3.3(@types/node@20.14.11)(sass@1.69.7)
+      vite: 5.3.3(@types/node@20.14.12)(sass@1.69.7)
       vue: 3.4.33(typescript@5.5.4)
     optionalDependencies:
       markdown-it-mathjax3: 4.3.2
