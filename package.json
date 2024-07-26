@@ -22,7 +22,7 @@
     "@antfu/eslint-config": "2.23.2",
     "@shikijs/vitepress-twoslash": "1.12.0",
     "@types/node": "20.14.12",
-    "eslint": "9.7.0",
+    "eslint": "9.8.0",
     "eslint-plugin-format": "0.1.2",
     "lint-staged": "15.2.7",
     "markdown-it-mathjax3": "4.3.2",
