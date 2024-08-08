@@ -19,7 +19,7 @@
     "vue": "3.4.37"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.24.1",
+    "@antfu/eslint-config": "2.25.0",
     "@shikijs/vitepress-twoslash": "1.12.1",
     "@types/node": "22.1.0",
     "eslint": "9.8.0",
