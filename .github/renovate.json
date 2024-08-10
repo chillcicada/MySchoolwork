@@ -1,14 +1,7 @@
 {
-  "automerge": true,
-  "dependencyDashboard": true,
-  "automergeType": "pr",
-  "platformAutomerge": true,
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 0,
-  "branchConcurrentLimit": 0,
-  "separateMajorMinor": false,
-  "ignoreDeps": [
-    "pyenv"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>chillcicada/renovate-config"
   ],
   "ignoreTests": true
 }
