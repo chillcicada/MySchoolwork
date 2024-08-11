@@ -6,9 +6,9 @@ authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
   # required
   "jupyter>=1.0.0",
-  "matplotlib>=3.8.4",
-  "scipy>=1.13.0",
-  "gurobipy>=11.0.2",
+  "matplotlib>=3.9.1.post1",
+  "scipy>=1.14.0",
+  "gurobipy>=11.0.3",
   "statsmodels>=0.14.2",
 ]
 readme = "README.md"
