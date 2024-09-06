@@ -5,7 +5,7 @@ description = "Math Practice"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
   # required
-  "jupyter>=1.1.0",
+  "jupyter>=1.1.1",
   "matplotlib>=3.9.2",
   "scipy>=1.14.1",
   "gurobipy>=11.0.3",
