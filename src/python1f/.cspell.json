@@ -1,6 +1,20 @@
 {
   "version": "0.2",
   "language": "en",
-  "ignorePaths": [".*", "*lock", "settings*", "pyproject.toml"],
-  "words": ["typer"]
+  "ignorePaths": [
+    ".*",
+    "*lock",
+    "settings*",
+    "pyproject.toml"
+  ],
+  "words": [
+    "justfile",
+    "loadtxt",
+    "onefile",
+    "pycache",
+    "pyinstaller",
+    "pytest",
+    "skiprows",
+    "typer"
+  ]
 }
