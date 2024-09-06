@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+test:
+  ./.venv/Scripts/python -m pytest
+
+build: test
+  ./.venv/Scripts/pyinstaller --onefile --name=hw ./src/__init__.py
+
+clean:
+  rm *.spec
+
+run:
+  ./dist/hw start
+
+dev:
+  ./.venv/Scripts/python ./src/__init__.py start

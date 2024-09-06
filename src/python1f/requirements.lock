@@ -13,6 +13,7 @@ click==8.1.7
     # via typer
 colorama==0.4.6
     # via click
+    # via final-homework
 markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2

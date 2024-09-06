@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
+*.spec
 
 # venv
 .venv
@@ -13,4 +14,4 @@ wheels/
 .idea
 .vscode
 .temp
-*.pdf
+.pdf
