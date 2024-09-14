@@ -1,0 +1,9 @@
+{
+  "clangd.arguments": [
+    "--compile-commands-dir=.vscode",
+  ],
+  "xmake.debugConfigType": "codelldb",
+  "C_Cpp.errorSquiggles": "disabled",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 2, TabWidth: 2, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }",
+}

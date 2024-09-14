@@ -1,0 +1,124 @@
+{
+  "options": {
+    "env": {
+      "Path": "D:\\mingw64\\bin;${env:Path}"
+    }
+  },
+  "tasks": [
+    {
+      "args": [
+        "-g",
+        "${file}",
+        "-o2",
+        "-DONLINE_JUDGE",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "-std=c++11"
+      ],
+      "command": "D:\\LLVM\\bin\\g++.exe",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "single file build with llvm",
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$gcc",
+      "type": "process"
+    },
+    {
+      "args": [],
+      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "dependsOn": "single file build with llvm",
+      "label": "run and pause with llvm",
+      "options": {
+        "env": {
+          "Path": "D:\\LLVM\\bin;${env:Path}"
+        }
+      },
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "type": "pause-console"
+    },
+    {
+      "args": [
+        "-g",
+        "${file}",
+        "-o2",
+        "-DONLINE_JUDGE",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "-std=c++11"
+      ],
+      "command": "D:\\mingw64\\bin\\g++.exe",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "single file build with gnu",
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$gcc",
+      "type": "process"
+    },
+    {
+      "args": [],
+      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "dependsOn": "single file build with gnu",
+      "label": "run and pause with gnu",
+      "options": {
+        "env": {
+          "Path": "D:\\mingw64\\bin;${env:Path}"
+        }
+      },
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "type": "pause-console"
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "clear": true,
+        "echo": true,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "command": "rm ${fileDirname}\\${fileBasenameNoExtension}.exe"
+    }
+  ],
+  "version": "2.0.0"
+}

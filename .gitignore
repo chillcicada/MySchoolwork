@@ -1,14 +1,20 @@
 # folders
 .venv/
+venv/
 .idea/
 dist/
+.dist/
 build/
 cache/
+.cache/
 .history/
+node_modules/
 .ipynb_checkpoints/
 __pycache__/
-.vscode/
-node_modules/
+.pytest_cache/
+.ruff_cache/
+.rye/
+.xmake/
 
 # for temp files
 temp/
@@ -18,8 +24,41 @@ temp/
 *.spec
 *.manifest
 *.exe
+*.zip
 *.py[cod]
+*.d
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+*.so
+*.dylib
+*.dll
+*.mod
+*.smod
+*.lai
+*.la
+*.a
+*.lib
+*.out
+*.app
+
+# xmake
+makefile
+CMakeLists.txt
+vsxmake*
 
 # assets
 *.pdf
-.pytest_cache
+.DS_Store
+
+# env
+.env*
+!.env*.example
+
+# specific files
+src/others/data/
+src/others/output/
+src/cpp1f/docs/
