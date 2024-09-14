@@ -7,7 +7,6 @@ build/
 
 # IDE
 .idea/
-.vscode/
 .temp/
 .history/
 
