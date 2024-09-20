@@ -129,17 +129,14 @@ TreeNode *remove(TreeNode *root, Key key) {
     // more than one key count
     if (root->count > 1) {
       root->count--;
+
+      // updateSize;
+      // updateHeight;
       root->size--;
       return root;
     }
 
-    // no child
-    if (root->left == nullptr && root->right == nullptr) {
-      delete root;
-      return nullptr;
-    }
-
-    // one child
+    // one child or no child
     if (root->left == nullptr || root->right == nullptr) {
       TreeNode *temp = root->left ? root->left : root->right;
       delete root;
@@ -211,6 +208,8 @@ int main() {
       Key key2 = queryByRank(root, rank);
       std::cout << key2 << '\n';
       root = remove(root, key2);
+      break;
+    default:
       break;
     }
   }
