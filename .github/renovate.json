@@ -4,12 +4,7 @@
     "github>chillcicada/renovate-config"
   ],
   "ignoreTests": true,
-  "packageRules": [
-    {
-      "matchPackageNames": [
-        "pyenv"
-      ],
-      "enabled": false
-    }
+  "ignoreDeps": [
+    "pyenv"
   ]
 }
