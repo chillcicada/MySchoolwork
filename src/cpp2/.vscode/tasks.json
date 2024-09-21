@@ -1,7 +1,7 @@
 {
   "options": {
     "env": {
-      "Path": "D:\\mingw64\\bin;${env:Path}"
+      "Path": "D:/mingw64/bin;${env:Path}"
     }
   },
   "tasks": [
@@ -12,10 +12,10 @@
         "-o2",
         "-DONLINE_JUDGE",
         "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${fileDirname}/${fileBasenameNoExtension}.exe",
         "-std=c++11"
       ],
-      "command": "D:\\LLVM\\bin\\g++.exe",
+      "command": "D:/LLVM/bin/g++.exe",
       "group": {
         "isDefault": true,
         "kind": "build"
@@ -34,12 +34,12 @@
     },
     {
       "args": [],
-      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
       "dependsOn": "single file build with llvm",
       "label": "run and pause with llvm",
       "options": {
         "env": {
-          "Path": "D:\\LLVM\\bin;${env:Path}"
+          "Path": "D:/LLVM/bin;${env:Path}"
         }
       },
       "presentation": {
@@ -60,10 +60,10 @@
         "-o2",
         "-DONLINE_JUDGE",
         "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${fileDirname}/${fileBasenameNoExtension}.exe",
         "-std=c++11"
       ],
-      "command": "D:\\mingw64\\bin\\g++.exe",
+      "command": "D:/mingw64/bin/g++.exe",
       "group": {
         "isDefault": true,
         "kind": "build"
@@ -82,12 +82,12 @@
     },
     {
       "args": [],
-      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
       "dependsOn": "single file build with gnu",
       "label": "run and pause with gnu",
       "options": {
         "env": {
-          "Path": "D:\\mingw64\\bin;${env:Path}"
+          "Path": "D:/mingw64/bin;${env:Path}"
         }
       },
       "presentation": {
@@ -117,7 +117,7 @@
         "showReuseMessage": false
       },
       "problemMatcher": [],
-      "command": "rm ${fileDirname}\\${fileBasenameNoExtension}.exe"
+      "command": "rm ${fileDirname}/${fileBasenameNoExtension}.exe"
     }
   ],
   "version": "2.0.0"

@@ -3,5 +3,13 @@
   "extends": [
     "github>chillcicada/renovate-config"
   ],
-  "ignoreTests": true
+  "ignoreTests": true,
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "pyenv"
+      ],
+      "enabled": false
+    }
+  ]
 }

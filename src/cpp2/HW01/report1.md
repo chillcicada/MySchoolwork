@@ -72,7 +72,7 @@ int main() {
 
 参考资料：https://oi-wiki.org/basic/quick-sort/
 
-## T3:
+## T3: 多项式运算库
 
 也是没多少难度和自由度的题目，提交的完整代码如下：
 
@@ -110,9 +110,9 @@ std::vector<int> poly_mul(const std::vector<int> &poly0,
 // TODO #3: Submit this code file to the OJ
 ```
 
-## 附
+## T4: AVL
 
-翻了一下 oi wiki 了解了一下二叉搜索树和 avl 树，然后结合题目要求，不断调试下写了一份初稿，期间 copilot 也有补全，不过效果参半，基本是对一些重复性代码补全，实现思路基本参考了 oi-wiki 上对 bst 和 avl 的描述，与[最基本的 avl](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) 的区别在于加入了对 size 和 count 的维护（这一部分的想法源自 bst），提交如下：
+题目已经点出使用 AVL 和平衡树了，于是翻了一下 oi wiki 了解了一下二叉搜索树和 avl 树，然后结合题目要求，不断调试下写了一份初稿，期间 copilot 也有补全，不过效果参半，基本是对一些重复性代码补全，实现思路基本参考了 oi-wiki 上对 bst 和 avl 的描述，与[最基本的 avl](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) 的区别在于加入了对 size 和 count 的维护（这一部分的想法源自 bst），提交如下：
 
 ```cpp
 #include <algorithm>
@@ -331,10 +331,11 @@ int main() {
 }
 ```
 
-然后报 TLE 了，开始不是很懂，先把 int64 换成了 int32 和 int16，然后问了一下 ai，提供的优化思路是优化内联和 I/O，因为不是很懂 I/O 方面的优化，先用了内联，还是报 TLE，然后知乎上搜索了一下，考虑到只在大数据集（>=200000）才报 TLE，优化了一下 I/O 就过了，之后有发现 int64 和 int32 速度上差别不大，又把类型改了回去，修改的部分如下：
+然后报 TLE 了，开始不是很懂怎么优化，先把 int64 换成了 int32 和 int16，不过效果不好，然后问了一下 ai，提供的思路是优化内联和 I/O，因为不是很懂 I/O 方面的细节，先用了内联，还是报 TLE，然后知乎上搜索了一下，考虑到只在大数据集（>=200000）才报 TLE，优化了一下 I/O 就过了，之后有发现 int64 和 int32 速度上差别不大，又把类型改了回去，修改的部分如下：
 
 ```patch
 @@ -25,11 +25,9 @@
+
        : key(key), size(1), count(1), height(1), left(nullptr), right(nullptr) {}
  };
 
@@ -357,6 +358,7 @@ int main() {
    root->height = std::max(getHeight(root->left), getHeight(root->right)) + 1;
 
 @@ -191,8 +189,5 @@
+
  }
 
  int main() {
