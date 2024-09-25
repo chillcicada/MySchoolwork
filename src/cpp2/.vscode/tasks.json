@@ -13,7 +13,7 @@
         "-DONLINE_JUDGE",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}.exe",
-        "-std=c++11"
+        "-std=c++14"
       ],
       "command": "D:/LLVM/bin/g++.exe",
       "group": {
