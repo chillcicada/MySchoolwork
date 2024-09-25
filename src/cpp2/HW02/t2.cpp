@@ -84,8 +84,8 @@ int main() {
     int q;
     scanf("%d", &q);
     // 若 q 小于最小浓度, 则无法购买
-    if (q < wines.front().first) {
-      printf("-1");
+    if (q < wines.front().first || q > wines.back().first) {
+      printf("-1\n");
       continue;
     }
     // 二分查找 q 所在的线段
@@ -93,7 +93,7 @@ int main() {
     auto ib = it - 1;
     double res = (it->first - q) / (double)(it->first - ib->first) * ib->second;
     res += (q - ib->first) / (double)(it->first - ib->first) * it->second;
-    printf("%.2lf", res);
+    printf("%.2lf\n", res);
   }
 
   return 0;

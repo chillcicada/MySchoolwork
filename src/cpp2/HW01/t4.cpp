@@ -130,8 +130,8 @@ TreeNode *remove(TreeNode *root, Key key) {
     if (root->count > 1) {
       root->count--;
 
-      // updateSize;
-      // updateHeight;
+      // updateSize(root);
+      // updateHeight(root);
       root->size--;
       return root;
     }
