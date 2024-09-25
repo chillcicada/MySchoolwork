@@ -27,7 +27,7 @@ int main() {
           putchar(str[j]);
 
         i = r; // skip the current integer
-      };
+      }
     putchar('\n');
   }
   return 0;

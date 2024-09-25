@@ -33,12 +33,10 @@ struct Checker {
 int main() {
   int n, m;
   std::vector<dpair> wines;
-  // read n and m by `%d %d`
-  scanf("%d %d", &n, &m);
+  scanf("%d%d", &n, &m);
   for (int i = 0; i < n; i++) {
     int d, p;
-    // read d and p by `%d %d`
-    scanf("%d %d", &d, &p);
+    scanf("%d%d", &d, &p);
     wines.push_back(dpair(d, p));
   }
   // 按照浓度排序
@@ -59,7 +57,6 @@ int main() {
       // 若在最后两点连线下方, 则替换掉最后一个点
       if ((q->p - d->p) / (q->d - d->d) <=
           (d->p - d->last->p) / (d->d - d->last->d)) {
-        // d = d->last;
         d = std::move(d->last);
       } else {
         break;
@@ -83,7 +80,7 @@ int main() {
   for (int i = 0; i < m; i++) {
     int q;
     scanf("%d", &q);
-    // 若 q 小于最小浓度, 则无法购买
+    // 若 q 小于最小浓度或大于最大浓度, 则输出 -1
     if (q < wines.front().first || q > wines.back().first) {
       printf("-1\n");
       continue;
