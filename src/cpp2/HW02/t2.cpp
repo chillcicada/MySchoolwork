@@ -52,6 +52,10 @@ int main() {
     q->d = wines[i].first;
     q->p = wines[i].second;
     while (d != nullptr && d->last != nullptr) {
+      // 排除浓度相同的酒
+      if (q->d == d->d || q->d == d->last->d)
+        break;
+
       // 若在最后两点连线下方, 则替换掉最后一个点
       if ((q->p - d->p) / (q->d - d->d) <=
           (d->p - d->last->p) / (d->d - d->last->d)) {
