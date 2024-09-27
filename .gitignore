@@ -56,7 +56,11 @@ vsxmake*
 
 # env
 .env*
+!.envrc
 !.env*.example
+
+# direnv
+.direnv/
 
 # specific files
 src/others/data/
