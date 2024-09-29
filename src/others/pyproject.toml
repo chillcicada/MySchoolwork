@@ -3,7 +3,12 @@ name = "others"
 version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
-dependencies = ["jupyter>=1.1.1", "scipy>=1.14.1", "matplotlib>=3.9.2"]
+dependencies = [
+    "jupyter>=1.1.1",
+    "scipy>=1.14.1",
+    "matplotlib>=3.9.2",
+    "pandas>=2.2.3",
+]
 readme = "README.md"
 requires-python = ">= 3.10"
 
