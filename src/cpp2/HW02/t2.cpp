@@ -41,7 +41,7 @@ int main() {
   }
   // 按照浓度排序
   // ? 根据题目描述，应该不存在两个浓度相同但价格不同的酒
-  sort(wines.begin(), wines.end());
+  std::sort(wines.begin(), wines.end());
 
   std::unique_ptr<Wine> d; // 链表头节点
   for (int i = 0; i < n; i++) {

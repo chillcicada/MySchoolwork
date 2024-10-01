@@ -1,4 +1,5 @@
 {
+  // this tasks.json only fit into the windows `sime` environment
   "options": {
     "env": {
       "Path": "D:/mingw64/bin;${env:Path}"

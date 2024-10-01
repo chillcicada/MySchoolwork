@@ -1,17 +1,14 @@
 #include <iostream>
+#include <vector>
 
 int main() {
-  for (int i = 1; i < 3; i++)
-    if (i) {
-      std::cout << "xxx" << std::endl;
-    }
-  std::cout << "zzz" << std::endl;
+  std::vector<int> v = {1, 2, 3, 4, 5};
 
-  std::cout << "\n---\n" << std::endl;
+  v.insert(v.begin() + 6, 10);
 
-  for (int i = 1; i < 3; i++)
-    if (i) {
-      std::cout << "yyy" << std::endl;
-    };
-  std::cout << "zzz" << std::endl;
+  for (const auto &el : v) {
+    std::cout << el << " ";
+  }
+
+  return 0;
 }
