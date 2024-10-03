@@ -89,6 +89,8 @@ snapshot of the full project:
 
 > i also provide a vs sln file for visual studio users if you don't want to build in cli. run `just xmake` to generate the sln file.
 
+this repo is built under the windows environment, in unix-like environment, you need `conio.h` to build.
+
 ## development
 
 > it's advised to use the same toolchain as the build environment.

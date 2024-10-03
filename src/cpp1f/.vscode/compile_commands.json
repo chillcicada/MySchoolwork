@@ -1,0 +1,16 @@
+[
+{
+  "directory": "/home/cc/projects/MySchoolwork/src/cpp1f",
+  "arguments": ["/nix/store/zznja5f8v3jafffyah1rk46vpfcn38dv-gcc-wrapper-13.3.0/bin/g++", "-c", "-m64", "-o", "build/.objs/maze/linux/x86_64/src/main.cpp.o", "src/main.cpp"],
+  "file": "src/main.cpp"
+},
+{
+  "directory": "/home/cc/projects/MySchoolwork/src/cpp1f",
+  "arguments": ["/nix/store/zznja5f8v3jafffyah1rk46vpfcn38dv-gcc-wrapper-13.3.0/bin/g++", "-c", "-m64", "-o", "build/.objs/maze/linux/x86_64/src/ui.cpp.o", "src/ui.cpp"],
+  "file": "src/ui.cpp"
+},
+{
+  "directory": "/home/cc/projects/MySchoolwork/src/cpp1f",
+  "arguments": ["/nix/store/zznja5f8v3jafffyah1rk46vpfcn38dv-gcc-wrapper-13.3.0/bin/g++", "-c", "-m64", "-o", "build/.objs/maze/linux/x86_64/src/map.cpp.o", "src/map.cpp"],
+  "file": "src/map.cpp"
+}]
