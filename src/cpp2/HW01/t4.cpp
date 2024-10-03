@@ -129,10 +129,7 @@ TreeNode *remove(TreeNode *root, Key key) {
     // more than one key count
     if (root->count > 1) {
       root->count--;
-
-      // updateSize(root);
-      // updateHeight(root);
-      root->size--;
+      root->size--; // updateSize(root);
       return root;
     }
 
@@ -195,20 +192,22 @@ int main() {
     int16_t op;
     std::cin >> op;
     switch (op) {
-    case 1: // input is key
-      Key key1;
-      std::cin >> key1;
-      root = insert(root, key1);
-      std::cout << getGTKey(root, key1) << '\n';
+    case 1: { // input is key
+      Key key;
+      std::cin >> key;
+      root = insert(root, key);
+      std::cout << getGTKey(root, key) << '\n';
       break;
-    case 2: // input is rank
+    }
+    case 2: { // input is rank
       Size rank;
       std::cin >> rank;
       rank = getSize(root) + 1 - rank; // reverse rank
-      Key key2 = queryByRank(root, rank);
-      std::cout << key2 << '\n';
-      root = remove(root, key2);
+      Key key = queryByRank(root, rank);
+      std::cout << key << '\n';
+      root = remove(root, key);
       break;
+    }
     default:
       break;
     }
