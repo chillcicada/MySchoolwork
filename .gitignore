@@ -44,9 +44,10 @@ temp/
 *.lib
 *.out
 *.app
+*.diff
 
 # xmake
-makefile
+src/cpp*/Makefile
 CMakeLists.txt
 vsxmake*
 
