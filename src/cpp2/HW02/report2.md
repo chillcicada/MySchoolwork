@@ -119,7 +119,7 @@ int main() {
   }
   // 按照浓度排序
   // ? 根据题目描述，应该不存在两个浓度相同但价格不同的酒
-  sort(wines.begin(), wines.end());
+  std::sort(wines.begin(), wines.end());
 
   std::unique_ptr<Wine> d; // 链表头节点
   for (int i = 0; i < n; i++) {
@@ -158,7 +158,7 @@ int main() {
   for (int i = 0; i < m; i++) {
     int q;
     scanf("%d", &q);
-    // 若 q 小于最小浓度, 则无法购买
+    // 若 q 小于最小浓度或大于最大浓度, 则输出 -1
     if (q < wines.front().first || q > wines.back().first) {
       printf("-1\n");
       continue;

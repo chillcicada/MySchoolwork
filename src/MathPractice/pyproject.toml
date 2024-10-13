@@ -4,12 +4,12 @@ version = "0.1.0"
 description = "Math Practice"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-  # required
-  "jupyter>=1.1.1",
-  "matplotlib>=3.9.2",
-  "scipy>=1.14.1",
-  "gurobipy>=11.0.3",
-  "statsmodels>=0.14.4",
+    # required
+    "jupyter>=1.1.1",
+    "matplotlib>=3.9.2",
+    "scipy>=1.14.1",
+    "gurobipy>=11.0.3",
+    "statsmodels>=0.14.4",
 ]
 readme = "README.md"
 requires-python = ">= 3.9"
@@ -21,9 +21,9 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-  # lint
-  "ruff>=0.4.2",
-  "pandas>=2.2.2",
+    # lint
+    "ruff>=0.4.2",
+    "pandas>=2.2.2",
 ]
 
 [tool.hatch.metadata]
@@ -34,34 +34,34 @@ packages = ["chapter*", "utils"]
 
 [tool.ruff]
 exclude = [
-  ".bzr",
-  ".direnv",
-  ".eggs",
-  ".git",
-  ".git-rewrite",
-  ".hg",
-  ".idea",
-  ".ipynb_checkpoints",
-  ".mypy_cache",
-  ".nox",
-  ".pants.d",
-  ".pyenv",
-  ".pytest_cache",
-  ".pytype",
-  ".ruff_cache",
-  ".svn",
-  ".tox",
-  ".venv",
-  ".vscode",
-  "__pypackages__",
-  "_build",
-  "buck-out",
-  "build",
-  "dist",
-  "node_modules",
-  "site-packages",
-  "venv",
-  "__pycache__",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".idea",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "__pycache__",
 ]
 line-length = 120
 indent-width = 2

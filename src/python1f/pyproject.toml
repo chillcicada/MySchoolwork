@@ -4,9 +4,9 @@ version = "0.0.1" # please update this version number also in `src/__init__.py` 
 description = "Cc's final homework for the course of Python"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-  # cli
-  "typer>=0.12.5",
-  "colorama>=0.4.6",
+    # cli
+    "typer>=0.12.5",
+    "colorama>=0.4.6",
 ]
 readme = "README.md"
 requires-python = ">= 3.10"
@@ -31,34 +31,34 @@ packages = ["src"]
 
 [tool.ruff]
 exclude = [
-  ".bzr",
-  ".direnv",
-  ".eggs",
-  ".git",
-  ".git-rewrite",
-  ".hg",
-  ".idea",
-  ".ipynb_checkpoints",
-  ".mypy_cache",
-  ".nox",
-  ".pants.d",
-  ".pyenv",
-  ".pytest_cache",
-  ".pytype",
-  ".ruff_cache",
-  ".svn",
-  ".tox",
-  ".venv",
-  ".vscode",
-  "__pypackages__",
-  "_build",
-  "buck-out",
-  "build",
-  "dist",
-  "node_modules",
-  "site-packages",
-  "venv",
-  "__pycache__",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".idea",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "__pycache__",
 ]
 line-length = 120
 indent-width = 2
