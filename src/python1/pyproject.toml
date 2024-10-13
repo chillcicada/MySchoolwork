@@ -4,8 +4,8 @@ version = "0.5.0"
 description = "The source code of the python course."
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-  # ci / for zip
-  "python-dotenv>=1.0.1",
+    # ci / for zip
+    "python-dotenv>=1.0.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.10"
@@ -17,12 +17,12 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-  # jupyter
-  "jupyter>=1.0.0",
-  # test
-  "pytest>=8.1.0",
-  # lint
-  "ruff>=0.4.0",
+    # jupyter
+    "jupyter>=1.0.0",
+    # test
+    "pytest>=8.1.0",
+    # lint
+    "ruff>=0.4.0",
 ]
 
 [tool.hatch.metadata]
@@ -33,34 +33,34 @@ packages = ["chapter*"]
 
 [tool.ruff]
 exclude = [
-  ".bzr",
-  ".direnv",
-  ".eggs",
-  ".git",
-  ".git-rewrite",
-  ".hg",
-  ".idea",
-  ".ipynb_checkpoints",
-  ".mypy_cache",
-  ".nox",
-  ".pants.d",
-  ".pyenv",
-  ".pytest_cache",
-  ".pytype",
-  ".ruff_cache",
-  ".svn",
-  ".tox",
-  ".venv",
-  ".vscode",
-  "__pypackages__",
-  "_build",
-  "buck-out",
-  "build",
-  "dist",
-  "node_modules",
-  "site-packages",
-  "venv",
-  "__pycache__",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".idea",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "__pycache__",
 ]
 line-length = 120
 indent-width = 2
