@@ -25,5 +25,6 @@
   "explorerExclude.backup": {},
   "clangd.arguments": [
     "--compile-commands-dir=.vscode"
-  ]
+  ],
+  "C_Cpp.enhancedColorization": "disabled"
 }

@@ -63,7 +63,7 @@ public:
   size_t size() const;
   size_t capacity() const;
 
-  // 迭代器
+  // iterator
   class iterator {
   private:
     T *ptr;
