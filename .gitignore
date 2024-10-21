@@ -64,6 +64,6 @@ vsxmake*
 .direnv/
 
 # specific files
-src/others/data/
 src/others/output/
 src/cpp1f/docs/
+src/others/**/*.svg
