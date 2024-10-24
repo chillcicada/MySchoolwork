@@ -1,0 +1,13 @@
+linux:
+  xmake f -p linux -a x86_64 -m release --toolchain=gcc
+  xmake
+  xmake run
+
+linux-debug:
+  xmake f -p linux -a x86_64 -m debug --toolchain=gcc
+  xmake
+  xmake run
+
+linux-watch:
+  xmake f -p linux -a x86_64 -m release --toolchain=gcc
+  xmake watch

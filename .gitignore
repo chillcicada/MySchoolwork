@@ -5,6 +5,7 @@ venv/
 dist/
 .dist/
 build/
+build-test/
 cache/
 .cache/
 .history/
@@ -45,6 +46,7 @@ temp/
 *.out
 *.app
 *.diff
+.vscode/compile_commands.json
 
 # xmake
 src/cpp*/Makefile
@@ -62,6 +64,16 @@ vsxmake*
 
 # direnv
 .direnv/
+
+# Mac specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # specific files
 src/others/output/
