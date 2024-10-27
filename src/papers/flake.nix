@@ -20,7 +20,8 @@
       forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
         pkgs = import nixpkgs { inherit system; };
       });
-    in {
+    in
+    {
       # Schemas tell Nix about the structure of your flake's outputs
       schemas = flake-schemas.schemas;
 
@@ -30,6 +31,7 @@
           # Pinned packages available in the environment
           packages = with pkgs; [
             rye
+            ruff
             uv
             python310
             curl
