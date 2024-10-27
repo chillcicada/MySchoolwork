@@ -13,7 +13,7 @@
 absl-py==2.1.0
     # via keras
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 anyio==4.6.2.post1
     # via httpx
     # via jupyter-server
@@ -26,7 +26,7 @@ arrow==1.3.0
 asttokens==2.4.1
     # via stack-data
 astunparse==1.6.3
-    # via tensorflow-intel
+    # via tensorflow
 async-lru==2.0.4
     # via jupyterlab
 attrs==24.2.0
@@ -50,7 +50,6 @@ charset-normalizer==3.4.0
     # via requests
 colorama==0.4.6
     # via bayesian-optimization
-    # via ipython
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
@@ -64,31 +63,28 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-exceptiongroup==1.2.2
-    # via anyio
-    # via ipython
 executing==2.1.0
     # via stack-data
 fastjsonschema==2.20.0
     # via nbformat
 flatbuffers==24.3.25
-    # via tensorflow-intel
+    # via tensorflow
 fonttools==4.54.1
     # via matplotlib
 fqdn==1.5.1
     # via jsonschema
 gast==0.6.0
-    # via tensorflow-intel
+    # via tensorflow
 google-pasta==0.2.0
-    # via tensorflow-intel
+    # via tensorflow
 grpcio==1.67.0
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 h11==0.14.0
     # via httpcore
 h5py==3.12.1
     # via keras
-    # via tensorflow-intel
+    # via tensorflow
 httpcore==1.0.6
     # via httpx
 httpx==0.27.2
@@ -170,11 +166,11 @@ jupyterlab-server==2.27.3
 jupyterlab-widgets==3.0.13
     # via ipywidgets
 keras==3.6.0
-    # via tensorflow-intel
+    # via tensorflow
 kiwisolver==1.4.7
     # via matplotlib
 libclang==18.1.1
-    # via tensorflow-intel
+    # via tensorflow
 markdown==3.7
     # via tensorboard
 markdown-it-py==3.0.0
@@ -195,7 +191,7 @@ mistune==3.0.2
     # via nbconvert
 ml-dtypes==0.4.1
     # via keras
-    # via tensorflow-intel
+    # via tensorflow
 namex==0.0.8
     # via keras
 nbclient==0.10.0
@@ -227,9 +223,9 @@ numpy==1.26.0
     # via scipy
     # via seaborn
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 opt-einsum==3.4.0
-    # via tensorflow-intel
+    # via tensorflow
 optree==0.13.0
     # via keras
 overrides==7.7.0
@@ -243,7 +239,7 @@ packaging==24.1
     # via matplotlib
     # via nbconvert
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 pandas==2.2.3
     # via papers
     # via seaborn
@@ -251,6 +247,8 @@ pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
+pexpect==4.9.0
+    # via ipython
 pillow==11.0.0
     # via matplotlib
 platformdirs==4.3.6
@@ -262,9 +260,12 @@ prompt-toolkit==3.0.48
     # via jupyter-console
 protobuf==5.28.3
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 psutil==6.1.0
     # via ipykernel
+ptyprocess==0.7.0
+    # via pexpect
+    # via terminado
 pure-eval==0.2.3
     # via stack-data
 pycparser==2.22
@@ -285,12 +286,6 @@ python-json-logger==2.0.7
     # via jupyter-events
 pytz==2024.2
     # via pandas
-pywin32==308
-    # via jupyter-core
-pywinpty==2.0.14
-    # via jupyter-server
-    # via jupyter-server-terminals
-    # via terminado
 pyyaml==6.0.2
     # via jupyter-events
 pyzmq==26.2.0
@@ -304,7 +299,7 @@ referencing==0.35.1
     # via jupyter-events
 requests==2.32.3
     # via jupyterlab-server
-    # via tensorflow-intel
+    # via tensorflow
 rfc3339-validator==0.1.4
     # via jsonschema
     # via jupyter-events
@@ -330,7 +325,7 @@ send2trash==1.8.3
 setuptools==75.2.0
     # via jupyterlab
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 six==1.16.0
     # via asttokens
     # via astunparse
@@ -339,7 +334,7 @@ six==1.16.0
     # via python-dateutil
     # via rfc3339-validator
     # via tensorboard
-    # via tensorflow-intel
+    # via tensorflow
 sniffio==1.3.1
     # via anyio
     # via httpx
@@ -348,17 +343,15 @@ soupsieve==2.6
 stack-data==0.6.3
     # via ipython
 tensorboard==2.18.0
-    # via tensorflow-intel
+    # via tensorflow
 tensorboard-data-server==0.7.2
     # via tensorboard
 tensorflow==2.18.0
     # via papers
-tensorflow-intel==2.18.0
-    # via tensorflow
 tensorflow-io-gcs-filesystem==0.31.0
-    # via tensorflow-intel
+    # via tensorflow
 termcolor==2.5.0
-    # via tensorflow-intel
+    # via tensorflow
 terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
@@ -366,8 +359,6 @@ threadpoolctl==3.5.0
     # via scikit-learn
 tinycss2==1.4.0
     # via nbconvert
-tomli==2.0.2
-    # via jupyterlab
 tornado==6.4.1
     # via ipykernel
     # via jupyter-client
@@ -393,12 +384,9 @@ traitlets==5.14.3
 types-python-dateutil==2.9.0.20241003
     # via arrow
 typing-extensions==4.12.2
-    # via anyio
-    # via async-lru
     # via ipython
     # via optree
-    # via rich
-    # via tensorflow-intel
+    # via tensorflow
 tzdata==2024.2
     # via pandas
 uri-template==1.3.0
@@ -421,4 +409,4 @@ wheel==0.44.0
 widgetsnbextension==4.0.13
     # via ipywidgets
 wrapt==1.16.0
-    # via tensorflow-intel
+    # via tensorflow
