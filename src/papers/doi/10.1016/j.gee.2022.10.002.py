@@ -25,6 +25,7 @@ from sklearn.decomposition import PCA
 # ————Part 2————
 # Data preprocessing
 # ————————————
+# region: data preprocessing
 filePath = './MP_data_down_loading(train+validate).csv'
 df = pd.read_csv(filepath_or_buffer=filePath, header=0, sep=',')
 print('Original data shape: ', df.shape)
@@ -148,10 +149,14 @@ print('X_train shape: ', x_train.shape)
 print('Y_train shape: ', y_train.shape)
 print('X_validate shape: ', x_test.shape)
 print('Y_validate shape: ', y_test.shape)
+# endregion
 
 # ————Part 3————
 # Model training
 # ————————————
+# region: model training
+
+# define the model properties
 learning_rate = 0.0001
 epochs = 1000
 nodes1 = 40
@@ -167,15 +172,15 @@ n_iter = 20
 
 
 def get_model(
-  inputs_shape,
-  learning_rate,
-  epochs,
-  nodes1,
-  nodes2,
-  nodes3,
-  dropout_rate1,
-  dropout_rate2,
-  dropout_rate3,
+  inputs_shape,  # the shape of the input data
+  learning_rate,  # set the learning rate
+  epochs,  # set the number of iteration epochs
+  nodes1,  # set the number of nodes in the first layer
+  nodes2,  # set the number of nodes in the second layer
+  nodes3,  # set the number of nodes in the third layer
+  dropout_rate1,  # set the dropout rate in the first layer
+  dropout_rate2,  # set the dropout rate in the second layer
+  dropout_rate3,  # set the dropout rate in the third layer
 ):
   model = keras.Sequential()
   model.add(keras.layers.Dense(nodes1, activation='relu', input_shape=inputs_shape))
@@ -186,8 +191,11 @@ def get_model(
   model.add(keras.layers.Dropout(dropout_rate3))
   model.add(keras.layers.Dense(3, activation='sigmoid'))
 
+  # pre compile before training
   model.compile(
+    # optimizer
     optimizer=keras.optimizers.RMSprop(learning_rate=learning_rate, momentum=0.9, centered=True),
+    # loss function to minimize
     loss='mse',
   )
   # model.summary()
@@ -206,7 +214,7 @@ def visualize_loss(history, title):
   plt.ylabel('Loss')
   plt.legend()
   plt.show()
-  # print(loss)
+  print(loss)
 
 
 def fit_with(
@@ -277,6 +285,7 @@ optimizer.maximize(
   n_iter=n_iter,
 )
 print('optimizer.max: ', optimizer.max)
+# endregion
 
 # ————Part 4————
 # Prediction and result storage
@@ -290,48 +299,48 @@ times = 50
 epochs = 1000
 
 
-for i in range(0, times):
-  print('Caculation times: ', i)
-
-  def fit_with_for_train(
+def fit_with_for_train(
+  inputs_shape,
+  learning_rate,
+  epochs,
+  nodes1,
+  nodes2,
+  nodes3,
+  dropout_rate1,
+  dropout_rate2,
+  dropout_rate3,
+  i,
+):
+  nodes11 = int(nodes1) * 2
+  nodes22 = int(nodes2) * 2
+  nodes33 = int(nodes3) * 2
+  model = get_model(
     inputs_shape,
     learning_rate,
     epochs,
-    nodes1,
-    nodes2,
-    nodes3,
+    nodes11,
+    nodes22,
+    nodes33,
     dropout_rate1,
     dropout_rate2,
     dropout_rate3,
-  ):
-    nodes11 = int(nodes1) * 2
-    nodes22 = int(nodes2) * 2
-    nodes33 = int(nodes3) * 2
-    model = get_model(
-      inputs_shape,
-      learning_rate,
-      epochs,
-      nodes11,
-      nodes22,
-      nodes33,
-      dropout_rate1,
-      dropout_rate2,
-      dropout_rate3,
-    )
-    callbacks_list = [
-      keras.callbacks.ModelCheckpoint(filepath='./v8-%i.h5' % i, monitor='val_loss', save_best_only=True)
-    ]
-    history = model.fit(  # noqa: F841
-      x_train,
-      y_train,
-      epochs=epochs,
-      validation_data=(x_test, y_test),
-      callbacks=callbacks_list,
-      verbose=0,
-    )
-    # visualize_loss(history, "Training and Validation Loss")
-    best_model = keras.models.load_model('./v8-%i.h5' % i)
-    return best_model
+  )
+  callbacks_list = [keras.callbacks.ModelCheckpoint(filepath='./v8-%i.h5' % i, monitor='val_loss', save_best_only=True)]
+  history = model.fit(  # noqa: F841
+    x_train,
+    y_train,
+    epochs=epochs,
+    validation_data=(x_test, y_test),
+    callbacks=callbacks_list,
+    verbose=0,
+  )
+  # visualize_loss(history, "Training and Validation Loss")
+  best_model = keras.models.load_model('./v8-%i.h5' % i)
+  return best_model
+
+
+for i in range(0, times):
+  print('Caculation times: ', i)
 
   model = fit_with_for_train(
     inputs_shape=inputs_shape,
@@ -350,6 +359,7 @@ for i in range(0, times):
     dropout_rate2=optimizer.max['params']['dropout_rate2'],
     # dropout_rate3 = dropout_rate3,
     dropout_rate3=optimizer.max['params']['dropout_rate3'],
+    i=i,
   )
 
   y_pred = model.predict(x_test)
@@ -507,6 +517,7 @@ for i in range(0, times):
   # print("Rmse: ", Rmse)
   Rmses.append(Rmse)
 
+# region: output
 print('\n\n')
 print('V Rmse: ', Rmses_V)
 print('C Rmse: ', Rmses_C)
@@ -529,7 +540,6 @@ print('rmse_idx_E: ', rmse_idx_E)
 print('rmse_min_E: ', rmse_min_E)
 print('rmse_idx: ', rmse_idx)
 print('rmse_min: ', rmse_min)
-
 
 filename2 = 'results_out/rmse & time.csv'
 headers = [
@@ -560,3 +570,4 @@ rows = [
 with open(filename2, 'a', newline='') as f:
   fcsv = csv.writer(f)
   fcsv.writerow(rows)
+# endregion
