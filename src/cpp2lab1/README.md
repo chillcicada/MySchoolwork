@@ -31,7 +31,7 @@ lab1/
 │   │   └── testUndo.cpp
 │   │
 │   └── main.cpp
-|
+│
 ├── default.nix
 ├── flake.lock
 ├── flake.nix
