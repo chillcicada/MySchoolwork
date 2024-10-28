@@ -326,7 +326,7 @@ def fit_with_for_train(
     dropout_rate3,
   )
   callbacks_list = [keras.callbacks.ModelCheckpoint(filepath='./v8-%i.h5' % i, monitor='val_loss', save_best_only=True)]
-  history = model.fit(  # noqa: F841
+  history = model.fit(
     x_train,
     y_train,
     epochs=epochs,
@@ -334,7 +334,7 @@ def fit_with_for_train(
     callbacks=callbacks_list,
     verbose=0,
   )
-  # visualize_loss(history, "Training and Validation Loss")
+  visualize_loss(history, 'Training and Validation Loss')
   best_model = keras.models.load_model('./v8-%i.h5' % i)
   return best_model
 
