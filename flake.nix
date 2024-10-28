@@ -33,6 +33,8 @@
             nodejs_22
             pnpm
             git
+            quarto
+            pandoc
             typst
             typstyle
             tinymist
