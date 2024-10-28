@@ -321,7 +321,7 @@ for i in range(0, times):
     callbacks_list = [
       keras.callbacks.ModelCheckpoint(filepath='./v8-%i.h5' % i, monitor='val_loss', save_best_only=True)
     ]
-    history = model.fit(  # noqa: F841
+    history = model.fit(
       x_train,
       y_train,
       epochs=epochs,
@@ -329,7 +329,7 @@ for i in range(0, times):
       callbacks=callbacks_list,
       verbose=0,
     )
-    # visualize_loss(history, "Training and Validation Loss")
+    visualize_loss(history, 'Training and Validation Loss')
     best_model = keras.models.load_model('./v8-%i.h5' % i)
     return best_model
 
@@ -507,6 +507,7 @@ for i in range(0, times):
   # print("Rmse: ", Rmse)
   Rmses.append(Rmse)
 
+# region: print results
 print('\n\n')
 print('V Rmse: ', Rmses_V)
 print('C Rmse: ', Rmses_C)
@@ -560,3 +561,4 @@ rows = [
 with open(filename2, 'a', newline='') as f:
   fcsv = csv.writer(f)
   fcsv.writerow(rows)
+# endregion
