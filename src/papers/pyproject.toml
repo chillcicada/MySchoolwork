@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-    "numpy==1.26.0",
+    "numpy==2.1.2",
     "scipy>=1.14.1",
     "jupyter>=1.1.1",
     "scikit-learn>=1.5.2",
