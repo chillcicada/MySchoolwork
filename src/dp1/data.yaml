@@ -1,0 +1,5 @@
+path: ./scratches
+train: images/train
+val: images/val
+
+names: [crazing, inclusion, patches, pitted_surface, rolled-in_scale, scratches]

@@ -16,6 +16,7 @@ __pycache__/
 .ruff_cache/
 .rye/
 .xmake/
+/runs/
 
 # for temp files
 temp/
