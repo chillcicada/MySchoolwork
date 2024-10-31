@@ -39,6 +39,9 @@ importers:
       typescript:
         specifier: 5.6.3
         version: 5.6.3
+      typstyle:
+        specifier: 0.12.0
+        version: 0.12.0
       vitepress:
         specifier: 1.4.1
         version: 1.4.1(@algolia/client-search@4.24.0)(@types/node@22.7.9)(markdown-it-mathjax3@4.3.2)(postcss@8.4.47)(sass@1.69.7)(search-insights@2.13.0)(typescript@5.6.3)
@@ -2580,6 +2583,9 @@ packages:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  typstyle@0.12.0:
+    resolution: {integrity: sha512-a4G+Hr5iho0ThnT/Xiv/FpDxikO0frdS4QbeTkySRmnM4RmV1kVI+cFGAKmDVP37coiTGzGKGuLMQQZqa9g//Q==}
 
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
@@ -5680,6 +5686,8 @@ snapshots:
   type-fest@0.8.1: {}
 
   typescript@5.6.3: {}
+
+  typstyle@0.12.0: {}
 
   ufo@1.5.4: {}
 
