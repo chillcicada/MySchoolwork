@@ -10,34 +10,23 @@
 #   universal: false
 
 -e file:.
-anylabeling==0.4.10
 certifi==2024.8.30
     # via requests
 charset-normalizer==3.4.0
     # via requests
-coloredlogs==15.0.1
-    # via onnxruntime
 contourpy==1.3.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-darkdetect==0.8.0
-    # via anylabeling
 filelock==3.16.1
     # via torch
     # via triton
-flatbuffers==24.3.25
-    # via onnxruntime
 fonttools==4.54.1
     # via matplotlib
 fsspec==2024.10.0
     # via torch
-humanfriendly==10.0
-    # via coloredlogs
 idna==3.10
     # via requests
-imgviz==1.7.5
-    # via anylabeling
 jinja2==3.1.4
     # via torch
 kiwisolver==1.4.7
@@ -45,26 +34,17 @@ kiwisolver==1.4.7
 markupsafe==3.0.2
     # via jinja2
 matplotlib==3.9.2
-    # via imgviz
     # via seaborn
     # via ultralytics
 mpmath==1.3.0
     # via sympy
-natsort==8.4.0
-    # via anylabeling
 networkx==3.4.2
     # via torch
 numpy==1.26.4
-    # via anylabeling
     # via contourpy
-    # via imgviz
     # via matplotlib
-    # via onnx
-    # via onnxruntime
     # via opencv-python
-    # via opencv-python-headless
     # via pandas
-    # via qimage2ndarray
     # via scipy
     # via seaborn
     # via torchvision
@@ -99,52 +79,30 @@ nvidia-nvjitlink-cu12==12.4.127
     # via torch
 nvidia-nvtx-cu12==12.4.127
     # via torch
-onnx==1.16.1
-    # via anylabeling
-onnxruntime==1.18.1
-    # via anylabeling
 opencv-python==4.10.0.84
     # via ultralytics
-opencv-python-headless==4.7.0.72
-    # via anylabeling
 packaging==24.1
     # via matplotlib
-    # via onnxruntime
 pandas==2.2.3
     # via seaborn
     # via ultralytics
 pillow==11.0.0
-    # via anylabeling
-    # via imgviz
     # via matplotlib
     # via torchvision
     # via ultralytics
-protobuf==5.28.3
-    # via onnx
-    # via onnxruntime
 psutil==6.1.0
     # via ultralytics
 py-cpuinfo==9.0.0
     # via ultralytics
 pyparsing==3.2.0
     # via matplotlib
-pyqt5==5.15.11
-    # via anylabeling
-pyqt5-qt5==5.15.15
-    # via pyqt5
-pyqt5-sip==12.15.0
-    # via pyqt5
 python-dateutil==2.9.0.post0
     # via matplotlib
     # via pandas
 pytz==2024.2
     # via pandas
 pyyaml==6.0.1
-    # via anylabeling
-    # via imgviz
     # via ultralytics
-qimage2ndarray==1.10.0
-    # via anylabeling
 requests==2.32.3
     # via ultralytics
 scipy==1.14.1
@@ -154,10 +112,7 @@ seaborn==0.13.2
 six==1.16.0
     # via python-dateutil
 sympy==1.13.1
-    # via onnxruntime
     # via torch
-termcolor==1.1.0
-    # via anylabeling
 torch==2.5.1
     # via torchvision
     # via ultralytics
