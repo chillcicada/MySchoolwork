@@ -14,13 +14,13 @@ importers:
     devDependencies:
       '@antfu/eslint-config':
         specifier: 3.8.0
-        version: 3.8.0(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(@vue/compiler-sfc@3.5.12)(eslint-plugin-format@0.1.2(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.7.9)(sass@1.69.7))
+        version: 3.8.0(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(@vue/compiler-sfc@3.5.12)(eslint-plugin-format@0.1.2(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.8.6)(sass@1.69.7))
       '@shikijs/vitepress-twoslash':
-        specifier: 1.22.1
-        version: 1.22.1(typescript@5.6.3)
+        specifier: 1.22.2
+        version: 1.22.2(typescript@5.6.3)
       '@types/node':
-        specifier: 22.7.9
-        version: 22.7.9
+        specifier: 22.8.6
+        version: 22.8.6
       eslint:
         specifier: 9.13.0
         version: 9.13.0
@@ -43,8 +43,8 @@ importers:
         specifier: 1.4.1
         version: 1.4.1(@algolia/client-search@5.12.0)(@types/node@22.7.9)(markdown-it-mathjax3@4.3.2)(postcss@8.4.47)(sass@1.69.7)(search-insights@2.13.0)(typescript@5.6.3)
       vue-tsc:
-        specifier: 2.1.6
-        version: 2.1.6(typescript@5.6.3)
+        specifier: 2.1.10
+        version: 2.1.10(typescript@5.6.3)
 
   src/cpp1f:
     devDependencies:
@@ -586,20 +586,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@shikijs/core@1.22.1':
-    resolution: {integrity: sha512-bqAhT/Ri5ixV4oYsvJNH8UJjpjbINWlWyXY6tBTsP4OmD6XnFv43nRJ+lTdxd2rmG5pgam/x+zGR6kLRXrpEKA==}
-
   '@shikijs/core@1.22.2':
     resolution: {integrity: sha512-bvIQcd8BEeR1yFvOYv6HDiyta2FFVePbzeowf5pPS1avczrPK+cjmaxxh0nx5QzbON7+Sv0sQfQVciO7bN72sg==}
 
-  '@shikijs/engine-javascript@1.22.1':
-    resolution: {integrity: sha512-540pyoy0LWe4jj2BVbgELwOFu1uFvRI7lg4hdsExrSXA9x7gqfzZ/Nnh4RfX86aDAgJ647gx4TCmRwACbnQSvw==}
-
   '@shikijs/engine-javascript@1.22.2':
     resolution: {integrity: sha512-iOvql09ql6m+3d1vtvP8fLCVCK7BQD1pJFmHIECsujB0V32BJ0Ab6hxk1ewVSMFA58FI0pR2Had9BKZdyQrxTw==}
-
-  '@shikijs/engine-oniguruma@1.22.1':
-    resolution: {integrity: sha512-L+1Vmd+a2kk8HtogUFymQS6BjUfJnzcWoUp1BUgxoDiklbKSMvrsMuLZGevTOP1m0rEjgnC5MsDmsr8lX1lC+Q==}
 
   '@shikijs/engine-oniguruma@1.22.2':
     resolution: {integrity: sha512-GIZPAGzQOy56mGvWMoZRPggn0dTlBf1gutV5TdceLCZlFNqWmuc7u+CzD0Gd9vQUTgLbrt0KLzz6FNprqYAxlA==}
@@ -610,14 +601,11 @@ packages:
   '@shikijs/twoslash@1.22.2':
     resolution: {integrity: sha512-4R3A7aH/toZgtlveXHKk01nIsvn8hjAfPJ1aT550zcV4qK6vK/tfaEyYtaljOaY1wig2l5+8sKjNSEz3PcSiEw==}
 
-  '@shikijs/types@1.22.1':
-    resolution: {integrity: sha512-+45f8mu/Hxqs6Kyhfm98Nld5n7Q7lwhjU8UtdQwrOPs7BnM4VAb929O3IQ2ce+4D7SlNFlZGd8CnKRSnwbQreQ==}
-
   '@shikijs/types@1.22.2':
     resolution: {integrity: sha512-NCWDa6LGZqTuzjsGfXOBWfjS/fDIbDdmVDug+7ykVe1IKT4c1gakrvlfFYp5NhAXH/lyqLM8wsAPo5wNy73Feg==}
 
-  '@shikijs/vitepress-twoslash@1.22.1':
-    resolution: {integrity: sha512-NW5ueaz0bXljWGkIcsYq1HUD4EmAsrlep63/mRemrbYxX/GjO4sDWFPOiTZ9LfPpHlPnHFnhEOAHTvhXthRPhg==}
+  '@shikijs/vitepress-twoslash@1.22.2':
+    resolution: {integrity: sha512-F4cS9l6QTt/ILlz+S871bOido2CK8Xwdnl4q9gHdnTuZlN1PHAMRZbAOvYAtokvouPp9aZ2W7NtNa+CNCn3yPQ==}
 
   '@shikijs/vscode-textmate@9.3.0':
     resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
@@ -655,8 +643,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@22.7.9':
-    resolution: {integrity: sha512-jrTfRC7FM6nChvU7X2KqcrgquofrWLFDeYC1hKfwNWomVvrn7JIksqf344WN2X/y8xrgqBd2dJATZV4GbatBfg==}
+  '@types/node@22.8.6':
+    resolution: {integrity: sha512-tosuJYKrIqjQIlVCM4PEGxOmyg3FCPa/fViuJChnGeEIhjA46oy8FMVoF9su1/v8PNs2a8Q0iFNyOx0uOF91nw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -820,14 +808,6 @@ packages:
 
   '@vue/language-core@2.1.10':
     resolution: {integrity: sha512-DAI289d0K3AB5TUG3xDp9OuQ71CnrujQwJrQnfuZDwo6eGNf0UoRlPuaVNO+Zrn65PC3j0oB2i7mNmVPggeGeQ==}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@vue/language-core@2.1.6':
-    resolution: {integrity: sha512-MW569cSky9R/ooKMh6xa2g1D0AtRKbL56k83dzus/bx//RDJk24RHWkMzbAlXjMdDNyxAaagKPRquBIxkxlCkg==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -1125,9 +1105,6 @@ packages:
   compress-commons@6.0.2:
     resolution: {integrity: sha512-6FqVXeETqWPoGcfzrXb37E50NP0LXT8kAMu5ooZayhWWdgEY4lBEEcbQNXtkuKQsGduxiIcI4gOTsxTmuq/bSg==}
     engines: {node: '>= 14'}
-
-  computeds@0.0.1:
-    resolution: {integrity: sha512-7CEBgcMjVmitjYo5q8JTJVra6X5mQ20uTThdK+0kR7UEaDrAWEQcRiBtWJzga4eRpP6afNwwLsX2SET2JhVB1Q==}
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -2363,9 +2340,6 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki@1.22.1:
-    resolution: {integrity: sha512-PbJ6XxrWLMwB2rm3qdjIHNm3zq4SfFnOx0B3rEoi4AN8AUngsdyZ1tRe5slMPtn6jQkbUURLNZPpLR7Do3k78g==}
-
   shiki@1.22.2:
     resolution: {integrity: sha512-3IZau0NdGKXhH2bBlUk4w1IHNxPh6A5B2sUpyY+8utLu2j/h1QpFkAaUA1bAMxOWWGtTWcAh531vnS4NJKS/lA==}
 
@@ -2677,8 +2651,8 @@ packages:
       terser:
         optional: true
 
-  vitepress@1.4.1:
-    resolution: {integrity: sha512-C2rQ7PMlDVqgsaHOa0uJtgGGWaGv74QMaGL62lxKbtFkYtosJB5HAfZ8+pEbfzzvLemYaYwaiQdFLBlexK2sFw==}
+  vitepress@1.4.3:
+    resolution: {integrity: sha512-956c2K2Mr0ubY9bTc2lCJD3g0mgo0mARB1iJC/BqUt4s0AM8Wl60wSU4zbFnzV7X2miFK1XJDKzGZnuEN90umw==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -2739,8 +2713,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  vue-tsc@2.1.6:
-    resolution: {integrity: sha512-f98dyZp5FOukcYmbFpuSCJ4Z0vHSOSmxGttZJCsFeX0M4w/Rsq0s4uKXjcSRsZqsRgQa6z7SfuO+y0HVICE57Q==}
+  vue-tsc@2.1.10:
+    resolution: {integrity: sha512-RBNSfaaRHcN5uqVqJSZh++Gy/YUzryuv9u1aFWhsammDJXNtUiJMNoJ747lZcQ68wUQFx6E73y4FY3D8E7FGMA==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
@@ -2949,7 +2923,7 @@ snapshots:
     dependencies:
       '@algolia/client-common': 5.12.0
 
-  '@antfu/eslint-config@3.8.0(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(@vue/compiler-sfc@3.5.12)(eslint-plugin-format@0.1.2(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.7.9)(sass@1.69.7))':
+  '@antfu/eslint-config@3.8.0(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(@vue/compiler-sfc@3.5.12)(eslint-plugin-format@0.1.2(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.8.6)(sass@1.69.7))':
     dependencies:
       '@antfu/install-pkg': 0.4.1
       '@clack/prompts': 0.7.0
@@ -2958,7 +2932,7 @@ snapshots:
       '@stylistic/eslint-plugin': 2.10.1(eslint@9.13.0)(typescript@5.6.3)
       '@typescript-eslint/eslint-plugin': 8.12.2(@typescript-eslint/parser@8.12.2(eslint@9.13.0)(typescript@5.6.3))(eslint@9.13.0)(typescript@5.6.3)
       '@typescript-eslint/parser': 8.12.2(eslint@9.13.0)(typescript@5.6.3)
-      '@vitest/eslint-plugin': 1.1.7(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.7.9)(sass@1.69.7))
+      '@vitest/eslint-plugin': 1.1.7(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.8.6)(sass@1.69.7))
       eslint: 9.13.0
       eslint-config-flat-gitignore: 0.3.0(eslint@9.13.0)
       eslint-flat-config-utils: 0.4.0
@@ -3306,15 +3280,6 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.24.3':
     optional: true
 
-  '@shikijs/core@1.22.1':
-    dependencies:
-      '@shikijs/engine-javascript': 1.22.1
-      '@shikijs/engine-oniguruma': 1.22.1
-      '@shikijs/types': 1.22.1
-      '@shikijs/vscode-textmate': 9.3.0
-      '@types/hast': 3.0.4
-      hast-util-to-html: 9.0.3
-
   '@shikijs/core@1.22.2':
     dependencies:
       '@shikijs/engine-javascript': 1.22.2
@@ -3324,22 +3289,11 @@ snapshots:
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.3
 
-  '@shikijs/engine-javascript@1.22.1':
-    dependencies:
-      '@shikijs/types': 1.22.1
-      '@shikijs/vscode-textmate': 9.3.0
-      oniguruma-to-js: 0.4.3
-
   '@shikijs/engine-javascript@1.22.2':
     dependencies:
       '@shikijs/types': 1.22.2
       '@shikijs/vscode-textmate': 9.3.0
       oniguruma-to-js: 0.4.3
-
-  '@shikijs/engine-oniguruma@1.22.1':
-    dependencies:
-      '@shikijs/types': 1.22.1
-      '@shikijs/vscode-textmate': 9.3.0
 
   '@shikijs/engine-oniguruma@1.22.2':
     dependencies:
@@ -3359,24 +3313,19 @@ snapshots:
       - supports-color
       - typescript
 
-  '@shikijs/types@1.22.1':
-    dependencies:
-      '@shikijs/vscode-textmate': 9.3.0
-      '@types/hast': 3.0.4
-
   '@shikijs/types@1.22.2':
     dependencies:
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
 
-  '@shikijs/vitepress-twoslash@1.22.1(typescript@5.6.3)':
+  '@shikijs/vitepress-twoslash@1.22.2(typescript@5.6.3)':
     dependencies:
       '@shikijs/twoslash': 1.22.2(typescript@5.6.3)
       floating-vue: 5.2.2(vue@3.5.12(typescript@5.6.3))
       mdast-util-from-markdown: 2.0.2
       mdast-util-gfm: 3.0.0
       mdast-util-to-hast: 13.2.0
-      shiki: 1.22.1
+      shiki: 1.22.2
       twoslash: 0.2.12(typescript@5.6.3)
       twoslash-vue: 0.2.12(typescript@5.6.3)
       vue: 3.5.12(typescript@5.6.3)
@@ -3426,7 +3375,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@22.7.9':
+  '@types/node@22.8.6':
     dependencies:
       undici-types: 6.19.8
 
@@ -3526,18 +3475,18 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@5.1.4(vite@5.4.10(@types/node@22.7.9)(sass@1.69.7))(vue@3.5.12(typescript@5.6.3))':
+  '@vitejs/plugin-vue@5.1.4(vite@5.4.10(@types/node@22.8.6)(sass@1.69.7))(vue@3.5.12(typescript@5.6.3))':
     dependencies:
-      vite: 5.4.10(@types/node@22.7.9)(sass@1.69.7)
+      vite: 5.4.10(@types/node@22.8.6)(sass@1.69.7)
       vue: 3.5.12(typescript@5.6.3)
 
-  '@vitest/eslint-plugin@1.1.7(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.7.9)(sass@1.69.7))':
+  '@vitest/eslint-plugin@1.1.7(@typescript-eslint/utils@8.12.2(eslint@9.13.0)(typescript@5.6.3))(eslint@9.13.0)(typescript@5.6.3)(vitest@2.1.2(@types/node@22.8.6)(sass@1.69.7))':
     dependencies:
       '@typescript-eslint/utils': 8.12.2(eslint@9.13.0)(typescript@5.6.3)
       eslint: 9.13.0
     optionalDependencies:
       typescript: 5.6.3
-      vitest: 2.1.2(@types/node@22.7.9)(sass@1.69.7)
+      vitest: 2.1.2(@types/node@22.8.6)(sass@1.69.7)
 
   '@vitest/expect@2.1.2':
     dependencies:
@@ -3547,13 +3496,13 @@ snapshots:
       tinyrainbow: 1.2.0
     optional: true
 
-  '@vitest/mocker@2.1.2(@vitest/spy@2.1.2)(vite@5.4.10(@types/node@22.7.9)(sass@1.69.7))':
+  '@vitest/mocker@2.1.2(@vitest/spy@2.1.2)(vite@5.4.10(@types/node@22.8.6)(sass@1.69.7))':
     dependencies:
       '@vitest/spy': 2.1.2
       estree-walker: 3.0.3
       magic-string: 0.30.12
     optionalDependencies:
-      vite: 5.4.10(@types/node@22.7.9)(sass@1.69.7)
+      vite: 5.4.10(@types/node@22.8.6)(sass@1.69.7)
     optional: true
 
   '@vitest/pretty-format@2.1.2':
@@ -3663,19 +3612,6 @@ snapshots:
       '@vue/compiler-vue2': 2.7.16
       '@vue/shared': 3.5.12
       alien-signals: 0.2.0
-      minimatch: 9.0.5
-      muggle-string: 0.4.1
-      path-browserify: 1.0.1
-    optionalDependencies:
-      typescript: 5.6.3
-
-  '@vue/language-core@2.1.6(typescript@5.6.3)':
-    dependencies:
-      '@volar/language-core': 2.4.8
-      '@vue/compiler-dom': 3.5.12
-      '@vue/compiler-vue2': 2.7.16
-      '@vue/shared': 3.5.12
-      computeds: 0.0.1
       minimatch: 9.0.5
       muggle-string: 0.4.1
       path-browserify: 1.0.1
@@ -3978,8 +3914,6 @@ snapshots:
       is-stream: 2.0.1
       normalize-path: 3.0.0
       readable-stream: 4.5.2
-
-  computeds@0.0.1: {}
 
   concat-map@0.0.1: {}
 
@@ -5464,15 +5398,6 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki@1.22.1:
-    dependencies:
-      '@shikijs/core': 1.22.1
-      '@shikijs/engine-javascript': 1.22.1
-      '@shikijs/engine-oniguruma': 1.22.1
-      '@shikijs/types': 1.22.1
-      '@shikijs/vscode-textmate': 9.3.0
-      '@types/hast': 3.0.4
-
   shiki@1.22.2:
     dependencies:
       '@shikijs/core': 1.22.2
@@ -5755,12 +5680,12 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-node@2.1.2(@types/node@22.7.9)(sass@1.69.7):
+  vite-node@2.1.2(@types/node@22.8.6)(sass@1.69.7):
     dependencies:
       cac: 6.7.14
       debug: 4.3.7
       pathe: 1.1.2
-      vite: 5.4.10(@types/node@22.7.9)(sass@1.69.7)
+      vite: 5.4.10(@types/node@22.8.6)(sass@1.69.7)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -5773,13 +5698,13 @@ snapshots:
       - terser
     optional: true
 
-  vite@5.4.10(@types/node@22.7.9)(sass@1.69.7):
+  vite@5.4.10(@types/node@22.8.6)(sass@1.69.7):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.24.3
     optionalDependencies:
-      '@types/node': 22.7.9
+      '@types/node': 22.8.6
       fsevents: 2.3.3
       sass: 1.69.7
 
@@ -5800,7 +5725,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.1.0
       shiki: 1.22.2
-      vite: 5.4.10(@types/node@22.7.9)(sass@1.69.7)
+      vite: 5.4.10(@types/node@22.8.6)(sass@1.69.7)
       vue: 3.5.12(typescript@5.6.3)
     optionalDependencies:
       markdown-it-mathjax3: 4.3.2
@@ -5833,10 +5758,10 @@ snapshots:
       - typescript
       - universal-cookie
 
-  vitest@2.1.2(@types/node@22.7.9)(sass@1.69.7):
+  vitest@2.1.2(@types/node@22.8.6)(sass@1.69.7):
     dependencies:
       '@vitest/expect': 2.1.2
-      '@vitest/mocker': 2.1.2(@vitest/spy@2.1.2)(vite@5.4.10(@types/node@22.7.9)(sass@1.69.7))
+      '@vitest/mocker': 2.1.2(@vitest/spy@2.1.2)(vite@5.4.10(@types/node@22.8.6)(sass@1.69.7))
       '@vitest/pretty-format': 2.1.4
       '@vitest/runner': 2.1.2
       '@vitest/snapshot': 2.1.2
@@ -5851,11 +5776,11 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.10(@types/node@22.7.9)(sass@1.69.7)
-      vite-node: 2.1.2(@types/node@22.7.9)(sass@1.69.7)
+      vite: 5.4.10(@types/node@22.8.6)(sass@1.69.7)
+      vite-node: 2.1.2(@types/node@22.8.6)(sass@1.69.7)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.7.9
+      '@types/node': 22.8.6
     transitivePeerDependencies:
       - less
       - lightningcss
@@ -5891,10 +5816,10 @@ snapshots:
     dependencies:
       vue: 3.5.12(typescript@5.6.3)
 
-  vue-tsc@2.1.6(typescript@5.6.3):
+  vue-tsc@2.1.10(typescript@5.6.3):
     dependencies:
       '@volar/typescript': 2.4.8
-      '@vue/language-core': 2.1.6(typescript@5.6.3)
+      '@vue/language-core': 2.1.10(typescript@5.6.3)
       semver: 7.6.3
       typescript: 5.6.3
 
