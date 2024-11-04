@@ -10,6 +10,12 @@
 #   universal: false
 
 -e file:.
+albucore==0.0.20
+    # via albumentations
+albumentations==1.4.21
+    # via dp1
+annotated-types==0.7.0
+    # via pydantic
 certifi==2024.8.30
     # via requests
 charset-normalizer==3.4.0
@@ -18,6 +24,8 @@ contourpy==1.3.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
+eval-type-backport==0.2.0
+    # via albumentations
 filelock==3.16.1
     # via torch
     # via triton
@@ -41,9 +49,12 @@ mpmath==1.3.0
 networkx==3.4.2
     # via torch
 numpy==2.1.2
+    # via albucore
+    # via albumentations
     # via contourpy
     # via matplotlib
     # via opencv-python
+    # via opencv-python-headless
     # via pandas
     # via scipy
     # via seaborn
@@ -81,9 +92,13 @@ nvidia-nvtx-cu12==12.4.127
     # via torch
 opencv-python==4.10.0.84
     # via ultralytics
+opencv-python-headless==4.10.0.84
+    # via albucore
+    # via albumentations
 packaging==24.1
     # via matplotlib
 pandas==2.2.3
+    # via dp1
     # via seaborn
     # via ultralytics
 pillow==11.0.0
@@ -94,6 +109,10 @@ psutil==6.1.0
     # via ultralytics
 py-cpuinfo==9.0.0
     # via ultralytics
+pydantic==2.9.2
+    # via albumentations
+pydantic-core==2.23.4
+    # via pydantic
 pyparsing==3.2.0
     # via matplotlib
 python-dateutil==2.9.0.post0
@@ -102,15 +121,21 @@ python-dateutil==2.9.0.post0
 pytz==2024.2
     # via pandas
 pyyaml==6.0.2
+    # via albumentations
     # via ultralytics
 requests==2.32.3
     # via ultralytics
 scipy==1.14.1
+    # via albumentations
     # via ultralytics
 seaborn==0.13.2
     # via ultralytics
+simsimd==5.9.11
+    # via albucore
 six==1.16.0
     # via python-dateutil
+stringzilla==3.10.7
+    # via albucore
 sympy==1.13.1
     # via torch
 torch==2.5.1
@@ -124,6 +149,8 @@ tqdm==4.66.6
 triton==3.1.0
     # via torch
 typing-extensions==4.12.2
+    # via pydantic
+    # via pydantic-core
     # via torch
 tzdata==2024.2
     # via pandas
