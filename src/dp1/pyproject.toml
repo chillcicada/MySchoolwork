@@ -5,6 +5,8 @@ description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     "ultralytics>=8.3.25",
+    "albumentations>=1.4.21",
+    "pandas>=2.2.3",
 ]
 readme = "README.md"
 requires-python = ">= 3.10"
@@ -15,10 +17,13 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "wandb>=0.18.5",
+]
 
 [tool.rye.scripts]
-train = { cmd = "python src/__init__.py" }
+train = "python src/train.py"
+val = "python src/val.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true
