@@ -1,0 +1,2 @@
+run:
+  xmake && xmake run < HW04/data.in > HW04/data.out
