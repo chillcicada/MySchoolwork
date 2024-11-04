@@ -1,20 +1,6 @@
 {
   "configurations": [
     {
-      "MIMode": "gdb",
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": true,
-      "miDebuggerPath": "D:\\mingw64\\bin\\gdb.exe",
-      "name": "gdb debug",
-      "preLaunchTask": "single file build with gnu",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-      "request": "launch",
-      "stopAtEntry": false,
-      "type": "cppdbg",
-      "postDebugTask": "clean",
-    },
-    {
       "type": "lldb",
       "request": "launch",
       "name": "lldb debug",
@@ -24,7 +10,7 @@
       "preLaunchTask": "single file build with llvm",
       "terminal": "external",
       "postDebugTask": "clean"
-    },
+    }
   ],
   "version": "0.2.0"
 }
