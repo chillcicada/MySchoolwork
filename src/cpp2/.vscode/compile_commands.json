@@ -1,6 +1,0 @@
-[
-{
-  "directory": "/home/cc/projects/MySchoolwork/src/cpp2",
-  "arguments": ["/nix/store/zznja5f8v3jafffyah1rk46vpfcn38dv-gcc-wrapper-13.3.0/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-isystem", "/home/cc/.xmake/packages/e/eigen/3.4.0/fca4838168e1466bbf2d2d4c1bbc3ab9/include", "-isystem", "/home/cc/.xmake/packages/e/eigen/3.4.0/fca4838168e1466bbf2d2d4c1bbc3ab9/include/eigen3", "-DNDEBUG", "-o", "build/.objs/t2/linux/x86_64/release/HW04/t2.cpp.o", "HW04/t2.cpp"],
-  "file": "HW04/t2.cpp"
-}]
