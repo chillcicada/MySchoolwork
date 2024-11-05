@@ -3,5 +3,6 @@ t2:
 
 t1:
   g++ -std=c++17 -o2 HW04/t1.cpp -o HW04/t1 \
-    && ./HW04/t1 < HW04/t1.in > HW04/t1.out
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
 
