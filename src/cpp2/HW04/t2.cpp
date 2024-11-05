@@ -1,9 +1,12 @@
 #include <Eigen/Dense>
+#include <cstdint>
 #include <iostream>
 
 int main() {
+  using matrix_t = Eigen::Matrix<int64_t, Eigen::Dynamic, Eigen::Dynamic>;
+
   std::ios::sync_with_stdio(false);
-  std::cin.tie(nullptr);
+  std::cin.tie(0);
 
   int n, m, p, q;
 
@@ -15,15 +18,13 @@ int main() {
     return 1;
   }
 
-  Eigen::MatrixXi mat1(n, m);
+  matrix_t mat1(n, m), mat2(p, q);
 
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < m; ++j) {
       std::cin >> mat1(i, j);
     }
   }
-
-  Eigen::MatrixXi mat2(p, q);
 
   for (int i = 0; i < p; ++i) {
     for (int j = 0; j < q; ++j) {
@@ -33,10 +34,11 @@ int main() {
 
   // std::cout << mat1 * mat2 << std::endl;
 
-  Eigen::MatrixXi result = mat1 * mat2;
+  matrix_t result = mat1 * mat2;
 
   for (int i = 0; i < n; ++i) {
-    std::cout << result.row(i) << std::endl;
+    // trim the first space
+    std::cout << result.row(i) << '\n';
   }
 
   return 0;
