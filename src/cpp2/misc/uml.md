@@ -24,4 +24,3 @@ classDiagram
     ShenzhouVI "1" -- "1" EscapeTower : contains
     ShenzhouVI "1" -- "*" SolarPanels : contains
 ```
-
