@@ -17,9 +17,7 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = [
-    "wandb>=0.18.5",
-]
+dev-dependencies = []
 
 [tool.rye.scripts]
 train = "python src/train.py"
