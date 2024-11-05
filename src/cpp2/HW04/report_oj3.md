@@ -98,6 +98,7 @@ void query(const list_t &sequence) {
 #include <Eigen/Dense>
 #include <cstdint>
 #include <iostream>
+#include <ostream>
 
 int main() {
   using matrix_t = Eigen::Matrix<int64_t, Eigen::Dynamic, Eigen::Dynamic>;
@@ -117,30 +118,19 @@ int main() {
 
   matrix_t mat1(n, m), mat2(p, q);
 
-  for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < m; ++j) {
+  for (int i = 0; i < n; ++i)
+    for (int j = 0; j < m; ++j)
       std::cin >> mat1(i, j);
-    }
-  }
 
-  for (int i = 0; i < p; ++i) {
-    for (int j = 0; j < q; ++j) {
+  for (int i = 0; i < p; ++i)
+    for (int j = 0; j < q; ++j)
       std::cin >> mat2(i, j);
-    }
-  }
 
   matrix_t result = mat1 * mat2;
 
-  for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < q; ++j) {
-      if (j != q - 1) {
-        std::cout << result(i, j) << ' ';
-      } else {
-        std::cout << result(i, j);
-      }
-    }
-    std::cout << std::endl;
-  }
+  for (int i = 0; i < n; ++i)
+    for (int j = 0; j < q; ++j)
+      std::cout << result(i, j) << (j != q - 1 ? ' ' : '\n');
 
   return 0;
 }
