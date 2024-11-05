@@ -32,13 +32,17 @@ int main() {
     }
   }
 
-  // std::cout << mat1 * mat2 << std::endl;
-
   matrix_t result = mat1 * mat2;
 
   for (int i = 0; i < n; ++i) {
-    // trim the first space
-    std::cout << result.row(i) << '\n';
+    for (int j = 0; j < q; ++j) {
+      if (j != q - 1) {
+        std::cout << result(i, j) << ' ';
+      } else {
+        std::cout << result(i, j);
+      }
+    }
+    std::cout << std::endl;
   }
 
   return 0;
