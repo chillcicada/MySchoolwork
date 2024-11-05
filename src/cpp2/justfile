@@ -1,2 +1,7 @@
-run:
-  xmake && xmake run < HW04/data.in > HW04/data.out
+t2:
+  xmake && xmake run < HW04/t2.in > HW04/t2.out
+
+t1:
+  g++ -std=c++17 -o2 HW04/t1.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out
+

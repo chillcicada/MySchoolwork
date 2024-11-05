@@ -368,7 +368,17 @@ int main() {
 +  size_t m;
 -  int64_t m;
    std::cin >> m;
-   TreeNode *root = nullptr;
+   TreeNode *root = nullptr;0	Compilation Success	0 ms	0 KB	0
+1	Wrong Answer	76 ms	3372 KB	0
+2	Wrong Answer	74 ms	3328 KB	0
+3	Wrong Answer	74 ms	3312 KB	0
+4	Wrong Answer	76 ms	3312 KB	0
+5	Wrong Answer	73 ms	3344 KB	0
+6	Wrong Answer	77 ms	3316 KB	0
+7	Wrong Answer	75 ms	3336 KB	0
+8	Wrong Answer	74 ms	3332 KB	0
+9	Wrong Answer	74 ms	3340 KB	0
+10	Wrong Answer	71 ms	3332 KB	0
    while (m--) {
 
 @@ -205,1 +200,1 @@
