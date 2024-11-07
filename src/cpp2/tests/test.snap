@@ -1,0 +1,39 @@
+[==========] Running 18 test cases.
+[ RUN      ] my_vector.base
+[       OK ] my_vector.base (0ns)
+[ RUN      ] my_vector.push_pop
+[       OK ] my_vector.push_pop (1000ns)
+[ RUN      ] my_vector.clear
+[       OK ] my_vector.clear (0ns)
+[ RUN      ] my_vector.reserve
+[       OK ] my_vector.reserve (1000ns)
+[ RUN      ] my_vector.resize
+[       OK ] my_vector.resize (0ns)
+[ RUN      ] my_vector.at_top_back
+[       OK ] my_vector.at_top_back (0ns)
+[ RUN      ] my_vector.insert_erase
+[       OK ] my_vector.insert_erase (1000ns)
+[ RUN      ] my_stack.constructor
+[       OK ] my_stack.constructor (1000ns)
+[ RUN      ] my_stack.push
+[       OK ] my_stack.push (1000ns)
+[ RUN      ] my_stack.pop
+[       OK ] my_stack.pop (0ns)
+[ RUN      ] my_stack.top
+[       OK ] my_stack.top (1000ns)
+[ RUN      ] my_stack.empty
+[       OK ] my_stack.empty (1000ns)
+[ RUN      ] my_deque.base
+[       OK ] my_deque.base (1000ns)
+[ RUN      ] my_deque.push_pop
+[       OK ] my_deque.push_pop (1000ns)
+[ RUN      ] my_deque.clear
+[       OK ] my_deque.clear (1000ns)
+[ RUN      ] my_deque.reserve
+[       OK ] my_deque.reserve (0ns)
+[ RUN      ] my_deque.resize
+[       OK ] my_deque.resize (1000ns)
+[ RUN      ] my_deque.at_front_back
+[       OK ] my_deque.at_front_back (1000ns)
+[==========] 18 test cases ran.
+[  PASSED  ] 18 tests.

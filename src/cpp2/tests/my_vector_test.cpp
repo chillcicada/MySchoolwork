@@ -1,8 +1,6 @@
 #include "../mystl/my_vector.h"
 #include <utest.h>
 
-UTEST_MAIN()
-
 UTEST(my_vector, base) {
   MyVector<int> v1;
   ASSERT_TRUE(v1.empty());

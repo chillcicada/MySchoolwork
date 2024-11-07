@@ -1,6 +1,9 @@
 test:
   xmake && xmake r tests
 
+test-snap:
+  xmake && xmake r tests > tests/test.snap
+
 t2:
   xmake && xmake r t2 < HW04/t2.in > HW04/t2.out
 
