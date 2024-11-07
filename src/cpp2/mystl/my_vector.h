@@ -53,7 +53,6 @@ public:
     if (this == &other)
       return *this;
 
-    // this != &other
     delete[] data;
     size_ = other.size_;
     capacity_ = other.capacity_;
@@ -67,7 +66,6 @@ public:
     if (this == &other)
       return *this;
 
-    // this != &other
     delete[] data;
     data = other.data;
     size_ = other.size_;
