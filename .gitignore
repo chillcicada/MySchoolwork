@@ -17,6 +17,8 @@ __pycache__/
 .rye/
 .xmake/
 /runs/
+build/
+build-test/
 
 # for temp files
 temp/
@@ -56,7 +58,6 @@ vsxmake*
 
 # assets
 *.pdf
-.DS_Store
 
 # env
 .env*
@@ -80,4 +81,5 @@ Desktop.ini
 src/others/output/
 src/cpp1f/docs/
 src/others/**/*.svg
-src/dp1/trained
+src/dp1/trained/
+src/dp1/datasets/
