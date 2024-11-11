@@ -25,7 +25,8 @@
           };
         };
       });
-    in {
+    in
+    {
       # Schemas tell Nix about the structure of your flake's outputs
       schemas = flake-schemas.schemas;
 
@@ -47,6 +48,9 @@
             opencv
             ffmpeg-full
             cudatoolkit
+
+            imagemagick
+            parallel
           ];
 
           # LD_LIBRARY_PATH for the environment
@@ -61,6 +65,7 @@
           # A hook run every time you enter the environment
           shellHook = ''
             export WANDB_DISABLED=true
+            export HF_ENDPOINT=https://hf-mirror.com
             export CUDA_PATH=${pkgs.cudatoolkit}
             export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
             export EXTRA_CCFLAGS="-I/usr/include"
