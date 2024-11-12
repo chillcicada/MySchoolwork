@@ -10,5 +10,8 @@ target("t2")
 target("tests")
   set_languages("c++17")
   add_headerfiles("mystl/*.h")
-  add_files("tests/*.cpp")
+  -- add the main entry file
+  add_files("tests/main.cpp")
+  -- source files will automatically be added and bundled to the target
+  add_files("tests/*_test.cpp")
   add_packages("utest.h")

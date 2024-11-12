@@ -1,53 +1,115 @@
 #ifndef MY_LIST_H
 #define MY_LIST_H
 
-template <typename T> class ListNode {
+template <typename T> class MyList {
 public:
-  T data;
-  ListNode *prev;
-  ListNode *next;
+  class MyListNode {
+  public:
+    T data;
 
-  ListNode(T value) : data(value), prev(nullptr), next(nullptr) {}
-};
+    MyListNode *prev;
+    MyListNode *next;
 
-// 双向链表类
-template <typename T> class DoublyLinkedList {
-private:
-  ListNode<T> *head;
-  ListNode<T> *tail;
+    MyListNode(T value) : data(value), prev(nullptr), next(nullptr) {}
+  };
 
-public:
-  DoublyLinkedList() : head(nullptr), tail(nullptr) {}
+  MyListNode *head;
+  MyListNode *tail;
 
-  ~DoublyLinkedList() { clear(); }
+  // constructor
+  MyList() : head(nullptr), tail(nullptr), size_(0) {}
 
-  // 清空链表
-  void clear() {
-    ListNode<T> *current = head;
+  // destructor
+  ~MyList() { clear(); }
+
+  // copy constructor
+  MyList(const MyList &other) {
+    head = nullptr;
+    tail = nullptr;
+    size_ = 0;
+    MyListNode *current = other.head;
     while (current != nullptr) {
-      ListNode<T> *nextNode = current->next;
+      append(current->data);
+      current = current->next;
+    }
+  }
+
+  // move constructor
+  MyList(MyList &&other) {
+    head = other.head;
+    tail = other.tail;
+    size_ = other.size_;
+    other.head = nullptr;
+    other.tail = nullptr;
+    other.size_ = 0;
+  }
+
+  // copy assignment
+  MyList &operator=(const MyList &other) {
+    if (this != &other) {
+      clear();
+      MyListNode *current = other.head;
+      while (current != nullptr) {
+        append(current->data);
+        current = current->next;
+      }
+    }
+    return *this;
+  }
+
+  // move assignment
+  MyList &operator=(MyList &&other) {
+    if (this != &other) {
+      clear();
+      head = other.head;
+      tail = other.tail;
+      size_ = other.size_;
+      other.head = nullptr;
+      other.tail = nullptr;
+      other.size_ = 0;
+    }
+    return *this;
+  }
+
+  // operator[]
+  T &operator[](int index) {
+    MyListNode *current = head;
+    for (int i = 0; i < index; i++) {
+      current = current->next;
+    }
+    return current->data;
+  }
+
+  // clear the list
+  void clear() {
+    MyListNode *current = head;
+    while (current != nullptr) {
+      MyListNode *next = current->next;
       delete current;
-      current = nextNode;
+      current = next;
     }
     head = nullptr;
     tail = nullptr;
+    size_ = 0;
   }
 
-  // 在链表末尾插入新节点
+  // append a value to the list
   void append(T value) {
-    ListNode<T> *newNode = new ListNode<T>(value);
-    if (tail == nullptr) { // 如果链表为空
-      head = tail = newNode;
+    MyListNode *newNode = new MyListNode(value);
+    if (head == nullptr) {
+      head = newNode;
+      tail = newNode;
     } else {
       tail->next = newNode;
       newNode->prev = tail;
       tail = newNode;
     }
+    size_++;
   }
 
-  // 删除指定值的节点
+  // remove a value from the list
   void remove(T value) {
-    ListNode<T> *current = head;
+    MyListNode *current = head;
     while (current != nullptr) {
       if (current->data == value) {
         if (current->prev != nullptr) {
@@ -55,19 +117,65 @@ public:
         } else {
           head = current->next;
         }
-
         if (current->next != nullptr) {
           current->next->prev = current->prev;
         } else {
           tail = current->prev;
         }
-
         delete current;
+        size_--;
         return;
       }
       current = current->next;
     }
   }
+
+  // append at index
+  void appendAt(int index, T value) {
+    MyListNode *newNode = new MyListNode(value);
+    MyListNode *current = head;
+    for (int i = 0; i < index; i++) {
+      current = current->next;
+    }
+    if (current->prev != nullptr) {
+      current->prev->next = newNode;
+      newNode->prev = current->prev;
+    } else {
+      head = newNode;
+    }
+    newNode->next = current;
+    current->prev = newNode;
+    size_++;
+  }
+
+  // remove at index
+  void removeAt(int index) {
+    MyListNode *current = head;
+    for (int i = 0; i < index; i++) {
+      current = current->next;
+    }
+    if (current->prev != nullptr) {
+      current->prev->next = current->next;
+    } else {
+      head = current->next;
+    }
+    if (current->next != nullptr) {
+      current->next->prev = current->prev;
+    } else {
+      tail = current->prev;
+    }
+    delete current;
+    size_--;
+  }
+
+  // get size
+  int size() const { return size_; }
+
+  // check if the list is empty
+  bool empty() const { return size_ == 0; }
+
+private:
+  int size_;
 };
 
 #endif // MY_LIST_H
