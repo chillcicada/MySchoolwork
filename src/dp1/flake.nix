@@ -41,7 +41,6 @@
             wget
             nixpkgs-fmt
 
-            rye
             ruff
             uv
 
