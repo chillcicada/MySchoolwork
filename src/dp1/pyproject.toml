@@ -19,14 +19,16 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = [
-    "datasets>=3.1.0",
-    "jupyter>=1.1.1",
-]
+dev-dependencies = ["datasets>=3.1.0", "jupyter>=1.1.1"]
+
+[[tool.rye.sources]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl"
 
 [tool.rye.scripts]
 train = "python src/train.py"
 val = "python src/val.py"
+cuda = "python src/cuda.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true
