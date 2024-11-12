@@ -1,7 +1,6 @@
 #include <Eigen/Dense>
 #include <cstdint>
-#include <iostream>
-#include <ostream>
+#include <iostream>、
 
 int main() {
   using matrix_t = Eigen::Matrix<int64_t, Eigen::Dynamic, Eigen::Dynamic>;
