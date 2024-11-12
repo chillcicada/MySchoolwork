@@ -1,28 +1,60 @@
-[==========] Running 18 test cases.
+[==========] Running 34 test cases.
 [ RUN      ] my_vector.base
 [       OK ] my_vector.base (0ns)
 [ RUN      ] my_vector.push_pop
-[       OK ] my_vector.push_pop (1000ns)
+[       OK ] my_vector.push_pop (2000ns)
 [ RUN      ] my_vector.clear
-[       OK ] my_vector.clear (0ns)
+[       OK ] my_vector.clear (1000ns)
 [ RUN      ] my_vector.reserve
-[       OK ] my_vector.reserve (1000ns)
+[       OK ] my_vector.reserve (0ns)
 [ RUN      ] my_vector.resize
 [       OK ] my_vector.resize (0ns)
 [ RUN      ] my_vector.at_top_back
-[       OK ] my_vector.at_top_back (0ns)
+[       OK ] my_vector.at_top_back (1000ns)
 [ RUN      ] my_vector.insert_erase
-[       OK ] my_vector.insert_erase (1000ns)
+[       OK ] my_vector.insert_erase (0ns)
 [ RUN      ] my_stack.constructor
-[       OK ] my_stack.constructor (1000ns)
+[       OK ] my_stack.constructor (0ns)
 [ RUN      ] my_stack.push
-[       OK ] my_stack.push (1000ns)
+[       OK ] my_stack.push (0ns)
 [ RUN      ] my_stack.pop
 [       OK ] my_stack.pop (0ns)
 [ RUN      ] my_stack.top
-[       OK ] my_stack.top (1000ns)
+[       OK ] my_stack.top (0ns)
 [ RUN      ] my_stack.empty
-[       OK ] my_stack.empty (1000ns)
+[       OK ] my_stack.empty (0ns)
+[ RUN      ] my_list.base
+[       OK ] my_list.base (0ns)
+[ RUN      ] my_list.copy_constructor
+[       OK ] my_list.copy_constructor (1000ns)
+[ RUN      ] my_list.move_constructor
+[       OK ] my_list.move_constructor (0ns)
+[ RUN      ] my_list.copy_assignment
+[       OK ] my_list.copy_assignment (1000ns)
+[ RUN      ] my_list.move_assignment
+[       OK ] my_list.move_assignment (1000ns)
+[ RUN      ] my_list.operator_brackets
+[       OK ] my_list.operator_brackets (1000ns)
+[ RUN      ] my_list.append_remove
+[       OK ] my_list.append_remove (1000ns)
+[ RUN      ] my_list.append_at
+[       OK ] my_list.append_at (1000ns)
+[ RUN      ] my_list.remove_at
+[       OK ] my_list.remove_at (0ns)
+[ RUN      ] my_list.clear
+[       OK ] my_list.clear (0ns)
+[ RUN      ] my_queue.default_constructor
+[       OK ] my_queue.default_constructor (0ns)
+[ RUN      ] my_queue.push
+[       OK ] my_queue.push (0ns)
+[ RUN      ] my_queue.pop
+[       OK ] my_queue.pop (0ns)
+[ RUN      ] my_queue.front
+[       OK ] my_queue.front (0ns)
+[ RUN      ] my_queue.back
+[       OK ] my_queue.back (0ns)
+[ RUN      ] my_queue.size
+[       OK ] my_queue.size (0ns)
 [ RUN      ] my_deque.base
 [       OK ] my_deque.base (1000ns)
 [ RUN      ] my_deque.push_pop
@@ -30,10 +62,10 @@
 [ RUN      ] my_deque.clear
 [       OK ] my_deque.clear (1000ns)
 [ RUN      ] my_deque.reserve
-[       OK ] my_deque.reserve (0ns)
+[       OK ] my_deque.reserve (1000ns)
 [ RUN      ] my_deque.resize
 [       OK ] my_deque.resize (1000ns)
 [ RUN      ] my_deque.at_front_back
 [       OK ] my_deque.at_front_back (1000ns)
-[==========] 18 test cases ran.
-[  PASSED  ] 18 tests.
+[==========] 34 test cases ran.
+[  PASSED  ] 34 tests.
