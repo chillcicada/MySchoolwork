@@ -6,7 +6,7 @@ authors = [
     { name = "chillcicada", email = "2210227279@qq.com" }
 ]
 dependencies = [
-    "anylabeling>=0.4.10",
+    "anylabeling>=0.4.15",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
