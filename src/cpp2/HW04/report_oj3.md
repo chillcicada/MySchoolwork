@@ -92,13 +92,16 @@ void query(const list_t &sequence) {
 }
 ```
 
+
+
+
+
 ## GEMM
 
 ```cpp
 #include <Eigen/Dense>
 #include <cstdint>
 #include <iostream>
-#include <ostream>
 
 int main() {
   using matrix_t = Eigen::Matrix<int64_t, Eigen::Dynamic, Eigen::Dynamic>;
