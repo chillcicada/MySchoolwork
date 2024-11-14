@@ -1,6 +1,8 @@
-# OJ3
+## OJ3
 
-## Linked List
+### Linked List
+
+最终提交的代码如下：
 
 ```cpp
 #include <iostream>
@@ -30,7 +32,7 @@ void init(list_t &sequence, mph_t &mph_its, const int &n);
 void move(list_t &sequence, mph_t &mph_its, const int &i, const int &j);
 
 /**
- * @brief
+ * @brief query
  *
  * @param sequence
  */
@@ -92,11 +94,130 @@ void query(const list_t &sequence) {
 }
 ```
 
+拿到题目，通过样例不难，容器直接用 STL 的 `list` 用 `algorithm` 的 `find` 方法（应该是线性查找）写了个 `move` 即可，核心实现如下：
 
+```cpp
+void init(std::list<int> &sequence, const int &n) {
+  for (int i = 1; i <= n; ++i) {
+    sequence.push_back(i);
+  }
+}
 
+void move(std::list<int> &sequence, const int &i, const int &j) {
+  auto it_i = std::find(sequence.begin(), sequence.end(), i);
+  auto it_j = std::find(sequence.begin(), sequence.end(), j);
 
+  if (it_i != sequence.end() && it_j != sequence.end()) {
+    sequence.erase(it_i);
+    it_j = std::find(sequence.begin(), sequence.end(), j);
+    sequence.insert(std::next(it_j), i);
+  }
+}
 
-## GEMM
+void query(const std::list<int> &sequence) {
+  for (auto num : sequence) {
+    std::cout << num << " ";
+  }
+  std::cout << std::endl;
+}
+```
+
+显然 TLE 了，然后转换了一下思路，直接维护数组，同时维护序列和对应的位置信息（指针信息），核心实现如下：
+
+```cpp
+void init(int *sequence, int *position, const int &n) {
+  for (int i = 0; i < n; ++i) {
+    sequence[i] = i + 1;
+    position[i + 1] = i;
+  }
+}
+
+void move(int *sequence, int *position, const int &i, const int &j) {
+  const int pos_i = position[i];
+  const int pos_j = position[j];
+
+  if (pos_i < pos_j) { // i at left of j
+    for (int k = pos_i; k < pos_j; ++k) {
+      sequence[k] = sequence[k + 1];
+      position[sequence[k]] = k;
+    }
+    sequence[pos_j] = i;
+    position[i] = pos_j;
+  } else { // i at right of j
+    for (int k = pos_i; k > pos_j + 1; --k) {
+      sequence[k] = sequence[k - 1];
+      position[sequence[k]] = k;
+    }
+    sequence[pos_j + 1] = i;
+    position[i] = pos_j + 1;
+  }
+}
+
+void query(const int *sequence, const int &n) {
+  for (int i = 0; i < n; ++i) {
+    std::cout << sequence[i] << " ";
+  }
+  std::cout << std::endl;
+}
+```
+
+由于 `move` 部分仍然是 $O(n)$ 的复杂度，仍然会 TLE，这时想到最简单的思路是空间换时间，即用 hash map 来维护位置信息，把 `move` 的时间复杂度降低到 $O(1)$，然后 AC 了，核心代码即上面提到的代码。
+
+当然，如果不想用 hash map 开空间来维护，可以直接用 vector 乃至 array 来维护位置信息，核心实现分别如下：
+
+```cpp
+// vector
+void init(list_t &sequence, iter_t &iter_v, const int &n) {
+  for (int i = 1; i <= n; ++i) {
+    sequence.push_back(i);
+    iter_v[i] = --sequence.end();
+  }
+}
+
+void move(list_t &sequence, iter_t &iter_v, const int &i, const int &j) {
+  auto it_i = iter_v[i];
+  auto it_j = iter_v[j];
+
+  sequence.erase(it_i);
+  iter_v[i] = sequence.insert(++it_j, i);
+}
+
+void query(const list_t &sequence) {
+  for (int num : sequence) {
+    std::cout << num << " ";
+  }
+  std::cout << std::endl;
+}
+```
+
+```cpp
+// pointer array
+void init(list_t &sequence, iter_t *iter_p, const int &n) {
+  for (int i = 1; i <= n; ++i) {
+    sequence.push_back(i);
+    iter_p[i] = --sequence.end();
+  }
+}
+
+void move(list_t &sequence, iter_t *iter_p, const int &i, const int &j) {
+  auto it_i = iter_p[i];
+  auto it_j = iter_p[j];
+
+  sequence.erase(it_i);
+  iter_p[i] = sequence.insert(++it_j, i);
+}
+
+void query(const list_t &sequence) {
+  for (int num : sequence) {
+    std::cout << num << " ";
+  }
+  std::cout << std::endl;
+}
+```
+
+此外，经过测试，上面的所有空间换时间的实现中，用 vector 维护位置信息的内存最小，为 ～5MB，而用 hashmap 和 point array 的内存在 9MB 左右，考虑到此题的输入中 sequence 均为有序整数，因而本题目的最佳实践是用 vector 来维护位置信息，不过对于一般情况，即输入并不完全规范，hashmap 更为通用。
+
+### GEMM
 
 ```cpp
 #include <Eigen/Dense>
@@ -138,3 +259,9 @@ int main() {
   return 0;
 }
 ```
+
+客观上讲这题没什么好讲的，不过需要注意的一点是结果的输出，原则上 `Eigen::Matrix<T>` 是可以直接输出的或是逐行输出的，不过由于其中会自动调整空格以对齐数据，在样例上不明确，但在数据波动范围较大时可能会有空格多于单个的情况，所以应选择手动输出。
+
+---
+
+总结：难度上不大，但需要注意细节，比如第二题的打印输出费了我很大功夫，一度让我以为题目错了z。第一题的话，因为做的时候就把思路抽象的比较好，因而实际写的时候没花多少时间，大部分时候改改容器、函数签名和初始化就可以跑了，以至于只放了核心代码上去，主函数部分基本一样，也算是一个应用程设思想的收获吧。
