@@ -1,13 +1,37 @@
+# for MySTL
+
 test:
   xmake && xmake r tests
 
 test-snap:
   xmake && xmake r tests > tests/test.snap
 
+# for HW04
+
 t2:
   xmake && xmake r t2 < HW04/t2.in > HW04/t2.out
 
 t1:
   g++ -std=c++17 -o2 HW04/t1.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_1:
+  g++ -std=c++17 -o2 HW04/t1_1.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_2:
+  g++ -std=c++17 -o2 HW04/t1_2.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_3:
+  g++ -std=c++17 -o2 HW04/t1_3.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_4:
+  g++ -std=c++17 -o2 HW04/t1_4.cpp -o HW04/t1 \
     && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
     && rm HW04/t1

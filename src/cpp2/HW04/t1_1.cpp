@@ -2,7 +2,7 @@
 #include <iostream>
 #include <list>
 
-void initializeSequence(std::list<int> &sequence, const int &n);
+void init(std::list<int> &sequence, const int &n);
 
 void move(std::list<int> &sequence, const int &i, const int &j);
 
@@ -16,7 +16,7 @@ int main() {
   std::cin >> n >> m;
 
   std::list<int> sequence;
-  initializeSequence(sequence, n);
+  init(sequence, n);
 
   while (m--) {
     int op, i, j;
@@ -37,7 +37,7 @@ int main() {
   return 0;
 }
 
-void initializeSequence(std::list<int> &sequence, const int &n) {
+void init(std::list<int> &sequence, const int &n) {
   for (int i = 1; i <= n; ++i) {
     sequence.push_back(i);
   }
