@@ -17,7 +17,9 @@
     "**/.DS_Store": false,
     "**/Thumbs.db": false,
     "**/node_modules": false,
-    "**/.venv": false
+    "**/.venv": false,
+    "node_modules": true,
+    ".vscode/.cache": true
   },
   "explorerExclude.backup": {},
   "clangd.arguments": ["--compile-commands-dir=.vscode"]

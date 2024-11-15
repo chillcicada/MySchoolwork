@@ -217,6 +217,35 @@ void query(const list_t &sequence) {
 
 此外，经过测试，上面的所有空间换时间的实现中，用 vector 维护位置信息的内存最小，为 ～5MB，而用 hashmap 和 point array 的内存在 9MB 左右，考虑到此题的输入中 sequence 均为有序整数，因而本题目的最佳实践是用 vector 来维护位置信息，不过对于一般情况，即输入并不完全规范，hashmap 更为通用。
 
+所有相关文件的构建脚本如下：
+
+```makefile
+t1:
+  g++ -std=c++17 -o2 HW04/t1.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_1:
+  g++ -std=c++17 -o2 HW04/t1_1.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_2:
+  g++ -std=c++17 -o2 HW04/t1_2.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_3:
+  g++ -std=c++17 -o2 HW04/t1_3.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+
+t1_4:
+  g++ -std=c++17 -o2 HW04/t1_4.cpp -o HW04/t1 \
+    && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
+    && rm HW04/t1
+```
+
 ### GEMM
 
 ```cpp
@@ -261,6 +290,27 @@ int main() {
 ```
 
 客观上讲这题没什么好讲的，不过需要注意的一点是结果的输出，原则上 `Eigen::Matrix<T>` 是可以直接输出的或是逐行输出的，不过由于其中会自动调整空格以对齐数据，在样例上不明确，但在数据波动范围较大时可能会有空格多于单个的情况，所以应选择手动输出。
+
+构建时使用 `xmake` 作为包管理器和构建工具，其配置如下：
+
+```lua
+-- xmake.lua
+add_rules("mode.debug", "mode.release")
+add_requires("eigen")
+
+target("t2")
+  set_kind("binary")
+  set_languages("c++17")
+  add_files("HW04/t2.cpp")
+  add_packages("eigen")
+```
+
+构建脚本如下：
+
+```makefile
+t2:
+  xmake && xmake r t2 < HW04/t2.in > HW04/t2.out
+```
 
 ---
 

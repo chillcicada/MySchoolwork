@@ -30,6 +30,7 @@
         default = pkgs.mkShell {
           # Pinned packages available in the environment
           packages = with pkgs; [
+            doxygen
             nodejs_22
             pnpm
             git

@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "scripts": {
+    "pre": "rimraf HW04/*.out",
+    "zip": "rimraf HW04/*.out hw.zip && node zip.mjs",
+    "clean": "rimraf hw.zip"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "rimraf": "^6.0.1"
+  }
+}

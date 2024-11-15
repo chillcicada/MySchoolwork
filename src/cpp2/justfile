@@ -3,7 +3,7 @@
 test:
   xmake && xmake r tests
 
-test-snap:
+test-snap: # generate snapshot
   xmake && xmake r tests > tests/test.snap
 
 # for HW04
@@ -35,3 +35,11 @@ t1_4:
   g++ -std=c++17 -o2 HW04/t1_4.cpp -o HW04/t1 \
     && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
     && rm HW04/t1
+
+# project (mystl + HW04 + tests)
+
+zip:
+  pnpm zip
+
+clean:
+  pnpm clean
