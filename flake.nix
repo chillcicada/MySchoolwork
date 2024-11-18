@@ -16,9 +16,14 @@
   outputs = { self, flake-compat, flake-schemas, nixpkgs }:
     let
       # Helpers for producing system-specific outputs
-      supportedSystems = [ "x86_64-linux" ];
+      supportedSystems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" "aarch64-linux" ];
       forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+          };
+        };
       });
     in
     {
@@ -30,20 +35,59 @@
         default = pkgs.mkShell {
           # Pinned packages available in the environment
           packages = with pkgs; [
-            doxygen
+            # base toolchain
+            curl
+            git
+            jq
+            wget
+            nixpkgs-fmt
+
+            # base
             nodejs_22
             pnpm
-            git
             quarto
             pandoc
             typst
             typstyle
             tinymist
-            nixpkgs-fmt
+
+            # cpp
+            xmake
+            just
+            gcc
+            valgrind
+            doxygen
+            qt6.full
+
+            # python
+            ruff
+            uv
+            rye
+
+            opencv
+            ffmpeg-full
+            cudatoolkit
+
+            imagemagick
+            parallel
+          ];
+
+          # LD_LIBRARY_PATH for the environment
+          LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+            pkgs.gcc-unwrapped
+            pkgs.zlib
+            pkgs.glib
+            pkgs.libGL
+            pkgs.libGLU
           ];
 
           # A hook run every time you enter the environment
           shellHook = ''
+            export WANDB_DISABLED=true
+            export HF_ENDPOINT=https://hf-mirror.com
+            export CUDA_PATH=${pkgs.cudatoolkit}
+            export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
+            export EXTRA_CCFLAGS="-I/usr/include"
           '';
         };
       });
