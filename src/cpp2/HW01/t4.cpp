@@ -20,6 +20,23 @@ struct TreeNode {
 
   TreeNode(Key key)
       : key(key), size(1), count(1), height(1), left(nullptr), right(nullptr) {}
+
+  ~TreeNode() {
+    if (left)
+      delete left;
+    if (right)
+      delete right;
+
+    delete this;
+  }
+
+  TreeNode(const TreeNode &) = delete;
+
+  TreeNode &operator=(const TreeNode &) = delete;
+
+  TreeNode(TreeNode &&) = delete;
+
+  TreeNode &operator=(TreeNode &&) = delete;
 };
 
 inline Size getCount(const TreeNode *root) { return root ? root->count : 0; }
@@ -117,6 +134,18 @@ TreeNode *insert(TreeNode *root, Key key) {
   return Maitain(root);
 }
 
+TreeNode *findMin(TreeNode *root) {
+  while (root->left)
+    root = root->left;
+  return root;
+}
+
+TreeNode *findMax(TreeNode *root) {
+  while (root->right)
+    root = root->right;
+  return root;
+}
+
 TreeNode *remove(TreeNode *root, Key key) {
   if (root == nullptr)
     return nullptr;
@@ -141,9 +170,7 @@ TreeNode *remove(TreeNode *root, Key key) {
     }
 
     // two children
-    TreeNode *temp = root->right;
-    while (temp->left)
-      temp = temp->left; // find the smallest node in right subtree
+    TreeNode *temp = findMin(root->right);
 
     root->key = temp->key;
     root->count = temp->count;
