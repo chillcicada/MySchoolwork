@@ -1,0 +1,11 @@
+default:
+  @just --list
+
+dev:
+  xmake f --toolchain=gcc -m release
+  xmake && xmake r
+
+valgrind:
+  xmake f --toolchain=gcc -m valgrind
+  xmake
+  valgrind --tool=memcheck ./build/linux/x86_64/valgrind/lab2 -s
