@@ -5,7 +5,7 @@ stages:
 
 build-linux:
   stage: build
-  image: stateoftheartio/qt6:6.7-gcc-aqt
+  image: stateoftheartio/qt6:6.8-gcc-aqt
   script:
     - sudo apt update -q && sudo apt install -y -q libgl1-mesa-dev
     - mkdir build
@@ -30,7 +30,7 @@ test-list:
   needs:
     - job: build-linux
       optional: false
-  image: stateoftheartio/qt6:6.7-gcc-aqt
+  image: stateoftheartio/qt6:6.8-gcc-aqt
   script:
     - sudo apt update -q && sudo apt install -y -q libgl1-mesa-dev
     - mkdir build-test
