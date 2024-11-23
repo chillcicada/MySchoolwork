@@ -156,7 +156,7 @@ typing-extensions==4.9.0
     # via torch
 tzdata==2024.2
     # via pandas
-ultralytics==8.3.28
+ultralytics==8.3.35
     # via dp1
 ultralytics-thop==2.0.10
     # via ultralytics
