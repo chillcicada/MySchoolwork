@@ -413,4 +413,4 @@ int main() {
 
 ai 交互记录如下：
 
-![](./LobeChat_随便聊聊_2024-09-16.webp)
+![](https://img.chillcicada.com/i/2024/11/24/67430ad2c4b80.webp)

@@ -311,4 +311,4 @@ diff ./1.out ./data/t2/1.ans
 
 ai 对话历史：
 
-![](./LobeChat_随便聊聊_2024-09-25.webp)
+![](https://img.chillcicada.com/i/2024/11/24/67430afc913bd.webp)
