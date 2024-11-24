@@ -43,3 +43,7 @@ zip:
 
 clean:
   pnpm clean
+
+knn:
+  g++ -std=c++17 -o2 misc/knn.cpp -o misc/knn \
+    && ./misc/knn && rm misc/knn

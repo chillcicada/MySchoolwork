@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <iostream>
+#include <queue>
 
 // reference: https://oi-wiki.org/ds/bst
 
@@ -206,6 +207,42 @@ Key queryByRank(const TreeNode *root, Size rank) {
     return root->key;
 
   return queryByRank(root->right, rank - leftSize - getCount(root));
+}
+
+int maxDepth(TreeNode *root) {
+  if (root == nullptr)
+    return 0;
+
+  int leftDepth = maxDepth(root->left);
+  int rightDepth = maxDepth(root->right);
+
+  return std::max(leftDepth, rightDepth) + 1;
+}
+
+// use queue to level order traversal
+int maxDepth2(TreeNode *root) {
+  if (root == nullptr)
+    return 0;
+
+  std::queue<TreeNode *> q;
+  q.push(root);
+
+  int depth = 0;
+  while (!q.empty()) {
+    int size = q.size();
+    while (size--) {
+      TreeNode *node = q.front();
+      q.pop();
+
+      if (node->left)
+        q.push(node->left);
+      if (node->right)
+        q.push(node->right);
+    }
+    depth++;
+  }
+
+  return depth;
 }
 
 int main() {
