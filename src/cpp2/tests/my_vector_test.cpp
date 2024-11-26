@@ -1,4 +1,4 @@
-#include "../mystl/my_vector.h"
+#include "my_vector.h"
 #include <utest.h>
 
 UTEST(my_vector, base) {

@@ -1,4 +1,4 @@
-#include "../mystl/my_list.h"
+#include "my_list.h"
 #include <utest.h>
 
 UTEST(my_list, base) {
