@@ -39,7 +39,7 @@ t1_4:
     && ./HW04/t1 < HW04/t1.in > HW04/t1.out \
     && rm HW04/t1
 
-# project (mystl + HW04 + tests)
+# generate project archive (mystl + HW04 + tests)
 
 zip:
   pnpm zip
@@ -47,6 +47,12 @@ zip:
 clean:
   pnpm clean
 
+# misc && playground
+
 knn:
   g++ -std=c++17 -o2 misc/knn.cpp -o misc/knn \
     && ./misc/knn && rm misc/knn
+
+dijkstra:
+  g++ -std=c++17 -o2 playground/dijkstra.cpp -o playground/dijkstra \
+    && ./playground/dijkstra && rm playground/dijkstra
