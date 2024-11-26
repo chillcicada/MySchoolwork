@@ -1,4 +1,4 @@
-#include "../mystl/my_deque.h"
+#include "my_deque.h"
 #include <utest.h>
 
 UTEST(my_deque, base) {

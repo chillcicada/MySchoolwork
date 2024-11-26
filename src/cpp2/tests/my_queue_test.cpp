@@ -1,4 +1,4 @@
-#include "../mystl/my_queue.h"
+#include "my_queue.h"
 #include <utest.h>
 
 UTEST(my_queue, default_constructor) {

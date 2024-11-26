@@ -1,4 +1,4 @@
-#include "../mystl/my_stack.h"
+#include "my_stack.h"
 #include <utest.h>
 
 UTEST(my_stack, constructor) {
