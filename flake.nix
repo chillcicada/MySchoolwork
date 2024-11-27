@@ -54,7 +54,8 @@
             # cpp
             xmake
             just
-            gcc
+            gfortran
+            mpi
             valgrind
             doxygen
             qt6.full
