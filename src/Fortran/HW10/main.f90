@@ -110,6 +110,15 @@ program main
 
   call MPI_Barrier(MPI_COMM_WORLD, ierr)
 
+  ! ! print result
+  ! if (rankC == 0) then
+  !   do j = 0, y+1
+  !     do i = 0, x+1
+  !       print *, arrO(i, j)
+  !     end do
+  !   end do
+  ! end if
+
   deallocate(arrO)
   deallocate(arrN)
 
