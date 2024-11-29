@@ -1,5 +1,6 @@
 {
   "cSpell.enabled": false,
+
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -12,5 +13,10 @@
     ".ruff_cache": true,
     "*.lock": true
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+
+  "tinymist.formatterMode": "typstyle",
+  "[typst]": {
+    "editor.formatOnSave": true
+  }
 }
