@@ -33,8 +33,6 @@ $
   P_1(q, L, b) = (1 - w(q R_G)) 2 / u_1^2 ()
 $
 
-=== PRISM theory:
-
 $
   I(q) = k P(q, L, b) / (1 + beta c(q, xi) P(q, L, b))
 $
