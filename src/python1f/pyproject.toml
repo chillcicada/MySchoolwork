@@ -5,7 +5,7 @@ description = "Cc's final homework for the course of Python"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     # cli
-    "typer>=0.13.1",
+    "typer>=0.14.0",
     "colorama>=0.4.6",
 ]
 readme = "README.md"
