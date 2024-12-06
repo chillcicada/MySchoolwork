@@ -25,14 +25,19 @@ public:
     priority_queue<pair<int, int>, vector<pair<int, int>>,
                    greater<pair<int, int>>>
         pq; // 小顶堆
+    vector<bool> visited(V, false);
 
     dist[src] = 0;
     pq.push({0, src}); // 将源点加入优先队列
 
     while (!pq.empty()) {
-      int u = pq.top().second;
-      int d = pq.top().first;
+      int u = pq.top().second; // index of vertex
+      int d = pq.top().first;  // distance from source
       pq.pop();
+
+      if (visited[u])
+        continue; // 如果当前顶点已经被访问过，则跳过
+      visited[u] = true;
 
       if (d > dist[u])
         continue; // 如果当前距离大于已记录的最短距离，则跳过
