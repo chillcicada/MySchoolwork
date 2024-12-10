@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "3.11.2",
-    "@shikijs/vitepress-twoslash": "1.24.0",
+    "@shikijs/vitepress-twoslash": "1.24.2",
     "@types/node": "22.10.1",
     "eslint": "9.16.0",
     "eslint-plugin-format": "0.1.3",
