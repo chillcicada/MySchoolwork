@@ -84,3 +84,4 @@ src/others/**/*.svg
 src/dp1/trained/
 src/dp1/datasets/
 deps-*
+*.png
