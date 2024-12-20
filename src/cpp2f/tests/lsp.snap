@@ -1,0 +1,13 @@
+[==========] Running 5 test cases.
+[ RUN      ] lsp_protocol.position
+[       OK ] lsp_protocol.position (0ns)
+[ RUN      ] lsp_protocol.range
+[       OK ] lsp_protocol.range (100ns)
+[ RUN      ] string_ref.base
+[       OK ] string_ref.base (0ns)
+[ RUN      ] lsp_uri.encode
+[       OK ] lsp_uri.encode (1500ns)
+[ RUN      ] lsp_uri.from
+[       OK ] lsp_uri.from (500ns)
+[==========] 5 test cases ran.
+[  PASSED  ] 5 tests.

@@ -1,0 +1,73 @@
+[==========] Running 35 test cases.
+[ RUN      ] mystl.namespace
+[       OK ] mystl.namespace (1500ns)
+[ RUN      ] my_deque.base
+[       OK ] my_deque.base (500ns)
+[ RUN      ] my_deque.push_pop
+[       OK ] my_deque.push_pop (300ns)
+[ RUN      ] my_deque.clear
+[       OK ] my_deque.clear (500ns)
+[ RUN      ] my_deque.reserve
+[       OK ] my_deque.reserve (200ns)
+[ RUN      ] my_deque.resize
+[       OK ] my_deque.resize (300ns)
+[ RUN      ] my_deque.at_front_back
+[       OK ] my_deque.at_front_back (300ns)
+[ RUN      ] my_list.base
+[       OK ] my_list.base (0ns)
+[ RUN      ] my_list.copy_constructor
+[       OK ] my_list.copy_constructor (300ns)
+[ RUN      ] my_list.move_constructor
+[       OK ] my_list.move_constructor (100ns)
+[ RUN      ] my_list.copy_assignment
+[       OK ] my_list.copy_assignment (400ns)
+[ RUN      ] my_list.move_assignment
+[       OK ] my_list.move_assignment (200ns)
+[ RUN      ] my_list.operator_brackets
+[       OK ] my_list.operator_brackets (1100ns)
+[ RUN      ] my_list.append_remove
+[       OK ] my_list.append_remove (400ns)
+[ RUN      ] my_list.append_at
+[       OK ] my_list.append_at (100ns)
+[ RUN      ] my_list.remove_at
+[       OK ] my_list.remove_at (200ns)
+[ RUN      ] my_list.clear
+[       OK ] my_list.clear (200ns)
+[ RUN      ] my_queue.default_constructor
+[       OK ] my_queue.default_constructor (200ns)
+[ RUN      ] my_queue.push
+[       OK ] my_queue.push (300ns)
+[ RUN      ] my_queue.pop
+[       OK ] my_queue.pop (700ns)
+[ RUN      ] my_queue.front
+[       OK ] my_queue.front (200ns)
+[ RUN      ] my_queue.back
+[       OK ] my_queue.back (300ns)
+[ RUN      ] my_queue.size
+[       OK ] my_queue.size (1100ns)
+[ RUN      ] my_stack.constructor
+[       OK ] my_stack.constructor (300ns)
+[ RUN      ] my_stack.push
+[       OK ] my_stack.push (200ns)
+[ RUN      ] my_stack.pop
+[       OK ] my_stack.pop (300ns)
+[ RUN      ] my_stack.top
+[       OK ] my_stack.top (200ns)
+[ RUN      ] my_stack.empty
+[       OK ] my_stack.empty (300ns)
+[ RUN      ] my_vector.base
+[       OK ] my_vector.base (0ns)
+[ RUN      ] my_vector.push_pop
+[       OK ] my_vector.push_pop (500ns)
+[ RUN      ] my_vector.clear
+[       OK ] my_vector.clear (200ns)
+[ RUN      ] my_vector.reserve
+[       OK ] my_vector.reserve (100ns)
+[ RUN      ] my_vector.resize
+[       OK ] my_vector.resize (0ns)
+[ RUN      ] my_vector.at_top_back
+[       OK ] my_vector.at_top_back (500ns)
+[ RUN      ] my_vector.insert_erase
+[       OK ] my_vector.insert_erase (100ns)
+[==========] 35 test cases ran.
+[  PASSED  ] 35 tests.

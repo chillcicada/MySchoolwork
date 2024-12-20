@@ -1,0 +1,24 @@
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store
+
+# direnv
+.direnv/
+
+# temp file
+.temp/
+.tmp/
+
+# clangd cache
+.vscode/compile_commands.json
+.vscode/.cache/
+
+# doxygen
+doc/
+html/
+
+# js
+node_modules/
