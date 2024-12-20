@@ -3,8 +3,8 @@
 
 #show: simple-theme.with(aspect-ratio: "16-9")
 
+#set text(font: "Microsoft YaHei")
+
 = Title
 
-== Slide One
 
-Hello, Touying!

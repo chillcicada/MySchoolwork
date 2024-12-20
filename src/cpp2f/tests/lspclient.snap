@@ -1,0 +1,18 @@
+********* Start testing of LSPClientTest *********
+Config: Using QtTest library 6.8.1, Qt 6.8.1 (x86_64-little_endian-llp64 shared (dynamic) release build; by MSVC 2022), windows 11
+PASS   : LSPClientTest::initTestCase()
+QDEBUG : LSPClientTest::testInitialize() Write to process: "Content-Length: 58\r\n\r\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}"
+QDEBUG : LSPClientTest::testInitialize() Write to process: "Content-Length: 49\r\n\r\n{\"jsonrpc\":\"2.0\",\"method\":\"shutdown\",\"params\":{}}"
+QDEBUG : LSPClientTest::testInitialize() Write to process: "Content-Length: 45\r\n\r\n{\"jsonrpc\":\"2.0\",\"method\":\"exit\",\"params\":{}}"
+QDEBUG : LSPClientTest::testInitialize() Standard Error: "[2024-12-20T10:53:08Z INFO  tinymist] tinymist version information: [[\"Build Timestamp\", \"2024-12-16T17:54:07.035500900Z\"], [\"Build Git Describe\", \"v0.12.12\"], [\"Commit SHA\", \"d3269f521a3b537c346ee97b9c547c94160d8fea\"], [\"Commit Date\", \"None\"], [\"Commit Branch\", \"None\"], [\"Cargo Target Triple\", \"x86_64-pc-windows-msvc\"], [\"Typst Version\", \"0.12.0\"], [\"Typst Source\", \"git+https://github.com/Myriad-Dreamin/typst.git?tag=tinymist-v0.12.0#58426a90a7ef721738a01be09793d33e55eb75a9\"]]\n[2024-12-20T10:53:08Z INFO  tinymist] starting Language server: LspArgs {\n        mirror: MirrorArgs {\n            mirror: \"\",\n            replay: \"\",\n        },\n        font: CompileFontArgs {\n            font_paths: [],\n            ignore_system_fonts: false,\n        },\n    }\n"
+QDEBUG : LSPClientTest::testInitialize() Standard Error: "[2024-12-20T10:53:08Z INFO  sync_lsp] handling initialize - (1) at Instant { t: 98761.99s }\n"
+QDEBUG : LSPClientTest::testInitialize() Standard Error: "[2024-12-20T10:53:08Z INFO  sync_lsp::transport] reader thread finished\n"
+QDEBUG : LSPClientTest::testInitialize() Standard Error: "[2024-12-20T10:53:08Z INFO  sync_lsp] handled  initialize - (1) in 53.30µs\n"
+QDEBUG : LSPClientTest::testInitialize() Standard Output: "Content-Length: 89\r\n\r\n{\"jsonrpc\":\"2.0\",\"id\":1,\"error\":{\"code\":-32600,\"message\":\"missing field `capabilities`\"}}"
+QDEBUG : LSPClientTest::testInitialize() Standard Error: "[2024-12-20T10:53:08Z WARN  sync_lsp] client exited without proper shutdown sequence\n[2024-12-20T10:53:08Z INFO  sync_lsp::transport] writer thread finished\n"
+QDEBUG : LSPClientTest::testInitialize() Standard Error: "[2024-12-20T10:53:08Z INFO  tinymist] language server did shut down\n"
+QDEBUG : LSPClientTest::testInitialize() Process finished with exit code: 0
+PASS   : LSPClientTest::testInitialize()
+PASS   : LSPClientTest::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 1163ms
+********* Finished testing of LSPClientTest *********

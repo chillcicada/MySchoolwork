@@ -142,8 +142,8 @@ classDiagram
         +String getContent()
     }
 
-	List "1" <-- "1" Document : uses
-	Stack "*" <-- "1" UserState : uses
+  List "1" <-- "1" Document : uses
+  Stack "*" <-- "1" UserState : uses
     Document "1" --> "*" TextLine : contains
 ```
 
@@ -169,4 +169,3 @@ flowchart TD
 ### 当前进度
 
 已完成环境的配置，项目地址：<https://git.tsinghua.edu.cn/liukuan22/qode>
-

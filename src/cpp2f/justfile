@@ -1,2 +1,94 @@
+# @file justfile
+# @author liukuan (liukuan22@mails.tsinghua.edu.cn)
+# @brief Justfile for Qode
+# @version 0.0.0
+# @date 2024-12-09
+#
+# @copyright Copyright (c) 2024 GPLv3
+
+DEFAULT-TARGET := "qode"
+
 default:
-  @just --list
+  @just -l
+
+xmake:
+  xmake -a
+
+alias x := xmake
+
+build TARGET=DEFAULT-TARGET:
+  xmake b {{TARGET}}
+
+alias b := build
+
+dev TARGET=DEFAULT-TARGET: build
+  xmake r {{TARGET}}
+
+alias d := dev
+
+run TARGET=DEFAULT-TARGET:
+  xmake r {{TARGET}}
+
+alias r := run
+
+watch TARGET=DEFAULT-TARGET:
+  xmake watch -t {{TARGET}} -q
+
+alias w := watch
+
+clean:
+  xmake clean --all
+
+config TARGET:
+  xmake f --toolchain={{TARGET}} -m release
+
+alias f := config
+
+config-gcc:
+  xmake f --toolchain=gcc -m release
+
+config-msvc:
+  xmake f --toolchain=msvc -m release
+
+config-mingw:
+  xmake f --toolchain=mingw -m release
+
+test TARGET:
+  xmake b {{TARGET}}-test && xmake r {{TARGET}}-test
+
+alias t := test
+
+test-all:
+  just test-mystl && just test-lsp && just test-lspclient
+
+test-mystl:
+  xmake b mystl-test && xmake r mystl-test
+
+test-mystl-snap:
+  xmake b mystl-test && xmake r mystl-test > tests/mystl.snap
+
+test-lsp:
+  xmake b lsp-test && xmake r lsp-test
+
+test-lsp-snap:
+  xmake b lsp-test && xmake r lsp-test > tests/lsp.snap
+
+test-lspclient:
+  xmake b lspclient-test && xmake r lspclient-test
+
+test-lspclient-snap:
+  xmake b lspclient-test && xmake r lspclient-test > tests/lspclient.snap
+
+test-misc:
+  xmake b misc-test && xmake r misc-test
+
+test-misc-snap:
+  xmake b misc-test && xmake r misc-test > tests/misc.snap
+
+gen-snap: test-mystl-snap test-lsp-snap test-lspclient-snap test-misc-snap
+
+snap TARGET:
+  xmake b {{TARGET}}-test && xmake r {{TARGET}}-test > tests/{{TARGET}}.snap
+
+doc:
+  doxygen .doxyfile
