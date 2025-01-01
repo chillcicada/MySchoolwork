@@ -1,0 +1,11 @@
+default:
+  @just --list
+
+dev:
+  xmake && xmake run
+
+debug:
+  xmake f -m debug && xmake
+
+py:
+  python src/__init__.py
