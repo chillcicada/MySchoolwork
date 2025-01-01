@@ -1,36 +1,36 @@
 module CalcConvolutionModule
-  implicit none
+   implicit none
 
-  private :: HomoCheck
-  public  :: CalcConvolution
+   private :: HomoCheck
+   public  :: CalcConvolution
 
 contains
-  function HomoCheck(argInt, argFloat) result(res)
-    integer, intent(in) :: argInt(:)
-    real, intent(in)    :: argFloat(:)
-    logical             :: res
+   function HomoCheck(argInt, argFloat) result(res)
+      integer, intent(in) :: argInt(:)
+      real, intent(in)    :: argFloat(:)
+      logical             :: res
 
-    res = size(argInt) == size(argFloat)
-  end function HomoCheck
+      res = size(argInt) == size(argFloat)
+   end function HomoCheck
 
-  function CalcConvolution(argInt, argFloat) result(res)
-    integer, intent(in) :: argInt(:)
-    real, intent(in)    :: argFloat(:)
-    real                :: res
+   function CalcConvolution(argInt, argFloat) result(res)
+      integer, intent(in) :: argInt(:)
+      real, intent(in)    :: argFloat(:)
+      real                :: res
 
-    character(len=44)   :: ErrMsg = "Error: argInt and argFloat must be same size"
-    integer             :: i
+      character(len=44)   :: ErrMsg = "Error: argInt and argFloat must be same size"
+      integer             :: i
 
-    if (.not. HomoCheck(argInt, argFloat)) then
-      print *, ErrMsg
-      stop
-    end if
+      if (.not. HomoCheck(argInt, argFloat)) then
+         print *, ErrMsg
+         stop
+      end if
 
-    res = 0.0
-    do i = 1, size(argInt)
-      res = res + argInt(i) * argFloat(i)
-    end do
-  end function CalcConvolution
+      res = 0.0
+      do i = 1, size(argInt)
+         res = res + argInt(i)*argFloat(i)
+      end do
+   end function CalcConvolution
 end module CalcConvolutionModule
 
 ! ! test
