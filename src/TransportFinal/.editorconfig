@@ -11,5 +11,5 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[{pyproject.toml,*.lock}]
+[{pyproject.toml,*.lock,xmake.lua}]
 indent_size = 4
