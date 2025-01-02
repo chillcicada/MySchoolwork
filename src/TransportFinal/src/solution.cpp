@@ -26,29 +26,29 @@ const auto h1 = 500.0; // W/m^2*K
 const auto h2 = 10.0;  // W/m^2*K
 
 /**
- * @brief claculate the first temperature
+ * @brief calculate the first temperature
  *
  * @param Ti the temperature at the 1-th node
  * @param dr the delta r
  * @return double
  */
-double clac_first(double Ti, double dr) {
+double calc_first(double Ti, double dr) {
   return (h1 * T_0 + k1 * Ti / dr) / (h1 + k1 / dr);
 }
 
 /**
- * @brief claculate the last temperature
+ * @brief calculate the last temperature
  *
  * @param Ti the temperature at the n-1th node
  * @param dr the delta r
  * @return double
  */
-double clac_last(double Ti, double dr) {
+double calc_last(double Ti, double dr) {
   return (h2 * T_inf + k2 * Ti / dr) / (h2 + k2 / dr);
 }
 
 /**
- * @brief claculate the temperature at the i-th node
+ * @brief calculate the temperature at the i-th node
  *
  * @param Tl the temperature at the i-1th node
  * @param Ti the temperature at the i-th node
@@ -59,7 +59,7 @@ double clac_last(double Ti, double dr) {
  * @param i the index
  * @return double
  */
-double clac_T(double Tl, double Ti, double Tr, double dr, double alpha,
+double calc_T(double Tl, double Ti, double Tr, double dr, double alpha,
               double dt, int i) {
   auto ri = R1 + i * dr;
   return Ti + alpha * dt *
@@ -68,13 +68,13 @@ double clac_T(double Tl, double Ti, double Tr, double dr, double alpha,
 }
 
 /**
- * @brief claculate the middle temperature at R2
+ * @brief calculate the middle temperature at R2
  *
  * @param Tl the temperature at the left node
  * @param Tr the temperature at the right node
  * @return double
  */
-double clac_middle(double Tl, double Tr) {
+double calc_middle(double Tl, double Tr) {
   return (Tl * k1 + Tr * k2) / (k1 + k2);
 }
 
@@ -95,18 +95,18 @@ std::vector<double> iter_once(const std::vector<double> &T, int n, double dr,
 
   auto boundary_point = n / 3;
 
-  T_new[0] = clac_first(T_new[1], dr);
+  T_new[0] = calc_first(T_new[1], dr);
 
   for (auto i = 1; i < boundary_point; ++i)
-    T_new[i] = clac_T(T_new[i - 1], T_new[i], T_new[i + 1], dr, alpha1, dt, i);
+    T_new[i] = calc_T(T_new[i - 1], T_new[i], T_new[i + 1], dr, alpha1, dt, i);
 
   T_new[boundary_point] =
-      clac_middle(T_new[boundary_point - 1], T_new[boundary_point + 1]);
+      calc_middle(T_new[boundary_point - 1], T_new[boundary_point + 1]);
 
   for (auto i = boundary_point + 1; i < n; ++i)
-    T_new[i] = clac_T(T_new[i - 1], T_new[i], T_new[i + 1], dr, alpha2, dt, i);
+    T_new[i] = calc_T(T_new[i - 1], T_new[i], T_new[i + 1], dr, alpha2, dt, i);
 
-  T_new[n] = clac_last(T_new[n - 1], dr);
+  T_new[n] = calc_last(T_new[n - 1], dr);
 
   return T_new;
 }
@@ -144,9 +144,18 @@ std::vector<double> do_iter(int n, double dt, double eps) {
 };
 
 int main() {
-  auto n = 120;
+  auto n = 300;
   auto dt = 1e-2;
-  auto eps = 1e-2;
+  auto eps = 1e-5;
+
+  std::cout << "type n (default 300), delta t (default 1e-2), epsilon (default "
+               "1e-5): \n";
+  std::cin >> n >> dt >> eps;
+
+  if (n <= 0 || dt <= 0 || eps <= 0) {
+    std::cerr << "invalid input\n";
+    return 1;
+  }
 
   auto T = do_iter(n, dt, eps);
 

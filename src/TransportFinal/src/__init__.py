@@ -25,7 +25,7 @@ h1 = 500  # W/m^2-K
 h2 = 10  # W/m^2-K
 
 
-def clac_first(_Ti: float, _dr: float) -> float:
+def calc_first(_Ti: float, _dr: float) -> float:
   """
   _Ti: temperature of T[1]
   _dr: delta r
@@ -33,7 +33,7 @@ def clac_first(_Ti: float, _dr: float) -> float:
   return (h1 * T_0 + k1 * _Ti / _dr) / (h1 + k1 / _dr)
 
 
-def clac(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: float, _i: int) -> float:
+def calc(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: float, _i: int) -> float:
   """
   _Tl: temperature of T[i - 1]
   _Ti: temperature of T[i]
@@ -47,7 +47,7 @@ def clac(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: flo
   return _Ti + _alpha * _dt * ((_Tl + _Tr - 2 * _Ti) / _dr**2 + (1 / ri_) * (_Tr - _Tl) / (2 * _dr) - _Ti / ri_**2)
 
 
-def clac_middle(_Tl: float, _Tr: float) -> float:
+def calc_middle(_Tl: float, _Tr: float) -> float:
   """
   _Tl: temperature of T[i - 1]
   _Tr: temperature of T[i + 1]
@@ -55,7 +55,7 @@ def clac_middle(_Tl: float, _Tr: float) -> float:
   return (_Tl * k1 + _Tr * k2) / (k1 + k2)
 
 
-def clac_last(_Ti: float, _dr: float) -> float:
+def calc_last(_Ti: float, _dr: float) -> float:
   """
   _Ti: temperature of T[n - 1]
   _dr: delta r
@@ -63,7 +63,7 @@ def clac_last(_Ti: float, _dr: float) -> float:
   return (h2 * T_inf + k2 * _Ti / _dr) / (h2 + k2 / _dr)
 
 
-def iter_once(_T: float, _n: int, _dr: float, _dt: float):
+def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
   """
   _T: temperature array, n + 1 nodes
   _n: number of segments, n + 1 nodes
@@ -72,19 +72,19 @@ def iter_once(_T: float, _n: int, _dr: float, _dt: float):
   """
   T_ = _T.copy()
 
-  T_[0] = clac_first(T_[1], _dr)
+  T_[0] = calc_first(T_[1], _dr)
 
   bp_ = _n // 3  # breakpoint n of R1 and R2
 
   for i in range(1, bp_):
-    T_[i] = clac(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
+    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
 
-  T_[bp_] = clac_middle(T_[bp_ - 1], T_[bp_ + 1])
+  T_[bp_] = calc_middle(T_[bp_ - 1], T_[bp_ + 1])
 
   for i in range(bp_ + 1, _n):
-    T_[i] = clac(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
+    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
 
-  T_[_n] = clac_last(T_[_n - 1], _dr)
+  T_[_n] = calc_last(T_[_n - 1], _dr)
 
   return T_
 

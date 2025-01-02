@@ -1,30 +1,104 @@
-= 2024 传递过程原理大作业
+#import "@preview/codly:1.1.1": *
+#import "@preview/codly-languages:0.1.3": *
+#import "@preview/cuti:0.3.0": show-cn-fakebold
 
-刘宽 2022013189 探微-分21
+#show: show-cn-fakebold
 
-#pagebreak()
+#show: codly-init.with()
+
+#let TITLE_FONT = ("Arial", "SimHei")
+
+#let TEXT_FONT = ("Times New Roman", "SimSun")
+
+#show heading: it => {
+  text(it, font: TITLE_FONT)
+}
+
+#show heading.where(level: 1): it => {
+  text(it, size: 36pt)
+}
+
+// pagebreak at heading level 2
+#show heading.where(level: 2): it => {
+  pagebreak()
+  text(it, size: 20pt)
+}
+
+#set page(
+  paper: "a4",
+  footer: [
+    #align(
+      center,
+      datetime.today().display("[year]年[month]月[day]日"),
+    )
+  ],
+  margin: (left: 1.27cm, right: 1.27cm, top: 1.27cm, bottom: 2.54cm),
+)
+
+#set text(font: TEXT_FONT, lang: "zh")
+
+#set math.equation(numbering: (..n) => numbering("(1)", ..n))
+
+#align(center)[
+  #v(10%)
+
+  #image("_img/thu_logo.jpg", width: 120%)
+
+  #v(-4%)
+
+  = 作业报告
+
+  #text(size: 20pt)[2024秋 传递过程原理]
+
+  #text(font: ("libertinus serif", "KaiTi"), size: 14pt)[
+    刘宽 2022013189 探微-分21
+
+    liukuan22\@mails.tsinghua.edu.cn
+  ]
+]
+
+#set page(
+  footer: [
+    #align(center)[
+      *2024 传递过程原理大作业*
+
+      #context counter(page).display("- 1 -")
+    ]
+  ],
+)
 
 == 问题描述
 
-#table(
-  columns: (auto, auto, auto, auto),
-  align: horizon,
-  table.header(
-    [],
-    [密度 $"kg"\/upright(m)^3$],
-    [热容 $upright(J)\/("kg" dot.c upright(K))$],
-    [导热系数 $upright(W)\/(upright(m) dot.c upright(K))$],
-  ),
+#counter(page).update(1)
 
-  [陶瓷], [$rho_1 = 2600$], [$C_(p 1) = 1150$], [$k_1=3.0$],
-  [保温层], [$rho_2 = 600$], [$C_(p 2) = 200$], [$k_2=0.2$],
-)
+#align(center)[
+  #table(
+    columns: 4,
+    stroke: none,
+    align: horizon,
+    table.hline(),
+    table.header(
+      [],
+      [密度 $"kg"\/upright(m)^3$],
+      [热容 $upright(J)\/("kg" dot.c upright(K))$],
+      [导热系数 $upright(W)\/(upright(m) dot.c upright(K))$],
+    ),
+    table.hline(stroke: 0.5pt),
+
+    [陶瓷], [$rho_1 = 2600$], [$C_(p 1) = 1150$], [$k_1=3.0$],
+    [保温层], [$rho_2 = 600$], [$C_(p 2) = 200$], [$k_2=0.2$],
+
+    table.hline(),
+  )
+]
 
 陶瓷与反应物流的对流换热系数为 $h_1 = 500 upright(W)\/(upright(m)^2 dot.c upright(K))$，保温层与环境气流的对流换热系数为 $h_2 = 10 upright(W)\/(upright(m)^2 dot.c upright(K))$。
 
-起始时，反应物流温度为 $T_0 = 1500 upright(K)$，环境气流温度为 $T_infinity = 298 upright(K)$，反应器温度为 $T_"init" = 300 upright(K)$，反应器内径 $R_1 = 0.05 upright(m)$，保温层内径 $R_2 = 0.075 upright(m)$，反应器外径 $R_3 = 0.125 upright(m)$。
+起始时，反应物流温度为 $T_0 = 1500 upright(K)$，环境气流温度为 $T_infinity = 298 upright(K)$，反应器温度为 $T_"init" = 300 upright(K)$。陶瓷厚度 $delta_1 = 0.025 upright(m)$，保温层厚度 $delta_2 = 0.05 upright(m)$。反应器内径 $R_1 = 0.05 upright(m)$，保温层内径 $R_2 = 0.075 upright(m)$，反应器外径 $R_3 = 0.125 upright(m)$。
 
-记陶瓷温度为 $T_1$，传热因子为 $alpha_1$；保温层温度为 $T_2$，传热因子为 $alpha_2$。
+记陶瓷温度为 $T_1$，热扩散系数为 $alpha_1$；保温层温度为 $T_2$，热扩散系数为 $alpha_2$。
+
+#align(center)[#image("_img/problem.png", width: 70%)]
 
 == 问题分析
 
@@ -32,19 +106,38 @@
 
 $
   (upright(D) T) / (upright(D) t) = alpha nabla^2 T + dot(q) / (rho C_p)
-$
+$<1>
 
-对于陶瓷和保温层的传热过程，其为一维非稳态导热问题，无内热源，边界处均为第三类边界条件（对流换热）。从而，其传热方程简化为：
+对于陶瓷和保温层的传热过程，其为一维非稳态导热问题，无内热源，边界处均为第三类边界条件（对流换热）。从而，其传热方程@1 简化为：
 
 $
   (partial T) / (partial t) = alpha nabla^2 T
-$
+$<2>
 
-陶瓷和保温层均为圆管状，温度分布只与时间 $T$ 和径向变量 $r$ 有关，从而方程进一步简化为：
+陶瓷和保温层均为圆管状，温度分布只与时间 $T$ 和径向变量 $r$ 有关，从而方程@2 进一步简化为：
 
 $
   (partial T) / (partial t) = alpha partial / (partial r) (1 / r (partial (r T)) / (partial r))
+$<3>
+
+展开得到：
+
 $
+  (partial T) / (partial t) = alpha ((partial^2 T) / (partial r^2) + 1 / r (partial T) / (partial r) - T / r^2)
+$<3.1>
+
+其中，时间向前差分的表示为：
+
+$
+  lr((partial T) / (partial t)|)_i = (T_i^(m+1) - T_i^m) / (Delta t) + O(Delta t)
+$<3.2>
+
+空间中心差分的表示为：
+
+$
+  lr((partial T) / (partial r)|)_i &= (T_(i+1) - T_(i-1)) / (2 Delta r) + O(Delta r) \
+  lr((partial^2 T) / (partial r^2)|)_i &= (T_(i+1) + T_(i-1) - 2 T_i) / (Delta r^2) + O(Delta r^2)
+$<3.3>
 
 在传热过程中，涉及到三处边界条件：
 
@@ -58,17 +151,23 @@ $
   q_1 =& h_1 (T_0 - T_"1w") &= k_1 lr((partial T_1) / (partial r)|)_(r = R_1) \
   q_2 =& k_1 lr((partial T_1) / (partial r)|)_(r = R_2) &= k_2 lr((partial T_2) / (partial r)|)_(r = R_2) \
   q_3 =& h_2 (T_"2w" - T_infinity) &= k_2 lr((partial T_2) / (partial r)|)_(r = R_3)
-$
+$<4>
 
 == 解题思路
 
-将圆管视作一段一段同心环管，以半径均分为 $n$ 段，$Delta r = (R_3 - R_1) \/ n$，则有：
+将圆管视作一层一层的同心环管构成，以半径均分为 $n$ 段，$Delta r = (R_3 - R_1) \/ n$，使用时间向前差分@3.2，空间中心差分@3.3 代入@3.1，舍去尾项，则有：
 
 $
   alpha((T_(i+1)^m + T_(i-1)^m - 2 T_i^m) / (Delta r^2) + 1 / r_i (T_(i+1)^m-T_(i-1)^m) / (2 Delta r) - T_i^m / r_i^2) = (T_i^(m+1) - T_i^m) / (Delta t)
-$
+$<5>
 
 其中 $i = 1, 2, 3, ..., n - 1$，$m = 0, 1, 2, 3, ...$，$r_i = R_1 + i Delta r$。
+
+即对于一般情况下：
+
+$
+  T_i^(m+1) = T_i^m + alpha Delta t ((T_(i+1)^m + T_(i-1)^m - 2 T_i^m) / (Delta r^2) + 1 / r_i (T_(i+1)^m-T_(i-1)^m) / (2 Delta r) - T_i^m / r_i^2)
+$<6>
 
 定解条件为：
 
@@ -77,15 +176,299 @@ $
   h_1 (T_0 - T_0^m) &= k_1 (T_0^m - T_1^m) / (Delta r), &m = 0, 1, 2, 3, ... \
   k_1 (T_(n \/ 3 -1)^m - T_(n \/ 3)^m) / (Delta r) &= k_2 (T_(n \/ 3)^m - T_(n \/ 3 + 1)^m) / (Delta r), &m = 0, 1, 2, 3, ... \
   h_2 (T_n^m - T_infinity) &= k_2 (T_(n-1)^m - T_n^m) / (Delta r), &m = 0, 1, 2, 3, ...
-$
+$<7>
 
-即：
+式中 $n \/ 3$ 由 $R_1 = 0.05$、$R_2 = 0.075$ 和 $R_3 = 0.125$ 确定，$n \/ 3 = n * (R_2 - R_1) \/ (R_3 - R_1)$，即：
 
 $
-  T_i^0 &= T_"init", &i = 1, 2, 3, ..., n - 1 \
+  T_i^0 = T_"init", i = 1, 2, 3, ..., n - 1
+$<8>
+
+$
   T_0^m &= (h_1 T_0 + k_1 T_1^m \/ Delta r) / (h_1 + k_1 \/ Delta r), &m = 0, 1, 2, 3, ... \
   T_(n \/ 3)^m &= (k_1 T_(n \/ 3 - 1)^m + k_2 T_(n \/ 3 + 1)^m) / (k_1 + k_2), &m = 0, 1, 2, 3, ... \
   T_n^m &= (h_2 T_infinity + k_2 T_(n-1)^m \/ Delta r) / (h_2 + k_2 \/ Delta r), &m = 0, 1, 2, 3, ...
-$
+$<9>
 
-对于 $T_0^0$ 和 $T_n^0$，使用初始拟稳态假设求解。
+== 程序设计
+
+将 $Delta r$ 段温度用 $T_i^m$ 表示，$m$ 为时间步数，$i$ 为分隔段端点数，$T_i^m$ 为第 $m$ 步第 $i$ 段的温度，用单个时间内的温度分布数组 $T$ 表示，$T_i^m$ 为 $T[i]$，使用 $T_i^0 = T_"init"$ 初始化，参考@8。
+
+对于陶瓷与反应物流界面处温度 $T_0^m$，陶瓷与保温层界面处温度 $T_(n \/ 3)^m$ 和保温层与环境气流界面处温度 $T_n^m$，根据@9 给出如下计算公式，所有常数已预先定义：
+
+- 计算陶瓷与反应物流界面处温度：
+
+#codly(
+  annotations: (
+    (
+      start: 1,
+      end: 5,
+      content: block(
+        width: 2em,
+        rotate(-90deg, align(center)[@9 .1]),
+      ),
+    ),
+  ),
+  annotation-format: none,
+)
+
+```py
+def calc_first(_Ti: float, _dr: float) -> float:
+  """
+  _Ti: temperature of T[1]
+  _dr: delta r
+  """
+  return (h1 * T_0 + k1 * _Ti / _dr) / (h1 + k1 / _dr)
+```
+
+- 计算陶瓷与保温层界面处温度：
+
+#codly(
+  annotations: (
+    (
+      start: 1,
+      end: 5,
+      content: block(
+        width: 2em,
+        rotate(-90deg, align(center)[@9 .2]),
+      ),
+    ),
+  ),
+  annotation-format: none,
+)
+
+```py
+def calc_middle(_Tl: float, _Tr: float) -> float:
+  """
+  _Tl: temperature of T[i - 1]
+  _Tr: temperature of T[i + 1]
+  """
+  return (_Tl * k1 + _Tr * k2) / (k1 + k2)
+```
+
+- 计算保温层与环境气流界面处温度：
+
+#codly(
+  annotations: (
+    (
+      start: 1,
+      end: 5,
+      content: block(
+        width: 2em,
+        rotate(-90deg, align(center)[@9 .3]),
+      ),
+    ),
+  ),
+  annotation-format: none,
+)
+
+```py
+def calc_last(_Ti: float, _dr: float) -> float:
+  """
+  _Ti: temperature of T[n - 1]
+  _dr: delta r
+  """
+  return (h2 * T_inf + k2 * _Ti / _dr) / (h2 + k2 / _dr)
+```
+
+根据@6，边界条件以外的温度计算公式如下，使用时根据位置区间选择热扩散系数 $alpha$：
+
+#codly(
+  annotations: (
+    (
+      start: 1,
+      end: 11,
+      content: block(
+        width: 2em,
+        rotate(-90deg, align(center)[@6]),
+      ),
+    ),
+  ),
+  annotation-format: none,
+)
+
+```py
+def calc(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: float, _i: int) -> float:
+  """
+  _Tl: temperature of T[i - 1]
+  _Ti: temperature of T[i]
+  _Tr: temperature of T[i + 1]
+  _dr: delta r
+  _alpha: alpha
+  _dt: delta t
+  _i: ith point
+  """
+  ri_ = R1 + _i * _dr  # r of T[i]
+  return _Ti + _alpha * _dt * ((_Tl + _Tr - 2 * _Ti) / _dr**2 + (1 / ri_) * (_Tr - _Tl) / (2 * _dr) - _Ti / ri_**2)
+```
+
+基于此，我们可以实现从 $t = m$ 到 $t = m + 1$ 的温度计算过程，即单步迭代。同时，考虑到热流方向为由内向外，我们从内向外逐次计算，即从 $i = 1$ 到 $i = n - 1$，具体实现如下：
+
+```py
+def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
+  """
+  _T: temperature array, n + 1 nodes
+  _n: number of segments, n + 1 nodes
+  _dr: delta r
+  _dt: delta t
+  """
+  T_ = _T.copy()
+  T_[0] = calc_first(T_[1], _dr)
+  bp_ = _n // 3  # breakpoint n of R1 and R2
+  for i in range(1, bp_):
+    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
+  T_[bp_] = calc_middle(T_[bp_ - 1], T_[bp_ + 1])
+  for i in range(bp_ + 1, _n):
+    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
+  T_[_n] = calc_last(T_[_n - 1], _dr)
+  return T_
+```
+
+最后，我们可以实现整体迭代过程，直至温度收敛，收敛的判定为前向时间温度差的最大值小于截断误差 $epsilon$，即 $t = m + 1$ 时刻与 $t = m$ 时刻的温度数组的差数组中最大值小于截断误差 $epsilon$，具体实现如下：
+
+```py
+def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
+  """
+  _n: number of segments, n + 1 nodes
+  _dt: delta t
+  _eps: epsilon
+  """
+  T_ = np.full(_n + 1, T_init, dtype=np.float64)
+  dr_ = (R3 - R1) / _n
+  while True:
+    T_new = iter_once(T_, _n, dr_, _dt)
+    if np.max(np.abs(T_new - T_)) < _eps:
+      break
+    T_ = T_new
+  return T_new
+```
+
+
+
+== 程序评估
+
+最终得到在 $delta_2 = 0.05 upright(m)$（即 $R_3$ 为题目值）的情况下，$n$ 取 300，$Delta t$ 取 $0.01 upright(s)$，截断误差 $epsilon$ 取 $10^(-5) upright(K)$ 时运行效果较为合适，总运行时间 $tilde.op 1 "min"$，可以得到光滑的 $T-t-r$ 平面分布。
+
+此外，同时也提供了基于 cpp 的完整实现（见 `main.cpp`），并提供了编译程序 `main.exe`，可直接运行，运行效率显著高于 python 脚本，*在相同情况下可以在毫秒级完成收敛迭代*，但由于 cpp 和 python 的舍入精度差异，python 结果更为精确，累计误差更小。
+
+由于每次温度计算时实际上只依赖于前一个和后一个温度，因而程序具备较好的并行性，可以在多线程环墫下进行计算，本程序未进行多线程优化和向量运算优化。
+
+经多次调试，该代码在温度区间较小或半径区间较小时会显著增加计算时间，同时会出现不收敛或难收敛的情况，因此，推荐在适中的范围的取值使用，即 $n tilde.op 10^3$，$t tilde.op 10^(-3) upright(s)$ 计算时间不大的情况下取得不错的效果。
+
+== 结果分析
+
+温度分布与时间的关系如下图所示：
+
+#align(center)[#image("_img/T_all.png", width: 80%)]
+
+最终的温度分布如下图所示：
+
+#align(center)[#image("_img/T.png", width: 70%)]
+
+== 结论
+
+结合 $T-t-r$ 图像，可以看出，在 $t tilde.op 1 "min"$ 内，温度分布已经收敛，反应器的温度就可以维持在较高的温度区间，且温度分布较为合理，符合物理规律，即反应物流温度较高，环境气流温度较低，且温度分布较为平滑，符合预期，因此，本程序的实现是合理的，数值分析过程较为成功。
+
+== 附录
+
+最小程序完整实现（python）如下：
+
+```py
+# main.py
+import numpy as np
+
+# define constants
+R1 = 0.050  # m
+R2 = 0.075  # m
+R3 = 0.125  # m
+
+rho1 = 2600  # kg/m^3
+cp1 = 1150  # J/kg-K
+k1 = 3.0  # W/m-K
+
+alpha1 = k1 / (rho1 * cp1)  # m^2/s
+
+rho2 = 600  # kg/m^3
+cp2 = 200  # J/kg-K
+k2 = 0.2  # W/m-K
+
+alpha2 = k2 / (rho2 * cp2)  # m^2/s
+
+T_init = 300  # K
+T_0 = 1500  # K
+T_inf = 298  # K
+
+h1 = 500  # W/m^2-K
+h2 = 10  # W/m^2-K
+
+
+def calc_first(_Ti: float, _dr: float) -> float:
+  return (h1 * T_0 + k1 * _Ti / _dr) / (h1 + k1 / _dr)
+
+def calc(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: float, _i: int) -> float:
+  ri_ = R1 + _i * _dr  # r of T[i]
+  return _Ti + _alpha * _dt * ((_Tl + _Tr - 2 * _Ti) / _dr**2 + (1 / ri_) * (_Tr - _Tl) / (2 * _dr) - _Ti / ri_**2)
+
+def calc_middle(_Tl: float, _Tr: float) -> float:
+  return (_Tl * k1 + _Tr * k2) / (k1 + k2)
+
+def calc_last(_Ti: float, _dr: float) -> float:
+  return (h2 * T_inf + k2 * _Ti / _dr) / (h2 + k2 / _dr)
+
+def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
+  T_ = _T.copy()
+  T_[0] = calc_first(T_[1], _dr)
+  bp_ = _n // 3  # breakpoint n of R1 and R2
+  for i in range(1, bp_):
+    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
+  T_[bp_] = calc_middle(T_[bp_ - 1], T_[bp_ + 1])
+  for i in range(bp_ + 1, _n):
+    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
+  T_[_n] = calc_last(T_[_n - 1], _dr)
+  return T_
+
+def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
+  T_ = np.full(_n + 1, T_init, dtype=np.float64)
+  dr_ = (R3 - R1) / _n
+  while True:
+    T_new = iter_once(T_, _n, dr_, _dt)
+    if np.max(np.abs(T_new - T_)) < _eps:
+      break
+    T_ = T_new
+  return T_new
+
+# example usage
+T = do_iter(300, 1e-2, 1e-5)
+print(T)
+```
+
+运行 `python main.py` 即可得到结果（依赖 numpy 包），包含绘图，优化和 cpp 实现的内容参考附件。
+
+== 附件信息
+
+#align(
+  center,
+  table(
+    columns: (1fr, 1fr, 3fr),
+    stroke: none,
+    table.hline(),
+    table.header(
+      [],
+      [描述],
+      [备注],
+    ),
+    table.hline(stroke: 0.5pt),
+
+    [report.pdf], [最终报告], [即本文件],
+    [main.py], [python 实现], [运行依赖 numpy 和 python 环境],
+    [main.ipynb], [jupyter notebook], [包含完整代码和运行结果（如绘图等等），运行依赖 numpy、jupyter、matplotlib 和 python 环境],
+    [main.cpp], [cpp 实现], [可自行编译],
+    [main.exe], [cpp 编译结果], [命令行，可直接运行],
+
+    [\_img\/], [图片文件夹], [存放图片文件],
+    [assets\/], [资源文件夹], [存放保存的数据，可通过 `np.load` 加载],
+    table.hline(),
+  ),
+)
+
+除构建产物外，可以在#underline(link("https://github.com/chillcicada/MySchoolwork/tree/main/src/TransportFinal")[此处])访问本大作业的完整源代码。

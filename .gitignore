@@ -49,6 +49,7 @@ temp/
 *.out
 *.app
 *.diff
+*.npy
 compile_commands.json
 
 # xmake
