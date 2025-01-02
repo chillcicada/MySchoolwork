@@ -7,5 +7,23 @@ dev:
 debug:
   xmake f -m debug && xmake
 
+release:
+  xmake f -m release && xmake
+
 py:
   python src/__init__.py
+
+doc:
+  typst c report.typ
+
+zip: release doc
+  node zip.mjs
+
+clean:
+  xmake clean --all # clean cpp build cache
+  ruff clean # clean ruff cache
+  rm report.pdf hw.zip # clean zip and pdf
+
+all:
+  just zip
+  just clean
