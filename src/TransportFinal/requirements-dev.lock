@@ -223,6 +223,8 @@ python-dateutil==2.9.0.post0
     # via pandas
 python-json-logger==3.2.1
     # via jupyter-events
+python-slugify==8.0.4
+    # via transportfinal
 pytz==2024.2
     # via pandas
 pywin32==308
@@ -274,6 +276,8 @@ stack-data==0.6.3
 terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
+text-unidecode==1.3
+    # via python-slugify
 threadpoolctl==3.5.0
     # via scikit-learn
 tinycss2==1.4.0
