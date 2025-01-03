@@ -24,6 +24,10 @@
   text(it, size: 20pt)
 }
 
+#show heading.where(level: 3): it => {
+  text(it, size: 16pt)
+}
+
 #set page(
   paper: "a4",
   footer: [
@@ -71,8 +75,8 @@
 
 #counter(page).update(1)
 
-#align(center)[
-  #table(
+#figure(
+  table(
     columns: 4,
     stroke: none,
     align: horizon,
@@ -89,16 +93,20 @@
     [保温层], [$rho_2 = 600$], [$C_(p 2) = 200$], [$k_2=0.2$],
 
     table.hline(),
-  )
-]
+  ),
+  caption: [材料参数],
+)
 
 陶瓷与反应物流的对流换热系数为 $h_1 = 500 upright(W)\/(upright(m)^2 dot.c upright(K))$，保温层与环境气流的对流换热系数为 $h_2 = 10 upright(W)\/(upright(m)^2 dot.c upright(K))$。
 
-起始时，反应物流温度为 $T_0 = 1500 upright(K)$，环境气流温度为 $T_infinity = 298 upright(K)$，反应器温度为 $T_"init" = 300 upright(K)$。陶瓷厚度 $delta_1 = 0.025 upright(m)$，保温层厚度 $delta_2 = 0.05 upright(m)$。反应器内径 $R_1 = 0.05 upright(m)$，保温层内径 $R_2 = 0.075 upright(m)$，反应器外径 $R_3 = 0.125 upright(m)$。
+起始时，反应物流温度为 $T_0 = 1500 upright(K)$，环境气流温度为 $T_infinity = 298 upright(K)$，反应器温度为 $T_"init" = 300 upright(K)$。陶瓷厚度 $delta_1 = 0.025 upright(m)$，保温层厚度 $delta_2 = 0.05 upright(m)$。反应器内径 $R_1 = 0.05 upright(m)$，保温层内径 $R_2 = 0.075 upright(m)$，反应器外径 $R_3 = 0.125 upright(m)$，反应器示意图如下@fig:problem。
 
 记陶瓷温度为 $T_1$，热扩散系数为 $alpha_1$；保温层温度为 $T_2$，热扩散系数为 $alpha_2$。
 
-#align(center)[#image("_img/problem.png", width: 70%)]
+#figure(
+  image("_img/problem.png", width: 70%),
+  caption: [反应器示意图],
+) <fig:problem>
 
 == 问题分析
 
@@ -305,20 +313,20 @@ def calc(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: flo
 基于此，我们可以实现从 $t = m$ 到 $t = m + 1$ 的温度计算过程，即单步迭代。同时，考虑到热流方向为由内向外，我们从内向外逐次计算，即从 $i = 1$ 到 $i = n - 1$，具体实现如下：
 
 ```py
-def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
+def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float, _bp: int) -> np.ndarray:
   """
   _T: temperature array, n + 1 nodes
   _n: number of segments, n + 1 nodes
   _dr: delta r
   _dt: delta t
+  _bp: breakpoint n of R2
   """
   T_ = _T.copy()
   T_[0] = calc_first(T_[1], _dr)
-  bp_ = _n // 3  # breakpoint n of R1 and R2
-  for i in range(1, bp_):
+  for i in range(1, _bp):
     T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
-  T_[bp_] = calc_middle(T_[bp_ - 1], T_[bp_ + 1])
-  for i in range(bp_ + 1, _n):
+  T_[_bp] = calc_middle(T_[_bp - 1], T_[_bp + 1])
+  for i in range(_bp + 1, _n):
     T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
   T_[_n] = calc_last(T_[_n - 1], _dr)
   return T_
@@ -335,15 +343,15 @@ def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
   """
   T_ = np.full(_n + 1, T_init, dtype=np.float64)
   dr_ = (R3 - R1) / _n
+  bp_ = _n // 3
+
   while True:
-    T_new = iter_once(T_, _n, dr_, _dt)
+    T_new = iter_once(T_, _n, dr_, _dt, bp_)
     if np.max(np.abs(T_new - T_)) < _eps:
       break
     T_ = T_new
   return T_new
 ```
-
-
 
 == 程序评估
 
@@ -357,17 +365,33 @@ def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
 
 == 结果分析
 
-温度分布与时间和半径的关系 $T-t-r$ 如下图所示，包含反应器陶瓷的温度分布和保温层的温度分布，可以看到，整体的温度分布符合物理规律，温度分布较为合理，即反应物流温度较高，升温较快，保温层温度较低，总体温度分布较为平滑，符合预期：
+温度分布与时间和半径的关系 $T-t-r$ 如下@fig:T_all 所示，包含反应器陶瓷的温度分布和保温层的温度分布，可以看到，整体的温度分布符合物理规律，温度分布较为合理，即反应物流温度较高，升温较快，保温层温度较低，总体温度分布较为平滑，符合预期：
 
-#align(center)[#image("_img/T_all.png", width: 80%)]
+#figure(
+  image("_img/T_all.png", width: 80%),
+  caption: [反应器温度分布 $T(t, r)$],
+) <fig:T_all>
 
-最终的温度分布 $T-r$ 如下图所示，包含陶瓷和保温层两部分：
+其中 R2 处和 R3 处（即保温层内表面处）温度随时间的分布如下@fig:T_t 所示，可以看到，温度随时间的变化较为平滑，且最终取向稳定值，说明体系达到稳态：
 
-#align(center)[#image("_img/T.png", width: 70%)]
+#figure(
+  image("_img/T_t.png", width: 65%),
+  caption: [R2 处温度随时间变化, R3 处温度随时间变化],
+) <fig:T_t>
+
+最终的温度分布 $T-r$ 如下@fig:T 所示，包含陶瓷和保温层两部分：
+
+#figure(
+  image("_img/T.png", width: 70%),
+  caption: [反应器最终温度分布 $T(r)$],
+) <fig:T>
 
 对于保温层厚度为一般值的情况，修改关键参数，可以得到 $R_3$ 不同时的最终温度分布图如下：
 
-#align(center)[#image("_img/T_r.png", width: 70%)]
+#figure(
+  image("_img/T_r.png", width: 80%),
+  caption: [不同 $delta 2$ 下 $T(r)$ 最终图像],
+) <fig:T_r>
 
 通过分析可以得知，在稳态条件下体系的温度分布满足如下的规律：
 
@@ -389,19 +413,19 @@ $<12>
 
 $eta$ 越接近 1，说明保温效果越好。
 
-我们计算了 $delta_2 = 0.025 upright(m) - 0.25 upright(m)$ 十等分点上的 $eta$ 值（最终温度如上图所示），结果如下表所示：
+我们计算了 $delta_2 = 0.025 upright(m) - 0.25 upright(m)$ 十等分点上的 $eta$ 值（最终温度如上图所示），并统计了达到稳态的平衡时间，结果如下表所示：
 
 #let data_eta = csv("assets/data_eta.csv")
 
-#align(
-  center,
+#figure(
   table(
-    columns: 2,
+    columns: 3,
     stroke: none,
     table.hline(),
     table.header(
-      [保温层厚度 $delta_2$],
+      [保温层厚度 $delta_2 \/ upright(m)$],
       [保温效果 $eta$],
+      [平衡时间 $"time"\/ upright(s)$],
     ),
     table.hline(stroke: 0.5pt),
 
@@ -409,15 +433,24 @@ $eta$ 越接近 1，说明保温效果越好。
 
     table.hline(),
   ),
-)
+  caption: [不同 $delta 2$ 下的保温效果 $eta$],
+) <table:eta>
 
-根据上表和@11，可以看出，保温效果与保温层厚度存在正相关性，保温层越厚，保温效果越好，这也与物理常识相符，但由于温度分布呈线性关系，因而保温效果的增长并不是线性的，而是逐渐减小的，可以预见在保温层较厚时，虽然仍有保温效果，但保温效果的变化并不显著，受于计算时间的限制，我们未能计算更大或更小的保温层厚度，但此规律应当是普适的。
+根据@table:eta 和@11，可以看出，保温效果与保温层厚度存在正相关性，保温层越厚，保温效果越好，但同时达到平衡的时间也更长，这也与物理常识相符，但由于温度分布呈线性关系，因而保温效果的增长并不是线性的，而是逐渐减小的，可以预见在保温层较厚时，虽然仍有保温效果，但保温效果的变化并不显著，受于计算时间的限制，我们未能计算更大或更小的保温层厚度，但此规律应当是普适的。
 
 == 结论
 
 结合 $T-t-r$ 图像，可以看出，在 $t tilde.op 1 "min"$ 内，温度分布已经收敛，反应器的温度就可以维持在较高的温度区间，本程序的实现是合理的，数值分析过程较为成功。
 
+温度随时间和半径的分布由@fig:T_all 给出（包含陶瓷和保温层两部分），整体图像成楔形状。对于单个点的温度，温度随时间的变化最终会趋向一个稳定值，即达到稳态，其中保温层内表面 R2 和 R3 温度随时间的变化由@fig:T_t 给出；而对于某一时刻的温度分布，同样由@fig:T_all 给出，其中，在时间较小时，温度分布主要在陶瓷部分显著下降，随着时间的推进，陶瓷部分的温度趋于平缓，温度变化主要发生在保温层区域，最终近稳态的温度分布由@fig:T 给出。
+
+最后，通过分析不同保温层厚度 $delta 2$ 情况下的温度分布，可以得到整体的保温效果 $eta$ 随着保温层厚度的增加而增加，但增加的幅度逐渐减小，在厚度较大时这中变化就不显著了。
+
+总体数值模拟结果与理论和物理常识相符，分析过程较为合理，程序实现较为成功。
+
 == 附录
+
+=== 最小代码实现
 
 最小程序完整实现（python）如下：
 
@@ -425,7 +458,6 @@ $eta$ 越接近 1，说明保温效果越好。
 # main.py
 import numpy as np
 
-# define constants
 R1 = 0.050  # m
 R2 = 0.075  # m
 R3 = 0.125  # m
@@ -449,7 +481,6 @@ T_inf = 298  # K
 h1 = 500  # W/m^2-K
 h2 = 10  # W/m^2-K
 
-
 def calc_first(_Ti: float, _dr: float) -> float:
   return (h1 * T_0 + k1 * _Ti / _dr) / (h1 + k1 / _dr)
 
@@ -463,14 +494,13 @@ def calc_middle(_Tl: float, _Tr: float) -> float:
 def calc_last(_Ti: float, _dr: float) -> float:
   return (h2 * T_inf + k2 * _Ti / _dr) / (h2 + k2 / _dr)
 
-def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
+def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float, _bp: int) -> np.ndarray:
   T_ = _T.copy()
   T_[0] = calc_first(T_[1], _dr)
-  bp_ = _n // 3  # breakpoint n of R1 and R2
-  for i in range(1, bp_):
+  for i in range(1, _bp):
     T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
-  T_[bp_] = calc_middle(T_[bp_ - 1], T_[bp_ + 1])
-  for i in range(bp_ + 1, _n):
+  T_[_bp] = calc_middle(T_[_bp - 1], T_[_bp + 1])
+  for i in range(_bp + 1, _n):
     T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
   T_[_n] = calc_last(T_[_n - 1], _dr)
   return T_
@@ -478,24 +508,73 @@ def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
 def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
   T_ = np.full(_n + 1, T_init, dtype=np.float64)
   dr_ = (R3 - R1) / _n
+  bp_ = _n // 3
+
   while True:
-    T_new = iter_once(T_, _n, dr_, _dt)
+    T_new = iter_once(T_, _n, dr_, _dt, bp_)
     if np.max(np.abs(T_new - T_)) < _eps:
       break
     T_ = T_new
   return T_new
 
 # example usage
-T = do_iter(300, 1e-2, 1e-5)
+T = do_iter(300, 1e-2, 1e-2)
 print(T)
 ```
 
-运行 `python main.py` 即可得到结果（依赖 numpy 包），包含绘图，优化和 cpp 实现的内容参考附件。
+运行 `python main.py` 即可得到结果（依赖 numpy 包），包含绘图，优化和 cpp 实现的更多程序设计内容参考附件。
+
+#pagebreak()
+
+=== 补充数据
+
+#let get_d2_fi = d2 => {
+  figure(
+    image("_img/T_d2_" + d2 + ".png", width: auto),
+    caption: [$delta_2 = #d2 upright(m)$],
+    numbering: none,
+  )
+}
+
+#let data_d2s_1 = (
+  "0.025",
+  "0.050",
+  "0.075",
+  "0.100",
+  "0.125",
+  "0.150",
+)
+
+#figure(
+  grid(
+    columns: 2,
+    gutter: 1em,
+
+    ..data_d2s_1.map(get_d2_fi),
+  ),
+  caption: [组图 不同 $delta 2$ 下的最终温度分布 1],
+) <fig:T_rs1>
+
+#let data_d2s_2 = (
+  "0.175",
+  "0.200",
+  "0.225",
+  "0.250",
+)
+
+#figure(
+  grid(
+    columns: 2,
+    gutter: 1em,
+
+    ..data_d2s_2.map(get_d2_fi),
+  ),
+  caption: [组图 不同 $delta_2$ 下的最终温度分布 2],
+) <fig:T_rs2>
 
 == 附件信息
 
-#align(
-  center,
+#figure(
   table(
     columns: (1fr, 1fr, 3fr),
     stroke: none,
@@ -515,8 +594,13 @@ print(T)
 
     [\_img\/], [图片文件夹], [存放图片文件],
     [assets\/], [资源文件夹], [存放保存的数据，可通过 `np.load` 加载],
+    [assets\/data\_T\_all.npy], [数据文件], [所有时间的温度分布数据，可通过 `np.load` 加载],
+    [assets\/data\_T.npy], [数据文件], [最终温度分布数据，可通过 `np.load` 加载],
+    [assets\/data\_T\_all\_r.npy], [数据文件], [不同表面层厚度 $delta_2$ 的最终温度分布，可通过 `np.load` 加载],
+    [assets\/data\_eta.csv], [csv数据文件], [保温效果 $eta$ 数据],
     table.hline(),
   ),
+  caption: [附件信息],
 )
 
 除构建产物外，可以在#underline(link("https://github.com/chillcicada/MySchoolwork/tree/main/src/TransportFinal")[此处])访问本大作业的完整源代码。
