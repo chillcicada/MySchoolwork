@@ -6,3 +6,7 @@ nixup:
 
 nixtest:
   nix flake check .
+
+clean:
+  ruff clean
+  pnpm clean

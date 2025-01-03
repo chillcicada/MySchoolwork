@@ -2,9 +2,12 @@
 #include <iostream>
 #include <vector>
 
-const auto R1 = 0.050; // m
-const auto R2 = 0.075; // m
-const auto R3 = 0.100; // m
+const auto delta1 = 0.025; // m
+const auto delta2 = 0.050; // m
+
+const auto R1 = 0.050;       // m
+const auto R2 = R1 + delta1; // m
+const auto R3 = R2 + delta2; // m
 
 const auto rho1 = 2600.0; // kg/m^3
 const auto cp1 = 1150.0;  // J/kg*K
@@ -26,25 +29,18 @@ const auto h1 = 500.0; // W/m^2*K
 const auto h2 = 10.0;  // W/m^2*K
 
 /**
- * @brief calculate the first temperature
+ * @brief calculate the boundary temperature
  *
- * @param Ti the temperature at the 1-th node
+ * @param T the temperature at the boundary of the material
  * @param dr the delta r
+ * @param T_boundary the temperature at the boundary
+ * @param h the heat transfer coefficient
+ * @param k the thermal conductivity
  * @return double
  */
-double calc_first(double Ti, double dr) {
-  return (h1 * T_0 + k1 * Ti / dr) / (h1 + k1 / dr);
-}
-
-/**
- * @brief calculate the last temperature
- *
- * @param Ti the temperature at the n-1th node
- * @param dr the delta r
- * @return double
- */
-double calc_last(double Ti, double dr) {
-  return (h2 * T_inf + k2 * Ti / dr) / (h2 + k2 / dr);
+double calc_boundary(double T, double dr, double T_boundary, double h,
+                     double k) {
+  return (h * T_boundary + k * T / dr) / (h + k / dr);
 }
 
 /**
@@ -62,9 +58,9 @@ double calc_last(double Ti, double dr) {
 double calc_T(double Tl, double Ti, double Tr, double dr, double alpha,
               double dt, int i) {
   auto ri = R1 + i * dr;
-  return Ti + alpha * dt *
-                  ((Tl + Tr - 2 * Ti) / dr / dr +
-                   (1 / ri) * (Tr - Tl) / (2 * dr) - Ti / ri / ri);
+  return Ti +
+         alpha * dt *
+             ((Tl + Tr - 2 * Ti) / dr / dr + (1 / ri) * (Tr - Tl) / (2 * dr));
 }
 
 /**
@@ -85,28 +81,26 @@ double calc_middle(double Tl, double Tr) {
  * @param n the number of segments
  * @param dr the delta r
  * @param dt the delta t
+ * @param bp the breakpoint n
  * @return std::vector<double>
  */
 std::vector<double> iter_once(const std::vector<double> &T, int n, double dr,
-                              double dt) {
+                              double dt, int bp) {
   std::vector<double> T_new(n + 1);
 
   std::copy(T.begin(), T.end(), T_new.begin());
 
-  auto boundary_point = n / 3;
+  T_new[0] = calc_boundary(T_new[1], dr, T_0, h1, k1);
 
-  T_new[0] = calc_first(T_new[1], dr);
-
-  for (auto i = 1; i < boundary_point; ++i)
+  for (auto i = 1; i < bp; ++i)
     T_new[i] = calc_T(T_new[i - 1], T_new[i], T_new[i + 1], dr, alpha1, dt, i);
 
-  T_new[boundary_point] =
-      calc_middle(T_new[boundary_point - 1], T_new[boundary_point + 1]);
+  T_new[bp] = calc_middle(T_new[bp - 1], T_new[bp + 1]);
 
-  for (auto i = boundary_point + 1; i < n; ++i)
+  for (auto i = bp + 1; i < n; ++i)
     T_new[i] = calc_T(T_new[i - 1], T_new[i], T_new[i + 1], dr, alpha2, dt, i);
 
-  T_new[n] = calc_last(T_new[n - 1], dr);
+  T_new[n] = calc_boundary(T_new[n - 1], dr, T_inf, h2, k2);
 
   return T_new;
 }
@@ -124,7 +118,9 @@ std::vector<double> do_iter(int n, double dt, double eps) {
 
   std::vector<double> T(n + 1, T_init);
 
-  auto T_new = iter_once(T, n, dr, dt);
+  auto bp = int(n * delta1 / (delta1 + delta2));
+
+  auto T_new = iter_once(T, n, dr, dt, bp);
 
   while (true) {
     auto max_diff = 0.0;
@@ -137,7 +133,7 @@ std::vector<double> do_iter(int n, double dt, double eps) {
 
     T = std::move(T_new);
 
-    T_new = iter_once(T, n, dr, dt);
+    T_new = iter_once(T, n, dr, dt, bp);
   }
 
   return T_new;
@@ -148,8 +144,7 @@ int main() {
   auto dt = 1e-2;
   auto eps = 1e-5;
 
-  std::cout << "type n (default 300), delta t (default 1e-2), epsilon (default "
-               "1e-5): \n";
+  std::cout << "type `n, delta t, epsilon`: (default 300 1e-2 1e-5)\n";
   std::cin >> n >> dt >> eps;
 
   if (n <= 0 || dt <= 0 || eps <= 0) {

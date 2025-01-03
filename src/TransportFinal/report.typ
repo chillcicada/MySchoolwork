@@ -117,13 +117,13 @@ $<2>
 陶瓷和保温层均为圆管状，温度分布只与时间 $T$ 和径向变量 $r$ 有关，从而方程@2 进一步简化为：
 
 $
-  (partial T) / (partial t) = alpha partial / (partial r) (1 / r (partial (r T)) / (partial r))
+  (partial T) / (partial t) = alpha (1 / r partial / (partial r) (r (partial T) / (partial r)))
 $<3>
 
 展开得到：
 
 $
-  (partial T) / (partial t) = alpha ((partial^2 T) / (partial r^2) + 1 / r (partial T) / (partial r) - T / r^2)
+  (partial T) / (partial t) = alpha ((partial^2 T) / (partial r^2) + 1 / r (partial T) / (partial r))
 $<3.1>
 
 其中，时间向前差分的表示为：
@@ -158,7 +158,7 @@ $<4>
 将圆管视作一层一层的同心环管构成，以半径均分为 $n$ 段，$Delta r = (R_3 - R_1) \/ n$，使用时间向前差分@3.2，空间中心差分@3.3 代入@3.1，舍去尾项，则有：
 
 $
-  alpha((T_(i+1)^m + T_(i-1)^m - 2 T_i^m) / (Delta r^2) + 1 / r_i (T_(i+1)^m-T_(i-1)^m) / (2 Delta r) - T_i^m / r_i^2) = (T_i^(m+1) - T_i^m) / (Delta t)
+  alpha((T_(i+1)^m + T_(i-1)^m - 2 T_i^m) / (Delta r^2) + 1 / r_i (T_(i+1)^m-T_(i-1)^m) / (2 Delta r)) = (T_i^(m+1) - T_i^m) / (Delta t)
 $<5>
 
 其中 $i = 1, 2, 3, ..., n - 1$，$m = 0, 1, 2, 3, ...$，$r_i = R_1 + i Delta r$。
@@ -166,7 +166,7 @@ $<5>
 即对于一般情况下：
 
 $
-  T_i^(m+1) = T_i^m + alpha Delta t ((T_(i+1)^m + T_(i-1)^m - 2 T_i^m) / (Delta r^2) + 1 / r_i (T_(i+1)^m-T_(i-1)^m) / (2 Delta r) - T_i^m / r_i^2)
+  T_i^(m+1) = T_i^m + alpha Delta t ((T_(i+1)^m + T_(i-1)^m - 2 T_i^m) / (Delta r^2) + 1 / r_i (T_(i+1)^m-T_(i-1)^m) / (2 Delta r))
 $<6>
 
 定解条件为：
@@ -299,7 +299,7 @@ def calc(_Tl: float, _Ti: float, _Tr: float, _dr: float, _alpha: float, _dt: flo
   _i: ith point
   """
   ri_ = R1 + _i * _dr  # r of T[i]
-  return _Ti + _alpha * _dt * ((_Tl + _Tr - 2 * _Ti) / _dr**2 + (1 / ri_) * (_Tr - _Tl) / (2 * _dr) - _Ti / ri_**2)
+  return _Ti + _alpha * _dt * ((_Tl + _Tr - 2 * _Ti) / _dr**2 + (1 / ri_) * (_Tr - _Tl) / (2 * _dr))
 ```
 
 基于此，我们可以实现从 $t = m$ 到 $t = m + 1$ 的温度计算过程，即单步迭代。同时，考虑到热流方向为由内向外，我们从内向外逐次计算，即从 $i = 1$ 到 $i = n - 1$，具体实现如下：
@@ -349,7 +349,7 @@ def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
 
 最终得到在 $delta_2 = 0.05 upright(m)$（即 $R_3$ 为题目值）的情况下，$n$ 取 300，$Delta t$ 取 $0.01 upright(s)$，截断误差 $epsilon$ 取 $10^(-5) upright(K)$ 时运行效果较为合适，总运行时间 $tilde.op 1 "min"$，可以得到光滑的 $T-t-r$ 平面分布。
 
-此外，同时也提供了基于 cpp 的完整实现（见 `main.cpp`），并提供了编译程序 `main.exe`，可直接运行，运行效率显著高于 python 脚本，*在相同情况下可以在毫秒级完成收敛迭代*，但由于 cpp 和 python 的舍入精度差异，python 结果更为精确，累计误差更小。
+此外，同时也提供了基于 cpp 的完整实现（见 `main.cpp`），并提供了编译程序 `main.exe`，可直接运行，运行效率显著高于 python 脚本，*在相同情况下可以在毫秒级完成收敛迭代，内存占用更小*，但由于 cpp 和 python 的舍入精度差异，python 结果更为精确，累计误差更小。
 
 由于每次温度计算时实际上只依赖于前一个和后一个温度，因而程序具备较好的并行性，可以在多线程环墫下进行计算，本程序未进行多线程优化和向量运算优化。
 
@@ -357,17 +357,65 @@ def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
 
 == 结果分析
 
-温度分布与时间的关系如下图所示：
+温度分布与时间和半径的关系 $T-t-r$ 如下图所示，包含反应器陶瓷的温度分布和保温层的温度分布，可以看到，整体的温度分布符合物理规律，温度分布较为合理，即反应物流温度较高，升温较快，保温层温度较低，总体温度分布较为平滑，符合预期：
 
 #align(center)[#image("_img/T_all.png", width: 80%)]
 
-最终的温度分布如下图所示：
+最终的温度分布 $T-r$ 如下图所示，包含陶瓷和保温层两部分：
 
 #align(center)[#image("_img/T.png", width: 70%)]
 
+对于保温层厚度为一般值的情况，修改关键参数，可以得到 $R_3$ 不同时的最终温度分布图如下：
+
+#align(center)[#image("_img/T_r.png", width: 70%)]
+
+通过分析可以得知，在稳态条件下体系的温度分布满足如下的规律：
+
+$
+  partial / (partial r) (r (partial T) / (partial r)) = 0
+$<10>
+
+该方程的通解为：
+
+$
+  T = A + B ln r
+$<11>
+
+定义保温效果 $eta$ 为陶瓷界面两端的温度与环境温度之差的比值：
+
+$
+  eta = ((T["bp"] - T_infinity) \/ (T_0 - T_infinity)) / ((T[0] - T_infinity) \/ (T_0 - T_infinity)) = (T["bp"] - T_infinity) / (T[0] - T_infinity)
+$<12>
+
+$eta$ 越接近 1，说明保温效果越好。
+
+我们计算了 $delta_2 = 0.025 upright(m) - 0.25 upright(m)$ 十等分点上的 $eta$ 值（最终温度如上图所示），结果如下表所示：
+
+#let data_eta = csv("assets/data_eta.csv")
+
+#align(
+  center,
+  table(
+    columns: 2,
+    stroke: none,
+    table.hline(),
+    table.header(
+      [保温层厚度 $delta_2$],
+      [保温效果 $eta$],
+    ),
+    table.hline(stroke: 0.5pt),
+
+    ..data_eta.flatten(),
+
+    table.hline(),
+  ),
+)
+
+根据上表和@11，可以看出，保温效果与保温层厚度存在正相关性，保温层越厚，保温效果越好，这也与物理常识相符，但由于温度分布呈线性关系，因而保温效果的增长并不是线性的，而是逐渐减小的，可以预见在保温层较厚时，虽然仍有保温效果，但保温效果的变化并不显著，受于计算时间的限制，我们未能计算更大或更小的保温层厚度，但此规律应当是普适的。
+
 == 结论
 
-结合 $T-t-r$ 图像，可以看出，在 $t tilde.op 1 "min"$ 内，温度分布已经收敛，反应器的温度就可以维持在较高的温度区间，且温度分布较为合理，符合物理规律，即反应物流温度较高，环境气流温度较低，且温度分布较为平滑，符合预期，因此，本程序的实现是合理的，数值分析过程较为成功。
+结合 $T-t-r$ 图像，可以看出，在 $t tilde.op 1 "min"$ 内，温度分布已经收敛，反应器的温度就可以维持在较高的温度区间，本程序的实现是合理的，数值分析过程较为成功。
 
 == 附录
 
