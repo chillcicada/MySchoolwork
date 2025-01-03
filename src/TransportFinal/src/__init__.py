@@ -63,25 +63,24 @@ def calc_last(_Ti: float, _dr: float) -> float:
   return (h2 * T_inf + k2 * _Ti / _dr) / (h2 + k2 / _dr)
 
 
-def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float) -> np.ndarray:
+def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float, _bp: int) -> np.ndarray:
   """
   _T: temperature array, n + 1 nodes
   _n: number of segments, n + 1 nodes
   _dr: delta r
   _dt: delta t
+  _bp: breakpoint n of R2
   """
   T_ = _T.copy()
 
   T_[0] = calc_first(T_[1], _dr)
 
-  bp_ = _n // 3  # breakpoint n of R1 and R2
-
-  for i in range(1, bp_):
+  for i in range(1, _bp):
     T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
 
-  T_[bp_] = calc_middle(T_[bp_ - 1], T_[bp_ + 1])
+  T_[_bp] = calc_middle(T_[_bp - 1], T_[_bp + 1])
 
-  for i in range(bp_ + 1, _n):
+  for i in range(_bp + 1, _n):
     T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
 
   T_[_n] = calc_last(T_[_n - 1], _dr)
@@ -97,13 +96,16 @@ def do_iter(_n: int, _dt: float, _eps: float) -> np.ndarray:
   """
   T_ = np.full(_n + 1, T_init, dtype=np.float64)
   dr_ = (R3 - R1) / _n
+  bp_ = _n // 3
+
   while True:
-    T_new = iter_once(T_, _n, dr_, _dt)
+    T_new = iter_once(T_, _n, dr_, _dt, bp_)
     if np.max(np.abs(T_new - T_)) < _eps:
       break
     T_ = T_new
   return T_new
 
 
+# example usage
 T = do_iter(300, 1e-2, 1e-2)
 print(T)
