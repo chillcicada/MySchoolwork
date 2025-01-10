@@ -1,9 +1,9 @@
 import numpy as np
 
 # define constants
-R1 = 0.050  # m
-R2 = 0.075  # m
-R3 = 0.125  # m
+R1 = 0.025  # m
+R2 = 0.050  # m
+R3 = 0.100  # m
 
 rho1 = 2600  # kg/m^3
 cp1 = 1150  # J/kg-K
@@ -71,19 +71,19 @@ def iter_once(_T: np.ndarray, _n: int, _dr: float, _dt: float, _bp: int) -> np.n
   _dt: delta t
   _bp: breakpoint n of R2
   """
-  T_ = _T.copy()
+  T_ = np.zeros(_n + 1, dtype=np.float64)
 
-  T_[0] = calc_first(T_[1], _dr)
+  T_[0] = calc_first(_T[1], _dr)
 
   for i in range(1, _bp):
-    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha1, _dt, i)
+    T_[i] = calc(_T[i - 1], _T[i], _T[i + 1], _dr, alpha1, _dt, i)
 
-  T_[_bp] = calc_middle(T_[_bp - 1], T_[_bp + 1])
+  T_[_bp] = calc_middle(_T[_bp - 1], _T[_bp + 1])
 
   for i in range(_bp + 1, _n):
-    T_[i] = calc(T_[i - 1], T_[i], T_[i + 1], _dr, alpha2, _dt, i)
+    T_[i] = calc(_T[i - 1], _T[i], _T[i + 1], _dr, alpha2, _dt, i)
 
-  T_[_n] = calc_last(T_[_n - 1], _dr)
+  T_[_n] = calc_last(_T[_n - 1], _dr)
 
   return T_
 
