@@ -5,7 +5,7 @@ description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     "ultralytics>=8.3.58",
-    "albumentations>=1.4.24",
+    "albumentations>=2.0.1",
     "pandas>=2.2.3",
     "transformers>=4.47.1",
     "scikit-learn>=1.6.0",
