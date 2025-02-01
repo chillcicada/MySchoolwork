@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 
+import { blog, ncm } from './icons'
+import markdown from './markdown'
 import nav from './nav'
 import sidebar from './sidebar'
-import markdown from './markdown'
-import { blog, ncm } from './icons'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
