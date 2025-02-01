@@ -1,6 +1,6 @@
+import type { MarkdownOptions } from 'vitepress'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import type { MarkdownOptions } from 'vitepress'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 
 const j = (str: `${string}.tmLanguage.json`) => JSON.parse(readFileSync(join(__dirname, 'assets', str), 'utf8'))

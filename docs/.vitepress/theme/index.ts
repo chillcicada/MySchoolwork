@@ -1,9 +1,9 @@
+import type { EnhanceAppContext, Theme } from 'vitepress'
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
+import DefaultTheme from 'vitepress/theme'
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
-import type { EnhanceAppContext, Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
 import './style.css'
-import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
 
 export default {
