@@ -1,3 +1,7 @@
+The lab1 homework of my c/cpp advanced course.
+
+---
+
 # 五子棋游戏
 
 这是一个使用Qt框架开发的五子棋游戏。

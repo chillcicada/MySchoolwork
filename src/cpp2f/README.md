@@ -1,3 +1,7 @@
+The final homework of my c/cpp advanced course.
+
+---
+
 # Qode
 
 ## Build
