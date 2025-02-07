@@ -1,3 +1,7 @@
+The final homework of my c/cpp foundational course.
+
+---
+
 # cpp final homework: maze
 
 **The executable is under the `dist` folder.**

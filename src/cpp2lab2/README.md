@@ -1,3 +1,7 @@
+The lab2 homework of my c/cpp advanced course.
+
+---
+
 # Qt Lab 2
 
 这是一个使用Qt框架开发的祖玛游戏。
