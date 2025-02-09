@@ -35,13 +35,6 @@
         default = pkgs.mkShell {
           # Pinned packages available in the environment
           packages = with pkgs; [
-            # base toolchain
-            curl
-            git
-            jq
-            wget
-            nixpkgs-fmt
-
             # base
             nodejs_22
             pnpm
