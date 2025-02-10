@@ -10,9 +10,9 @@
 #   universal: false
 
 -e file:.
-albucore==0.0.20
+albucore==0.0.23
     # via albumentations
-albumentations==1.4.21
+albumentations==2.0.3
     # via dp1
 annotated-types==0.7.0
     # via pydantic
@@ -26,8 +26,6 @@ contourpy==1.3.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-eval-type-backport==0.2.0
-    # via albumentations
 filelock==3.13.1
     # via huggingface-hub
     # via torch
@@ -117,7 +115,7 @@ requests==2.28.1
     # via ultralytics
 safetensors==0.4.5
     # via transformers
-scikit-learn==1.5.2
+scikit-learn==1.6.1
     # via dp1
 scipy==1.14.1
     # via albumentations
@@ -135,7 +133,7 @@ sympy==1.13.1
     # via torch
 threadpoolctl==3.5.0
     # via scikit-learn
-tokenizers==0.20.3
+tokenizers==0.21.0
     # via transformers
 torch==2.5.1+cu124
     # via torchvision
@@ -147,7 +145,7 @@ tqdm==4.66.5
     # via huggingface-hub
     # via transformers
     # via ultralytics
-transformers==4.46.2
+transformers==4.48.3
     # via dp1
 typing-extensions==4.9.0
     # via huggingface-hub
@@ -156,7 +154,7 @@ typing-extensions==4.9.0
     # via torch
 tzdata==2024.2
     # via pandas
-ultralytics==8.3.35
+ultralytics==8.3.73
     # via dp1
 ultralytics-thop==2.0.10
     # via ultralytics

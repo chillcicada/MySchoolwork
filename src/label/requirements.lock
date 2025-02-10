@@ -10,7 +10,7 @@
 #   universal: false
 
 -e file:.
-anylabeling==0.4.10
+anylabeling==0.4.15
     # via label
 coloredlogs==15.0.1
     # via onnxruntime
