@@ -20,19 +20,19 @@
     "vue": "3.5.13"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.1.0",
-    "@shikijs/vitepress-twoslash": "2.1.0",
-    "@types/node": "22.10.5",
-    "eslint": "9.17.0",
+    "@antfu/eslint-config": "4.2.1",
+    "@shikijs/vitepress-twoslash": "2.4.1",
+    "@types/node": "22.13.4",
+    "eslint": "9.20.1",
     "eslint-plugin-format": "1.0.1",
-    "lint-staged": "15.3.0",
+    "lint-staged": "15.4.3",
     "markdown-it-mathjax3": "4.3.2",
     "prettier-plugin-slidev": "1.0.5",
     "rimraf": "6.0.1",
     "simple-git-hooks": "2.11.1",
-    "typescript": "5.7.2",
-    "vitepress": "1.5.0",
-    "vue-tsc": "2.2.0"
+    "typescript": "5.7.3",
+    "vitepress": "1.6.3",
+    "vue-tsc": "2.2.2"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
