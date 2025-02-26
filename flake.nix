@@ -37,26 +37,16 @@
           packages = with pkgs; [
             # base
             nodejs_22
-            pnpm
             quarto
             pandoc
-            typst
-            typstyle
-            tinymist
 
             # cpp
             xmake
-            just
             gfortran
             mpi
             valgrind
             doxygen
             qt6.full
-
-            # python
-            ruff
-            uv
-            rye
 
             opencv
             ffmpeg-full
