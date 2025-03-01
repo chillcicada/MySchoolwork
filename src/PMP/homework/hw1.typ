@@ -10,9 +10,9 @@
   刘宽 ~ 2022013189 ~ 探微分21
 ]
 
-== 题1
+== 题 1
 
-#figure(image("hw1/coaxial-tube.png", width: 40%), caption: "同轴管隙库特流")
+#figure(image("hw1/coaxial_tube.png", width: 40%), caption: "同轴管隙库特流")
 
 建立柱坐标系，由题意可知，该流动为*同轴管隙库特流*，满足流动方程：
 
@@ -90,9 +90,9 @@ $
 + 而该情景为同轴管隙库特流，可以通过流动方程求解得到切向速度 $u_theta$ 的通解形式，其只与 $r$ 有关，进一步可以得到 $omega$ 与 $r$ 的关系；
 + 代入 $dot(gamma) = r dif omega \/ dif r$ 即可得到剪切速率 $dot(gamma)$ 的表达式。
 
-== 题2
+== 题 2
 
-#figure(image("hw1/linear-bingham-plastic.png", width: 40%), caption: "线性宾汉塑性流体")
+#figure(image("hw1/linear_bingham_plastic.png", width: 40%), caption: "线性宾汉塑性流体")
 
 以轴心建立柱坐标系，设圆柱的内半径为 $R$，不考虑屈服应力和滑移。
 
@@ -183,7 +183,7 @@ $
 + 越过临界半径后，同样根据平衡得到剪切应力的表达式，进一步根据宾汉塑性流体性质得到剪切速率 $dot(gamma)$ 的表达式；
 + 由 $dot(gamma) = - dif v_r \/ dif r$ 得到流速 $v_r$ 的表达式，进而用积分得到流体在圆柱内的流速分布。
 
-== 题3
+== 题 3
 
 由题意得，半径 $R = 0.01 "m"$，体积流量 $Q = Q_"mass" \/ rho = 0.000125 "m"^3\/"s"$。
 
