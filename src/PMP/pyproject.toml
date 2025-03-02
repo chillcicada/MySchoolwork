@@ -28,14 +28,7 @@ allow-direct-references = true
 packages = ["src"]
 
 [tool.ruff]
-exclude = [
-    ".git",
-    ".ipynb_checkpoints",
-    ".ruff_cache",
-    ".venv",
-    ".vscode",
-    "__pycache__",
-]
+exclude = [".git", ".ipynb_checkpoints", ".ruff_cache", ".venv", "__pycache__"]
 line-length = 120
 indent-width = 2
 target-version = "py311"

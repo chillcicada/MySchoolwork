@@ -2,7 +2,7 @@
 
 #show: show-cn-fakebold
 #set page(paper: "a4", margin: 1.27cm)
-#set text(lang: "zh")
+#set text(lang: "zh", region: "cn")
 
 = 聚合物成型加工作业 - 第二周
 
