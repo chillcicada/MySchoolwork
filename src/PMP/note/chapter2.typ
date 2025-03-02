@@ -2,7 +2,7 @@
 
 #show: show-cn-fakebold
 #set page(paper: "a4", margin: 1.27cm)
-#set text(lang: "zh")
+#set text(lang: "zh", region: "cn")
 
 旋转流变仪
 
