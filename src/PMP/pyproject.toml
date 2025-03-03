@@ -3,13 +3,7 @@ name = "pmp"
 version = "0.1.0"
 description = "Polymer Molding Process"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
-dependencies = [
-    "numpy>=2.2.3",
-    "scipy>=1.15.2",
-    "jupyter>=1.1.1",
-    "scikit-learn>=1.6.1",
-    "matplotlib>=3.10.0",
-]
+dependencies = ["scipy>=1.15.2", "jupyter>=1.1.1", "matplotlib>=3.10.0"]
 readme = "README.md"
 requires-python = ">= 3.12"
 
@@ -28,10 +22,10 @@ allow-direct-references = true
 packages = ["src"]
 
 [tool.ruff]
-exclude = [".git", ".ipynb_checkpoints", ".ruff_cache", ".venv", "__pycache__"]
+exclude = [".git", ".ruff_cache", ".venv", "__pycache__"]
 line-length = 120
 indent-width = 2
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]

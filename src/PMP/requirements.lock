@@ -93,8 +93,6 @@ jinja2==3.1.5
     # via jupyterlab
     # via jupyterlab-server
     # via nbconvert
-joblib==1.4.2
-    # via scikit-learn
 json5==0.10.0
     # via jupyterlab-server
 jsonpointer==3.0.0
@@ -176,8 +174,6 @@ notebook-shim==0.2.4
 numpy==2.2.3
     # via contourpy
     # via matplotlib
-    # via pmp
-    # via scikit-learn
     # via scipy
 overrides==7.7.0
     # via jupyter-server
@@ -248,11 +244,8 @@ rfc3986-validator==0.1.1
 rpds-py==0.23.1
     # via jsonschema
     # via referencing
-scikit-learn==1.6.1
-    # via pmp
 scipy==1.15.2
     # via pmp
-    # via scikit-learn
 send2trash==1.8.3
     # via jupyter-server
 setuptools==75.8.2
@@ -269,8 +262,6 @@ stack-data==0.6.3
 terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
-threadpoolctl==3.5.0
-    # via scikit-learn
 tinycss2==1.4.0
     # via bleach
 tornado==6.4.2

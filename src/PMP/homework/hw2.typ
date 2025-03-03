@@ -14,6 +14,10 @@
 
 #align(center, line(length: 80%, stroke: .2pt))
 
+思维链：
+
 == 题 2
 
 #align(center, line(length: 80%, stroke: .2pt))
+
+思维链：
