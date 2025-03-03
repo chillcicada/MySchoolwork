@@ -1,6 +1,6 @@
 {
-  "name": "cc-schoolwork",
-  "displayName": "Cc Schoolwork",
+  "name": "@cc/schoolwork",
+  "displayName": "Schoolwork by chillcicada",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -42,6 +42,12 @@
     "*.{py,ipynb}": [
       "ruff check --fix",
       "ruff format"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "simple-git-hooks"
     ]
   }
 }
