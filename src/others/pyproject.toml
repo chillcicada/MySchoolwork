@@ -29,36 +29,7 @@ allow-direct-references = true
 packages = ["src"]
 
 [tool.ruff]
-exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".idea",
-    ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
-    ".pytest_cache",
-    ".pytype",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
-    "__pycache__",
-]
+exclude = [".git", ".ruff_cache", ".venv", "__pycache__", "node_modules"]
 line-length = 120
 indent-width = 2
 target-version = "py312"
