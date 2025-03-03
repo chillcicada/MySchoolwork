@@ -47,7 +47,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
-      "simple-git-hooks"
+      "playwright-chromium",
+      "simple-git-hooks",
+      "vue-demi"
     ]
   }
 }
