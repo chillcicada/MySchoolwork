@@ -40,8 +40,6 @@ cffi==1.16.0
     # via argon2-cffi-bindings
 charset-normalizer==3.3.2
     # via requests
-colorama==0.4.6
-    # via ipython
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
@@ -194,6 +192,8 @@ pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
+pexpect==4.9.0
+    # via ipython
 pillow==10.3.0
     # via matplotlib
 platformdirs==4.2.2
@@ -205,6 +205,9 @@ prompt-toolkit==3.0.45
     # via jupyter-console
 psutil==5.9.8
     # via ipykernel
+ptyprocess==0.7.0
+    # via pexpect
+    # via terminado
 pure-eval==0.2.2
     # via stack-data
 pycparser==2.22
@@ -226,12 +229,6 @@ python-slugify==8.0.4
     # via others
 pytz==2024.2
     # via pandas
-pywin32==308
-    # via jupyter-core
-pywinpty==2.0.14
-    # via jupyter-server
-    # via jupyter-server-terminals
-    # via terminado
 pyyaml==6.0.1
     # via jupyter-events
 pyzmq==26.0.3
@@ -254,9 +251,9 @@ rfc3986-validator==0.1.1
 rpds-py==0.18.1
     # via jsonschema
     # via referencing
-scikit-learn==1.6.0
+scikit-learn==1.6.1
     # via others
-scipy==1.14.1
+scipy==1.15.2
     # via others
     # via scikit-learn
 send2trash==1.8.3
