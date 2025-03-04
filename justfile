@@ -17,4 +17,3 @@ nixtest:
 # clean all build artifacts
 clean:
   ruff clean # python
-  pnpm clean # nodejs
