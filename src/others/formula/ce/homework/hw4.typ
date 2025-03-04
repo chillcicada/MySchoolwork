@@ -1,6 +1,5 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/tablem:0.2.0": three-line-table
-#import "@preview/unify:0.7.1": unit as u
 
 #show: show-cn-fakebold
 #set page(paper: "a4", margin: 1.27cm)
