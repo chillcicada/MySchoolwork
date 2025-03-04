@@ -1,5 +1,0 @@
-default:
-  @just --list
-
-add-torch:
-  uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu124
