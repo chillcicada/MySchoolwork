@@ -1,3 +1,3 @@
 # others
 
-Describe your project here.
+run `rye sync` to prepare the environment for the first time.
