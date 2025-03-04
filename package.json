@@ -13,8 +13,7 @@
     "preview": "vitepress preview docs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "postinstall": "npx simple-git-hooks",
-    "clean": "rimraf -g **/build/"
+    "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
     "vue": "3.5.13"

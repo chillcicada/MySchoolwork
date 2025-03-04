@@ -1,31 +1,7 @@
 {
-  "clangd.arguments": ["--compile-commands-dir=.vscode"],
-
-  "xmake.debugConfigType": "codelldb",
-
-  "cSpell.enabled": false,
-
   "doxdocgen.generic.useGitUserName": false,
   "doxdocgen.generic.useGitUserEmail": false,
   "doxdocgen.file.versionTag": "@version 0.0.0",
   "doxdocgen.generic.authorTag": "@author liukuan (liukuan22@mails.tsinghua.edu.cn)",
-  "doxdocgen.file.copyrightTag": ["@copyright Copyright (C) {year} GPLv3"],
-
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/node_modules": true,
-    "**/.venv": true,
-    ".direnv": true,
-    ".vscode/.cache": true,
-    ".xmake": true,
-    "target": true,
-    "*.lock": true,
-    ".rustfmt.toml": true
-  },
-  "explorerExclude.backup": {}
+  "doxdocgen.file.copyrightTag": ["@copyright Copyright (C) {year} GPLv3"]
 }
