@@ -4,9 +4,9 @@
 #set page(paper: "a4", margin: 1.27cm)
 #set text(lang: "zh", region: "cn")
 
-旋转流变仪
-
 #figure(image("ch2/流变仪的选用.png", width: 80%), caption: "流变仪的选用")
+
+旋转流变仪
 
 + 转筒流变仪 (Coaxial Cylinders) ––– 低粘度流体
 
