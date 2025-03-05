@@ -1,14 +1,10 @@
 # folders
 .venv/
-venv/
-.idea/
 dist/
-.dist/
 build/
 build-test/
 cache/
 .cache/
-.history/
 node_modules/
 .ipynb_checkpoints/
 __pycache__/
@@ -16,67 +12,21 @@ __pycache__/
 .ruff_cache/
 .rye/
 .xmake/
-/runs/
+runs/
 build/
 build-test/
-
-# for temp files
+.direnv/
 temp/
 .temp/
 
 # files
-*.spec
-*.manifest
 *.exe
 *.zip
-*.py[cod]
-*.d
-*.slo
-*.lo
-*.o
-*.obj
-*.gch
-*.pch
-*.so
-*.dylib
-*.dll
-*.mod
-*.smod
-*.lai
-*.la
-*.a
-*.lib
-*.out
-*.app
-*.diff
-*.npy
 compile_commands.json
-
-# xmake
-src/cpp*/Makefile
-CMakeLists.txt
-vsxmake*
-
-# assets
 *.pdf
-
-# env
 .env*
 !.envrc
 !.env*.example
-
-# direnv
-.direnv/
-
-# Mac specific
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows specific
-Thumbs.db
-ehthumbs.db
-Desktop.ini
 
 # specific files
 src/others/output/
@@ -85,4 +35,5 @@ src/others/**/*.svg
 src/dp1/trained/
 src/dp1/datasets/
 deps-*
-*.png
+src/others/src/**/*.png
+src/TransportFinal/**/*.png
