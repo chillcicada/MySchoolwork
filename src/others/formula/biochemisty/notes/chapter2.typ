@@ -3,3 +3,11 @@
 #show: show-cn-fakebold
 #set page(paper: "a4", margin: 1.27cm)
 #set text(lang: "zh", region: "cn")
+
+== Type of Biochemical Reaction
+
+- Oxidation-Reduction
+- Hydrolysis
+- Isomerization
+- Group Transfer
+- Internal rearrangement
