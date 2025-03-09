@@ -6,3 +6,5 @@
 #let mmHg = "mmHg"
 #let kPa = "kPa"
 #let km = "km"
+#let degC = "°C"
+#let kW = "kW"
