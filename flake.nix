@@ -48,9 +48,6 @@
             doxygen
             qt6.full
 
-            opencv
-            ffmpeg-full
-
             imagemagick
             parallel
           ];
