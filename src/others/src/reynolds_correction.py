@@ -32,12 +32,13 @@ import tkinter as tk
 # from tkinter.ttk import *  # ttk can beautify tkinter
 import tkinter.filedialog as filedialog
 import tkinter.messagebox as msgbox
-import numpy as np
-from scipy import optimize, interpolate
+
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib import rcParams
-from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.figure import Figure
+from scipy import interpolate, optimize
 
 # define global variables
 path = 'Waiting for your file...'
@@ -876,4 +877,5 @@ def main():
   root.mainloop()
 
 
-main()
+if __name__ == '__main__':
+  main()
