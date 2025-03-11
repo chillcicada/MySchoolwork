@@ -38,11 +38,7 @@
             # base
             nodejs_22
             quarto
-            pandoc
 
-            # cpp
-            xmake
-            gfortran
             mpi
             valgrind
             doxygen

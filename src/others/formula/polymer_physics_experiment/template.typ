@@ -1,4 +1,5 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "../unit.typ": *
 
 #let defineConfig(
   doc,
