@@ -35,7 +35,6 @@
         default = pkgs.mkShell {
           # Pinned packages available in the environment
           packages = with pkgs; [
-            # base
             nodejs_22
             quarto
 
@@ -43,9 +42,6 @@
             valgrind
             doxygen
             qt6.full
-
-            imagemagick
-            parallel
           ];
         };
       });
