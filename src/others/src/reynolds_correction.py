@@ -28,8 +28,6 @@ MIT License
 
 import ctypes
 import tkinter as tk
-
-# from tkinter.ttk import *  # ttk can beautify tkinter
 import tkinter.filedialog as filedialog
 import tkinter.messagebox as msgbox
 
