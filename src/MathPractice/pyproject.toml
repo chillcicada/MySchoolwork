@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Math Practice"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-    # required
     "jupyter>=1.1.1",
     "matplotlib>=3.10.1",
     "scipy>=1.15.2",
@@ -21,8 +20,6 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    # lint
-    "ruff>=0.4.2",
     "pandas>=2.2.2",
 ]
 
@@ -34,34 +31,9 @@ packages = ["chapter*", "utils"]
 
 [tool.ruff]
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".idea",
     ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
-    ".pytest_cache",
-    ".pytype",
     ".ruff_cache",
-    ".svn",
-    ".tox",
     ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
-    "__pycache__",
 ]
 line-length = 120
 indent-width = 2

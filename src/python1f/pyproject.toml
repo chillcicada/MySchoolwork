@@ -1,6 +1,6 @@
 [project]
 name = "final-homework"
-version = "0.0.1" # please update this version number also in `src/__init__.py` when you release a new version
+version = "0.0.1"
 description = "Cc's final homework for the course of Python"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
@@ -21,7 +21,7 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = ["ruff>=0.4.3", "pytest>=8.2.0", "pyinstaller>=6.7.0"]
+dev-dependencies = ["pytest>=8.2.0", "pyinstaller>=6.7.0"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -31,34 +31,9 @@ packages = ["src"]
 
 [tool.ruff]
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".idea",
-    ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
     ".pytest_cache",
-    ".pytype",
     ".ruff_cache",
-    ".svn",
-    ".tox",
     ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
-    "__pycache__",
 ]
 line-length = 120
 indent-width = 2
