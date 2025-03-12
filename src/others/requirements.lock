@@ -150,7 +150,7 @@ kiwisolver==1.4.5
 markupsafe==2.1.5
     # via jinja2
     # via nbconvert
-matplotlib==3.10.0
+matplotlib==3.10.1
     # via others
 matplotlib-inline==0.1.7
     # via ipykernel
