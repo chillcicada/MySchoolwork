@@ -9,3 +9,4 @@
 #let degC = "°C"
 #let kW = "kW"
 #let mL = "mL"
+#let mPa = "mPa"
