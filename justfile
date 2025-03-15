@@ -2,10 +2,6 @@
 default:
   @just --list
 
-# format all nix files
-nixfmt:
-  nixpkgs-fmt .
-
 # update nix flake.lock
 nixup:
   nix flake update --commit-lock-file
