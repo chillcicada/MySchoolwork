@@ -1,8 +1,6 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "../../template.typ": *
 
-#show: show-cn-fakebold
-#set page(paper: "a4", margin: 1.27cm)
-#set text(lang: "zh", region: "cn")
+#show: defineConfig
 
 剪切应力与剪切应变的关系由材料的剪切模量（G）决定，具体如下：
 

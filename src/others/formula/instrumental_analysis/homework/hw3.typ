@@ -1,9 +1,7 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/tablem:0.2.0": three-line-table
+#import "../../template.typ": *
 
-#show: show-cn-fakebold
-#set page(paper: "a4", margin: 1.27cm)
-#set text(lang: "zh", region: "cn")
+#show: defineConfig
 
 = 高分子材料仪器分析 - 第三周
 

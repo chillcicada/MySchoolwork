@@ -1,7 +1,7 @@
 [project]
 name = "others"
 version = "0.1.0"
-description = "Add your description here"
+description = "Here stores some miscellaneous codes."
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     "jupyter>=1.1.1",
@@ -12,7 +12,7 @@ dependencies = [
     "python-slugify>=8.0.4",
 ]
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]
@@ -21,12 +21,6 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src"]
 
 [tool.ruff]
 exclude = [".git", ".ruff_cache", ".venv", "__pycache__", "node_modules"]
