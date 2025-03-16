@@ -1,9 +1,7 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/tablem:0.2.0": three-line-table
+#import "../../template.typ": *
 
-#show: show-cn-fakebold
-#set page(paper: "a4", margin: 1.27cm)
-#set text(lang: "zh", region: "cn")
+#show: defineConfig
 
 = 化学工程基础 - 第四次作业
 

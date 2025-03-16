@@ -1,7 +1,6 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "../../template.typ": *
 
-#show: show-cn-fakebold
-#set text(lang: "zh", region: "cn")
+#show: defineConfig
 
 #align(center)[= CAR-T 细胞技术与评述]
 

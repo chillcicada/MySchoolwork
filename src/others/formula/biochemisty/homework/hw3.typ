@@ -1,8 +1,6 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "../../template.typ": *
 
-#show: show-cn-fakebold
-#set page(paper: "a4", margin: 1.27cm)
-#set text(lang: "zh", region: "cn")
+#show: defineConfig
 
 = 生物化学 2 - 第三次作业
 

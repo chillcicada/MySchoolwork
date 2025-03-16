@@ -1,5 +1,5 @@
 #import "@preview/tablem:0.2.0": tablem
-#import "../template.typ": *
+#import "../../template.typ": *
 
 #show: defineConfig
 

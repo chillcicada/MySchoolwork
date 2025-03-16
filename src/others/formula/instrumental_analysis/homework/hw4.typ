@@ -1,5 +1,5 @@
-#import "../template.typ": *
 #import "@preview/tablem:0.2.0": three-line-table, tablem
+#import "../../template.typ": *
 
 #show: defineConfig
 
