@@ -21,4 +21,6 @@
 
 #let mL = "mL"
 
+#let rpm = "rpm"
+
 #let unit(str) = _unit(str, per: "\/")
