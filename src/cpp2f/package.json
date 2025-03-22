@@ -9,6 +9,6 @@
     "@slidev/cli": "51.4.0",
     "@slidev/theme-seriph": "0.25.0",
     "http-server": "14.1.1",
-    "playwright-chromium": "1.51.0"
+    "playwright-chromium": "1.51.1"
   }
 }
