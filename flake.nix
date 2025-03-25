@@ -52,6 +52,8 @@
             packages = with pkgs; [
               quarto
 
+              ovito
+
               mpi
               valgrind
               doxygen
