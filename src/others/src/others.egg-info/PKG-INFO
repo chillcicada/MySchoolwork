@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: others
+Version: 0.1.0
+Summary: Here stores some miscellaneous codes.
+Author-email: chillcicada <2210227279@qq.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: jupyter>=1.1.1
+Requires-Dist: scipy>=1.15.2
+Requires-Dist: matplotlib>=3.10.1
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: scikit-learn>=1.6.1
+Requires-Dist: python-slugify>=8.0.4
+
+# others
+
+run `rye sync` to prepare the environment for the first time.

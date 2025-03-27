@@ -37,3 +37,4 @@ src/dp1/datasets/
 deps-*
 src/others/src/**/*.png
 src/TransportFinal/**/*.png
+src/**/*-data/
