@@ -1,0 +1,8 @@
+assets
+chemical_engineer
+data
+instrumental_analysis
+output
+physical_chemistry_experiment
+polymer_molding_process
+reynolds_correction

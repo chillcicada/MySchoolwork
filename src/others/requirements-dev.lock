@@ -40,8 +40,6 @@ cffi==1.16.0
     # via argon2-cffi-bindings
 charset-normalizer==3.3.2
     # via requests
-colorama==0.4.6
-    # via ipython
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
@@ -74,6 +72,8 @@ idna==3.7
     # via httpx
     # via jsonschema
     # via requests
+iniconfig==2.1.0
+    # via pytest
 ipykernel==6.29.4
     # via jupyter
     # via jupyter-console
@@ -188,16 +188,21 @@ packaging==24.0
     # via jupyterlab-server
     # via matplotlib
     # via nbconvert
+    # via pytest
 pandas==2.2.3
     # via others
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
+pexpect==4.9.0
+    # via ipython
 pillow==10.3.0
     # via matplotlib
 platformdirs==4.2.2
     # via jupyter-core
+pluggy==1.5.0
+    # via pytest
 prometheus-client==0.20.0
     # via jupyter-server
 prompt-toolkit==3.0.45
@@ -205,6 +210,9 @@ prompt-toolkit==3.0.45
     # via jupyter-console
 psutil==5.9.8
     # via ipykernel
+ptyprocess==0.7.0
+    # via pexpect
+    # via terminado
 pure-eval==0.2.2
     # via stack-data
 pycparser==2.22
@@ -215,6 +223,7 @@ pygments==2.18.0
     # via nbconvert
 pyparsing==3.1.2
     # via matplotlib
+pytest==8.3.5
 python-dateutil==2.9.0.post0
     # via arrow
     # via jupyter-client
@@ -226,12 +235,6 @@ python-slugify==8.0.4
     # via others
 pytz==2024.2
     # via pandas
-pywin32==308
-    # via jupyter-core
-pywinpty==2.0.15
-    # via jupyter-server
-    # via jupyter-server-terminals
-    # via terminado
 pyyaml==6.0.1
     # via jupyter-events
 pyzmq==26.0.3
