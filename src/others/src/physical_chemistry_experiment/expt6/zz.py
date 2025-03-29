@@ -41,6 +41,24 @@ class Polymer:
   def is_endpoint(self, node):
     return node in self.endpoints
 
+  def get_index_of_non_endpoint(self, node):
+    if node not in self.node_map:
+      return
+
+    assert not self.is_endpoint(node)
+
+    cids = self.node_map[node]
+
+    assert len(cids) == 1
+
+    chain = self.chains[cids[0]]
+
+    for i, n in enumerate(chain):
+      if n == node:
+        return i, cids[0]
+
+    return
+
   def is_only_chain_start(self, node):
     if node not in self.node_map:
       return False
@@ -75,6 +93,30 @@ class Polymer:
             self._remove_chain(self.node_map[b][0])
             self._add_chain([a] + chain_b)
             return
+
+        return
+
+      if not self.is_endpoint(a) and self.is_endpoint(b):
+        index_a, chain_id_a = self.get_index_of_non_endpoint(a)
+        assert index_a is not None
+        assert chain_id_a is not None
+
+        chain_a = self.chains[chain_id_a].copy()
+
+        if self.is_only_chain_start(b):
+          chain_b = self.chains[self.node_map[b][0]]
+
+          self._add_chain([a] + chain_b)
+          self._add_chain(chain_a[: index_a + 1])
+          self._add_chain(chain_a[index_a:])
+          self._remove_chain(chain_id_a)
+          self._remove_chain(self.node_map[b][0])
+          return
+        return
+
+      print(f'unhandled case: {a}, {b}')
+
+      if self.is_endpoint(a) and not self.is_endpoint(b):
         return
 
       if not self.is_endpoint(a) and not self.is_endpoint(b):
@@ -127,6 +169,7 @@ class Polymer:
     for i, branch in enumerate(branches):
       chain = '-'.join([str(n) for n in branch])
       print(f'Branch {i + 1}: {chain}')
+    return
 
   @classmethod
   def from_topology(cls, topology):
@@ -135,6 +178,9 @@ class Polymer:
       a, b = map(int, edge.split('-'))
       p.add_relation(a, b)
     return p
+
+  def export(self):
+    return ','.join(f'{a}-{b}' for chain in self.chains.values() for a, b in zip(chain, chain[1:]))
 
 
 p = Polymer().from_topology(
