@@ -3,8 +3,6 @@
 
 #show: defineConfig
 
-// TODO: add more image
-
 = 化学工程基础 - 第七次作业
 
 #align(center)[刘宽 ~ 2022013189 ~ 探微分21]

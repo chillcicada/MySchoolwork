@@ -12,7 +12,7 @@
 由题目已知信息可得：
 
 $
-  phi.alt = 68 "mm" times 4 "mm" => r = 68 / 2 - 4 "mm" = 0.03 "m" \
+  phi.alt 68 "mm" times 4 "mm" => r = 68 / 2 - 4 "mm" = 0.03 "m" \
   Q = 20 "m"^3\/"h" = 20 / 3600 "m"^3\/"s" = 5.556 times 10^(-3) "m"^3\/"s" \
   v = Q / (pi r^2) = (5.56 times 10^(-3) ) / (pi times 0.03^2) "m/s" = 1.966 "m/s" \
   Delta p_"真空度" = 200 "mmHg" = 200 / 760 "atm" = 101.33 times 10^3 times 200 / 760 "Pa" = 26.67 "kPa" \
