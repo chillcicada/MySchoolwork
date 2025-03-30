@@ -14,14 +14,8 @@ dependencies = [
 readme = "README.md"
 requires-python = ">= 3.12"
 
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "pytest>=8.3.5",
-]
-
 [tool.ruff]
-exclude = [".git", ".venv", "node_modules"]
+exclude = [".git", ".venv"]
 line-length = 120
 indent-width = 2
 target-version = "py312"
