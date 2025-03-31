@@ -66,7 +66,6 @@
               openssl # required by requests
 
               pkg-config # pkg-config, required by rust
-
             ];
           };
         }
