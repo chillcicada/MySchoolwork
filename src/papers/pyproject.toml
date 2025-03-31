@@ -14,7 +14,7 @@ dependencies = [
     "bayesian-optimization>=2.0.3",
 ]
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">= 3.11"
 
 [build-system]
 requires = ["hatchling"]
@@ -31,25 +31,7 @@ allow-direct-references = true
 packages = ["doi"]
 
 [tool.ruff]
-exclude = [
-    ".direnv",
-    ".git",
-    ".idea",
-    ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pytest_cache",
-    ".ruff_cache",
-    ".venv",
-    ".vscode",
-    "__pypackages__",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
-    "__pycache__",
-]
+exclude = [".ipynb_checkpoints", ".venv"]
 line-length = 120
 indent-width = 2
 target-version = "py311"

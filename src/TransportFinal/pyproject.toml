@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-    "numpy>=2.2.4",
     "scipy>=1.15.2",
     "jupyter>=1.1.1",
     "scikit-learn>=1.6.1",
@@ -13,7 +12,7 @@ dependencies = [
     "python-slugify>=8.0.4",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]
@@ -30,11 +29,7 @@ allow-direct-references = true
 packages = ["src"]
 
 [tool.ruff]
-exclude = [
-    ".ruff_cache",
-    ".venv",
-    "node_modules",
-]
+exclude = [".venv"]
 line-length = 120
 indent-width = 2
 target-version = "py312"

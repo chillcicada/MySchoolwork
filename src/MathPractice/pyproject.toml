@@ -11,7 +11,7 @@ dependencies = [
     "statsmodels>=0.14.4",
 ]
 readme = "README.md"
-requires-python = ">= 3.9"
+requires-python = ">= 3.11"
 
 [build-system]
 requires = ["hatchling"]
@@ -30,11 +30,7 @@ allow-direct-references = true
 packages = ["chapter*", "utils"]
 
 [tool.ruff]
-exclude = [
-    ".ipynb_checkpoints",
-    ".ruff_cache",
-    ".venv",
-]
+exclude = [".ipynb_checkpoints", ".venv"]
 line-length = 120
 indent-width = 2
 target-version = "py311"
