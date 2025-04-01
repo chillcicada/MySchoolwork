@@ -10,13 +10,9 @@ node_modules/
 __pycache__/
 .pytest_cache/
 .ruff_cache/
-.rye/
 .xmake/
 runs/
-build/
-build-test/
 .direnv/
-temp/
 .temp/
 
 # files
@@ -29,12 +25,13 @@ compile_commands.json
 !.env*.example
 
 # specific files
+deps-*
 src/others/output/
 src/cpp1f/docs/
 src/others/**/*.svg
 src/dp1/trained/
 src/dp1/datasets/
-deps-*
 src/others/src/**/*.png
 src/TransportFinal/**/*.png
 src/**/*-data/
+src/**/*-results/

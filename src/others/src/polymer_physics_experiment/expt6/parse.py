@@ -155,14 +155,3 @@ class ChainRestore:
 
   def restore(self, coords):
     return parallel_restore(coords, self.box_size, self.r_cut, self.n_workers)
-
-
-# 示例测试
-# if __name__ == '__main__':
-#   # 测试数据：L=10的立方体，连续跨越边界
-#   coords = np.array([[9, 0, 0], [0, 0, 0], [9, 0, 0], [0, 0, 0], [9, 0, 0], [0, 0, 0], [9, 0, 0], [0, 0, 0]])
-#   L = 10
-
-#   # 并行处理（分为2个子链）
-#   restored = parallel_restore(coords, L, n_workers=2)
-#   print('连续调整后的坐标：\n', restored)
