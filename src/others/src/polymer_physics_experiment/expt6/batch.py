@@ -49,6 +49,17 @@ def calculate_metrics(coordinates):
   return R_squared, S_squared, Avg_bond_length
 
 
+def get_theoretical_values(chain_length, num_particles):
+  """计算理论值"""
+  # 理论均方末端距
+  R_sq_theory = num_particles * chain_length**2
+
+  # 理论均方回转半径
+  S_sq_theory = num_particles * chain_length**2 / 6
+
+  return R_sq_theory, S_sq_theory
+
+
 def process_chain_folder(chain_dir, output_dir):
   """处理单个高分子链文件夹"""
   xml_files = sorted(
@@ -109,7 +120,7 @@ def process_chain_folder(chain_dir, output_dir):
   plt.savefig(output_path, dpi=300)
   plt.close()
 
-  return np.mean(R_values), np.mean(S_values), np.mean(Avg_bd_values)
+  return np.mean(R_values), np.mean(S_values), np.mean(Avg_bd_values), pos_num
 
 
 def main():
@@ -125,31 +136,66 @@ def main():
 
   for folder in chain_folders:
     if os.path.isdir(folder):
-      avg_R, avg_S, avg_bd = process_chain_folder(folder, output_dir)
-      results.append({'chain': os.path.basename(folder), 'avg_R_sq': avg_R, 'avg_S_sq': avg_S, 'avg_bd': avg_bd})
+      avg_R, avg_S, avg_bd, num = process_chain_folder(folder, output_dir)
+      R_theory, S_theory = get_theoretical_values(avg_bd, num)
+      results.append(
+        {
+          'chain': os.path.basename(folder),
+          'avg_R_sq': avg_R,
+          'avg_S_sq': avg_S,
+          'avg_bd': avg_bd,
+          'R_theory': R_theory,
+          'S_theory': S_theory,
+        }
+      )
 
   results.sort(key=lambda x: x['chain'])
 
   # 输出统计结果
   print('Final Results:')
-  print('{:<7} {:<10} {:<10} {:<15}'.format('Chain', 'Avg R²', 'Avg S²', 'Avg Bond Length'))
+  print(
+    '{:<7} {:<10} {:<10} {:<16} {:<10} {:<10}'.format(
+      'Chain',
+      'Avg R²',
+      'Avg S²',
+      'Avg Bond Length',
+      'R Theory',
+      'S Theory',
+    )
+  )
   for res in results:
     print(
-      '{:<7} {:<10.4f} {:<10.4f} {:<15.4f}'.format(
+      '{:<7} {:<10.4f} {:<10.4f} {:<16.4f} {:<10.4f} {:<10.4f}'.format(
         res['chain'].split('_')[0],
         res['avg_R_sq'],
         res['avg_S_sq'],
         res['avg_bd'],
+        res['R_theory'],
+        res['S_theory'],
       )
     )
 
   # save results to file
   with open(os.path.join(output_dir, 'final_results.txt'), 'w') as f:
-    f.write('{:<7} {:<10} {:<10} {:<15}\n'.format('Chain', 'Avg R²', 'Avg S²', 'Avg Bond Length'))
+    f.write(
+      '{:<7} {:<10} {:<10} {:<16} {:<10} {:<10}\n'.format(
+        'Chain',
+        'Avg R²',
+        'Avg S²',
+        'Avg Bond Length',
+        'R Theory',
+        'S Theory',
+      )
+    )
     for res in results:
       f.write(
-        '{:<7} {:<10.4f} {:<10.4f} {:<15.4f}\n'.format(
-          res['chain'].split('_')[0], res['avg_R_sq'], res['avg_S_sq'], res['avg_bd']
+        '{:<7} {:<10.4f} {:<10.4f} {:<16.4f} {:<10.4f} {:<10.4f}\n'.format(
+          res['chain'].split('_')[0],
+          res['avg_R_sq'],
+          res['avg_S_sq'],
+          res['avg_bd'],
+          res['R_theory'],
+          res['S_theory'],
         )
       )
 
