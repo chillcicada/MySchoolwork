@@ -31,7 +31,7 @@ def unwrap_coordinates(positions, box_size):
 def calculate_metrics(coordinates):
   """计算均方末端距和回转半径与平均键长"""
   if len(coordinates) < 2:
-    return 0.0, 0.0
+    return 0.0, 0.0, 0.0
 
   # 均方末端距
   end_to_end = coordinates[-1] - coordinates[0]
@@ -132,7 +132,7 @@ def main():
 
   # 输出统计结果
   print('Final Results:')
-  print('{:<7} {:<10} {:<10} {:<5}'.format('Chain', 'Avg R²', 'Avg S²', 'Avg Bond Length'))
+  print('{:<7} {:<10} {:<10} {:<15}'.format('Chain', 'Avg R²', 'Avg S²', 'Avg Bond Length'))
   for res in results:
     print(
       '{:<7} {:<10.4f} {:<10.4f} {:<15.4f}'.format(
