@@ -2,13 +2,13 @@
   description = "flake for cc's schoolwork";
 
   inputs = {
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*";
+    nixpkgs.url = "github:Nixos/nixpkgs/nixos-unstable";
   };
 
   outputs =
     {
-      self,
       nixpkgs,
+      ...
     }:
     let
       supportedSystems = [
