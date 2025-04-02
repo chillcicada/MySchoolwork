@@ -51,6 +51,10 @@
 
               pkg-config # pkg-config, required by rust
             ];
+
+            shellHook = ''
+              export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+            '';
           };
         }
       );
