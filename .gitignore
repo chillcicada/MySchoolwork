@@ -12,6 +12,9 @@ node_modules/
 .ruff_cache/
 .pytest_cache/
 .ipynb_checkpoints/
+*.egg-info/
+*-data/
+*-results/
 
 *.exe
 *.pdf
@@ -24,8 +27,6 @@ compile_commands.json
 
 /runs/
 
-/src/**/*-data/
-
 /src/cpp1f/docs/
 
 /src/dp1/trained/
@@ -33,7 +34,6 @@ compile_commands.json
 
 /src/others/**/*.svg
 /src/others/src/**/*.png
-/src/others/src/**/*.xlsx
 /src/others/output/
 
 /src/TransportFinal/**/*.png
