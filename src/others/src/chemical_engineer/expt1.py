@@ -166,10 +166,14 @@ def expt2_1(rho: float, mu: float) -> pd.DataFrame:
   lg_Re = np.log10(Re)
 
   xi = 2 * h_f / (u**2)
+  xi_avg = np.mean(xi)
+
+  xi_avg_plot = np.full_like(lg_Re, xi_avg)
 
   # plot the results
   plt.figure()
   plt.plot(lg_Re, xi, 'o', label='Data')
+  plt.plot(lg_Re, xi_avg_plot, '--', label=f'Average xi={xi_avg:.4f}')
   plt.xlabel('log10(Re)')
   plt.ylabel('xi')
   plt.title('Xi vs Re')
@@ -214,10 +218,14 @@ def expt2_2(rho: float, mu: float) -> pd.DataFrame:
   Re = rho * u * d_ / mu  # Reynolds number
   lg_Re = np.log10(Re)
   xi = 2 * h_f / (u**2)
+  xi_avg = np.mean(xi)
+
+  xi_avg_plot = np.full_like(lg_Re, xi_avg)
 
   # plot the results
   plt.figure()
   plt.plot(lg_Re, xi, 'o', label='Data')
+  plt.plot(lg_Re, xi_avg_plot, '--', label=f'Average xi={xi_avg:.4f}')
   plt.xlabel('log10(Re)')
   plt.ylabel('xi')
   plt.title('Xi vs Re')
@@ -266,30 +274,29 @@ def expt2_3(rho: float, mu: float) -> pd.DataFrame:
   lg_Re_2 = np.log10(Re_2)
 
   xi_1 = (u_1**2 - u_2**2) / (u_1**2) - 2 * delta_P / (rho * u_1**2)
-  xi_2 = (u_1**2 - u_2**2) / (u_2**2) - 2 * delta_P / (rho * u_2**2)
+  xi_1_avg = np.mean(xi_1)
+
+  xi_1_avg_plot = np.full_like(lg_Re_1, xi_1_avg)
 
   xi_1_theory = (1 - (d_1 / d_2) ** 2) ** 2
+
+  xi_1_theory_plot = np.full_like(lg_Re_1, xi_1_theory)
+
+  xi_2 = (u_1**2 - u_2**2) / (u_2**2) - 2 * delta_P / (rho * u_2**2)
+
   xi_2_theory = (1 - (d_2 / d_1) ** 2) ** 2
 
   # plot the results
   plt.figure()
   plt.plot(lg_Re_1, xi_1, 'o', label='Data 1')
+  plt.plot(lg_Re_1, xi_1_avg_plot, '--', label=f'Average xi={xi_1_avg:.4f}')
+  plt.plot(lg_Re_1, xi_1_theory_plot, '-', label=f'Theoretical xi={xi_1_theory:.4f}')
   plt.xlabel('log10($Re_1$)')
   plt.ylabel('$xi_1$')
   plt.title('$Xi_1$ vs $Re_1$')
   plt.legend()
   plt.tight_layout()
-  plt.savefig(os.path.join(output_dir, 'expt2.3-1.png'))
-  plt.close()
-
-  plt.figure()
-  plt.plot(lg_Re_2, xi_2, 'o', label='Data 2')
-  plt.xlabel('log10($Re_2$)')
-  plt.ylabel('$xi_2$')
-  plt.title('$Xi_2$ vs $Re_2$')
-  plt.legend()
-  plt.tight_layout()
-  plt.savefig(os.path.join(output_dir, 'expt2.3-2.png'))
+  plt.savefig(os.path.join(output_dir, 'expt2.3.png'))
   plt.close()
 
   logging.info('Plot saved successfully.')
@@ -302,9 +309,11 @@ def expt2_3(rho: float, mu: float) -> pd.DataFrame:
       'u_2': u_2,
       'delta P': delta_P,
       'Re_1': Re_1,
+      'lg Re_1': lg_Re_1,
       'xi_1': xi_1,
       'xi_1_theory': xi_1_theory,
       'Re_2': Re_2,
+      'lg Re_2': lg_Re_2,
       'xi_2': xi_2,
       'xi_2_theory': xi_2_theory,
     }
@@ -486,13 +495,14 @@ def expt4() -> pd.DataFrame:
   # save the results
   results = pd.DataFrame(
     {
-      'Q': Q_raw,
+      'Q': Q,
       'H_out': H_out,
       'H_in': H_in,
       'H': H,
       'delta P': delta_P,
       'eta': eta,
-      'N': N_raw,
+      'Ne': N_e,
+      'N': N,
     }
   )
 
