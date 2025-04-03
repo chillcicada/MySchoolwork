@@ -34,8 +34,6 @@ logging.basicConfig(level=logging.INFO, handlers=[handler])
 current_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(current_dir, 'expt1-data')
 output_dir = os.path.join(current_dir, 'expt1-results')
-if not os.path.exists(output_dir):
-  os.makedirs(output_dir)
 
 target_sheet_names = [
   'expt1',
@@ -57,7 +55,6 @@ for sheet_name in target_sheet_names:
   )
   pass
 logging.info('Data loaded successfully.')
-
 
 # set constants
 g = 9.81  # m/s^2
@@ -137,15 +134,18 @@ def expt1(rho: float, mu: float) -> pd.DataFrame:
   # save the results
   results = pd.DataFrame(
     {
+      'Q': Q,
+      'u': u,
+      'delta P': delta_P,
+      'h_f': h_f,
       'Re': Re,
+      'lg Re': lg_Re,
       'lambda': lambda_,
     }
   )
-  results.to_excel(os.path.join(output_dir, 'expt1.xlsx'), index=False)
-
-  logging.info('Results saved successfully.')
 
   logging.info('expt1 completed successfully.')
+
   return results
 
 
@@ -183,13 +183,15 @@ def expt2_1(rho: float, mu: float) -> pd.DataFrame:
   # save the results
   results = pd.DataFrame(
     {
+      'Q': Q,
+      'u': u,
+      'delta P': delta_P,
+      'h_f': h_f,
       'Re': Re,
+      'lg Re': lg_Re,
       'xi': xi,
     }
   )
-  results.to_excel(os.path.join(output_dir, 'expt2.1.xlsx'), index=False)
-
-  logging.info('Results saved successfully.')
 
   logging.info('expt2.1 completed successfully.')
 
@@ -229,13 +231,15 @@ def expt2_2(rho: float, mu: float) -> pd.DataFrame:
   # save the results
   results = pd.DataFrame(
     {
+      'Q': Q,
+      'u': u,
+      'delta P': delta_P,
+      'h_f': h_f,
       'Re': Re,
+      'lg Re': lg_Re,
       'xi': xi,
     }
   )
-  results.to_excel(os.path.join(output_dir, 'expt2.2.xlsx'), index=False)
-
-  logging.info('Results saved successfully.')
 
   logging.info('expt2.2 completed successfully.')
 
@@ -293,6 +297,10 @@ def expt2_3(rho: float, mu: float) -> pd.DataFrame:
   # save the results
   results = pd.DataFrame(
     {
+      'Q': Q,
+      'u_1': u_1,
+      'u_2': u_2,
+      'delta P': delta_P,
       'Re_1': Re_1,
       'xi_1': xi_1,
       'xi_1_theory': xi_1_theory,
@@ -301,9 +309,6 @@ def expt2_3(rho: float, mu: float) -> pd.DataFrame:
       'xi_2_theory': xi_2_theory,
     }
   )
-  results.to_excel(os.path.join(output_dir, 'expt2.3.xlsx'), index=False)
-
-  logging.info('Results saved successfully.')
 
   logging.info('expt2.3 completed successfully.')
 
@@ -385,13 +390,16 @@ def expt3(rho: float, mu: float) -> pd.DataFrame:
   # save the results
   results = pd.DataFrame(
     {
+      'm': m,
+      'time': time,
+      'Q': Q,
+      'u': u,
+      'delta P': delta_P,
       'Re': Re,
+      'Re_rev': Re_rev,
       'lambda': lambda_,
     }
   )
-  results.to_excel(os.path.join(output_dir, 'expt3.xlsx'), index=False)
-
-  logging.info('Results saved successfully.')
 
   logging.info('expt3 completed successfully.')
 
@@ -479,46 +487,64 @@ def expt4() -> pd.DataFrame:
   results = pd.DataFrame(
     {
       'Q': Q_raw,
-      'eta': eta,
+      'H_out': H_out,
+      'H_in': H_in,
       'H': H,
+      'delta P': delta_P,
+      'eta': eta,
       'N': N_raw,
     }
   )
-  results.to_excel(os.path.join(output_dir, 'expt4.xlsx'), index=False)
-
-  logging.info('Results saved successfully.')
 
   logging.info('expt4 completed successfully.')
 
   return results
 
 
-if __name__ == '__main__':
+def main():
+  os.makedirs(output_dir, exist_ok=True)
+
+  results: Dict[Literal['expt1', 'expt2.1', 'expt2.2', 'expt2.3', 'expt3', 'expt4'], pd.DataFrame] = {}
+
   rho = 997.7  # kg/m3
   mu = 9.635e-4  # Pa.s
 
   # run the expt1
-  expt1(rho, mu)
+  results['expt1'] = expt1(rho, mu)
 
   rho = 997.2  # kg/m3
   mu = 9.23e-4  # Pa.s
 
   # run the expt2.1
-  expt2_1(rho, mu)
+  results['expt2.1'] = expt2_1(rho, mu)
 
   # run the expt2.2
-  expt2_2(rho, mu)
+  results['expt2.2'] = expt2_2(rho, mu)
 
   # run the expt2.3
-  expt2_3(rho, mu)
+  results['expt2.3'] = expt2_3(rho, mu)
 
   rho = 996.7  # kg/m3
   mu = 8.825e-4  # Pa.s
 
   # run the expt3
-  expt3(rho, mu)
+  results['expt3'] = expt3(rho, mu)
 
   # run the expt4
-  expt4()
+  results['expt4'] = expt4()
+
+  # save the results to xlsx
+  with pd.ExcelWriter(os.path.join(output_dir, 'results.xlsx')) as writer:
+    for sheet_name, df in results.items():
+      df.to_excel(writer, sheet_name=sheet_name, index=False)
+      logging.info(f'Sheet {sheet_name} saved successfully.')
+      pass
+    pass
 
   logging.info('All experiments completed successfully.')
+
+  return
+
+
+if __name__ == '__main__':
+  main()
