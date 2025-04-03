@@ -1,3 +1,10 @@
+"""
+离心泵与管路内流体阻力表征
+
+@author: Liu Kuan
+@date: 2025-04-01
+"""
+
 import logging
 import os
 from typing import Dict, Literal
@@ -85,16 +92,44 @@ def expt1(rho: float, mu: float) -> pd.DataFrame:
   lg_Re_plot = np.linspace(lg_Re.min(), lg_Re.max(), 100)
   lambda_plot = np.polyval(model, lg_Re_plot)
 
+  filtered = (lambda_ > 0.0221) & (lambda_ < 0.025)
+  filtered_lg_Re = lg_Re[filtered]
+  filtered_Re = Re[filtered]
+  filtered_lambda = lambda_[filtered]
+
+  model_filtered = np.polyfit(filtered_lg_Re, filtered_lambda, 1)  # linear regression
+  r_squared_filtered = np.corrcoef(filtered_lg_Re, filtered_lambda)[0, 1] ** 2
+  logging.info('Fitting lambda vs log10(Re) (filtered):')
+  logging.info(
+    f'Intercept: {model_filtered[0]:.4f}, Slope: {model_filtered[1]:.4f}, R-squared: {r_squared_filtered:.4f}'
+  )
+
+  filtered_lg_Re_plot = np.linspace(filtered_lg_Re.min(), filtered_lg_Re.max(), 100)
+  lambda_plot_filtered = np.polyval(model_filtered, filtered_lg_Re_plot)
+
   # plot the results
   plt.figure()
+  plt.plot(Re, lambda_, 'o', label='Data')
+  plt.plot(filtered_Re, filtered_lambda, 'o', label='Filtered Data')
+  plt.xlabel('Re')
+  plt.ylabel('lambda')
+  plt.title('Lambda vs Re')
+  plt.legend()
+  plt.tight_layout()
+  plt.savefig(os.path.join(output_dir, 'expt1-1.png'))
+  plt.close()
+
+  plt.figure()
   plt.plot(lg_Re, lambda_, 'o', label='Data')
-  plt.plot(lg_Re_plot, lambda_plot, '-', label=f'Linear fit, $R^2$={r_squared:.4f}')
+  plt.plot(lg_Re_plot, lambda_plot, '--', label=f'Linear fit, $R^2$={r_squared:.4f}')
+  plt.plot(filtered_lg_Re, filtered_lambda, 'o', label='Filtered Data')
+  plt.plot(filtered_lg_Re_plot, lambda_plot_filtered, '-', label=f'Filtered fit, $R^2$={r_squared_filtered:.4f}')
   plt.xlabel('log10(Re)')
   plt.ylabel('lambda')
   plt.title('Lambda vs Re')
   plt.legend()
   plt.tight_layout()
-  plt.savefig(os.path.join(output_dir, 'expt1.png'))
+  plt.savefig(os.path.join(output_dir, 'expt1-2.png'))
   plt.close()
 
   logging.info('Plot saved successfully.')
@@ -289,7 +324,7 @@ def expt3(rho: float, mu: float) -> pd.DataFrame:
   delta_P = delta_P_raw * 1000  # Pa
   time = data['expt3'].iloc[:, 3].to_numpy()  # s
 
-  Q = m / time  # m3/s
+  Q = m / time / rho  # m3/s
 
   u = 4 * Q / (np.pi * d_**2)  # m/s
   Re = rho * u * d_ / mu  # Reynolds number
@@ -305,9 +340,25 @@ def expt3(rho: float, mu: float) -> pd.DataFrame:
   Re_rev_plot = np.linspace(Re_rev.min(), Re_rev.max(), 100)
   lambda_plot = np.polyval(model, Re_rev_plot)
 
+  filtered = (Re > 200) & (Re < 2000)
+  filtered_Re = Re[filtered]
+  filtered_Re_rev = Re_rev[filtered]
+  filtered_lambda = lambda_[filtered]
+
+  model_filtered = np.polyfit(filtered_Re_rev, filtered_lambda, 1)  # linear regression
+  r_squared_filtered = np.corrcoef(filtered_Re_rev, filtered_lambda)[0, 1] ** 2
+  logging.info('Fitting lambda vs 1/Re (filtered):')
+  logging.info(
+    f'Intercept: {model_filtered[0]:.4f}, Slope: {model_filtered[1]:.4f}, R-squared: {r_squared_filtered:.4f}'
+  )
+
+  filtered_Re_rev_plot = np.linspace(filtered_Re_rev.min(), filtered_Re_rev.max(), 100)
+  lambda_plot_filtered = np.polyval(model_filtered, filtered_Re_rev_plot)
+
   # plot the results
   plt.figure()
   plt.plot(Re, lambda_, 'o', label='Data')
+  plt.plot(filtered_Re, filtered_lambda, 'o', label='Filtered Data')
   plt.xlabel('Re')
   plt.ylabel('lambda')
   plt.title('Lambda vs Re')
@@ -318,7 +369,9 @@ def expt3(rho: float, mu: float) -> pd.DataFrame:
 
   plt.figure()
   plt.plot(Re_rev, lambda_, 'o', label='Data')
-  plt.plot(Re_rev_plot, lambda_plot, '-', label=f'Linear fit, $R^2$={r_squared:.4f}')
+  plt.plot(Re_rev_plot, lambda_plot, '--', label=f'Fit, $R^2$={r_squared:.4f}')
+  plt.plot(filtered_Re_rev, filtered_lambda, 'o', label='Filtered Data')
+  plt.plot(filtered_Re_rev_plot, lambda_plot_filtered, '-', label=f'Filtered fit, $R^2$={r_squared_filtered:.4f}')
   plt.xlabel('1/Re')
   plt.ylabel('lambda')
   plt.title('Lambda vs 1/Re')
@@ -345,7 +398,7 @@ def expt3(rho: float, mu: float) -> pd.DataFrame:
   return results
 
 
-def expt4(rho: float, mu: float) -> pd.DataFrame:
+def expt4() -> pd.DataFrame:
   logging.info('Running expt4...')
 
   # set the parameters
@@ -390,8 +443,8 @@ def expt4(rho: float, mu: float) -> pd.DataFrame:
   # plot the efficiency vs flow rate
   plt.figure()
   plt.plot(Q_raw, eta, 'o', label='Data')
-  plt.plot(Q_plot_raw, eta_plot_raw, '-', label=f'Linear fit, $R^2$={R_squared_eta:.4f}')
-  plt.xlabel('Flow rate (m3/h)')
+  plt.plot(Q_plot_raw, eta_plot_raw, '-', label=f'Fit, $R^2$={R_squared_eta:.4f}')
+  plt.xlabel('Flow rate ($m^3/h$)')
   plt.ylabel('Efficiency (%)')
   plt.title('Efficiency vs Flow rate')
   plt.legend()
@@ -401,8 +454,8 @@ def expt4(rho: float, mu: float) -> pd.DataFrame:
   # plot the H vs flow rate
   plt.figure()
   plt.plot(Q_raw, H, 'o', label='Data')
-  plt.plot(Q_plot_raw, H_plot, '-', label=f'Linear fit, $R^2$={R_squared_H:.4f}')
-  plt.xlabel('Flow rate (m3/h)')
+  plt.plot(Q_plot_raw, H_plot, '-', label=f'Fit, $R^2$={R_squared_H:.4f}')
+  plt.xlabel('Flow rate ($m^3/h$)')
   plt.ylabel('H (m)')
   plt.title('H vs Flow rate')
   plt.legend()
@@ -412,7 +465,7 @@ def expt4(rho: float, mu: float) -> pd.DataFrame:
   # plot the N vs flow rate
   plt.figure()
   plt.plot(Q_raw, N_raw, 'o', label='Data')
-  plt.xlabel('Flow rate (m3/h)')
+  plt.xlabel('Flow rate ($m^3/h$)')
   plt.ylabel('N (kW)')
   plt.title('N vs Flow rate')
   plt.legend()
@@ -447,6 +500,9 @@ if __name__ == '__main__':
   # run the expt1
   expt1(rho, mu)
 
+  rho = 997.2  # kg/m3
+  mu = 9.23e-4  # Pa.s
+
   # run the expt2.1
   expt2_1(rho, mu)
 
@@ -456,10 +512,13 @@ if __name__ == '__main__':
   # run the expt2.3
   expt2_3(rho, mu)
 
+  rho = 996.7  # kg/m3
+  mu = 8.825e-4  # Pa.s
+
   # run the expt3
   expt3(rho, mu)
 
   # run the expt4
-  expt4(rho, mu)
+  expt4()
 
   logging.info('All experiments completed successfully.')

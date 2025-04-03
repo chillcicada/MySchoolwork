@@ -33,6 +33,7 @@ compile_commands.json
 
 /src/others/**/*.svg
 /src/others/src/**/*.png
+/src/others/src/**/*.xlsx
 /src/others/output/
 
 /src/TransportFinal/**/*.png

@@ -34,13 +34,15 @@
         {
           default = pkgs.mkShell {
             packages = with pkgs; [
-              quarto
-
-              ovito
+              ovito # visualizing crystal structures
+              quarto# convert jupyter notebooks to pdf
 
               mpi
-              valgrind
+              llvmPackages.openmp
+
               doxygen
+              gfortran
+              valgrind
               qt6.full
 
               parallel # parallelize shell commands
