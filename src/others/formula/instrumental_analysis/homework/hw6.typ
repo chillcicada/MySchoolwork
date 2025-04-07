@@ -9,7 +9,7 @@
 
 #set text(font: ("Times New Roman", "SimSun"))
 
-= 高分子材料仪器分析 - 第五周
+= 高分子材料仪器分析 - 第六周
 
 #align(center)[刘宽 ~ 2022013189 ~ 探微分21]
 
