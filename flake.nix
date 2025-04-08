@@ -35,7 +35,7 @@
           default = pkgs.mkShell {
             packages = with pkgs; [
               ovito # visualizing crystal structures
-              quarto# convert jupyter notebooks to pdf
+              quarto # convert jupyter notebooks to pdf
 
               mpi
               llvmPackages.openmp
