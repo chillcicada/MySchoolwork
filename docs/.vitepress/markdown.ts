@@ -15,7 +15,6 @@ const openmpLang = j('openmp_lang.tmLanguage.json')
 const openaccLang = j('openacc_lang.tmLanguage.json')
 
 const markdown: MarkdownOptions = {
-  math: true,
   languages: [
     {
       ...fortran90,

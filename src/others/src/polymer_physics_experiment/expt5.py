@@ -93,7 +93,6 @@ def resolve_pre_expt_data(expt_data):
 
 
 def resolve(expt_data, expt_name):
-  # 角频率	储能模量	损耗模量	损耗因子	剪切应变	剪切应力	扭矩	状态
   (
     angular_frequency,
     storage_modulus,
