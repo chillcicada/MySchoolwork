@@ -1,3 +1,10 @@
+"""
+Experiment 3: SALS
+
+@author: Liu Kuan
+@date: 2025-04-10
+"""
+
 import numpy as np
 
 point = np.array([184, 213])
