@@ -2,7 +2,6 @@
 
 #show: defineConfig
 
-#set text(font: "SimSun")
 #set par(first-line-indent: (amount: 2em, all: true))
 #set math.equation(numbering: "(1)")
 

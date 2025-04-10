@@ -77,7 +77,7 @@
     message: "Unsupported language, only support: " + _support_lang.join(", "),
   )
 
-  set text(lang: lang, region: region)
+  set text(lang: lang, region: region, font: font-family.SongTi)
 
   let _support_doctype = ("bachelor", "master", "doctor")
 

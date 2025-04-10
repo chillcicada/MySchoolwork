@@ -3,7 +3,6 @@
 
 #show: defineConfig
 
-#set text(font: ((name: "Times New Roman", covers: "latin-in-cjk"), "NSimSun"))
 #set par(first-line-indent: (amount: 2em, all: true))
 #set math.equation(numbering: "(1)")
 
@@ -267,7 +266,7 @@ $
 $
   alpha_i
   &= 0.023 lambda / d_i "Re"^0.8 "Pr"^0.4
-  &= 0.023 times 0.14 / 0.02 times (15991)^0.8 times (6.043)^0.4
+  &= 0.023 times 0.14 / 0.02 times (15991)^0.8 times (6.043)^0.4 "W/(m"^2 dot "K)"
   &= 762.83 "W/(m"^2 dot "K)"
 $
 
