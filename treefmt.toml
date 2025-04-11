@@ -1,0 +1,19 @@
+excludes = ["LICENSE", "*.lock", "**/.*", "**/node_modules/"]
+
+[formatter.nixfmt-rfc-style]
+command = "nixfmt"
+includes = ["*.nix"]
+
+[formatter.ruff]
+command = "sh"
+options = ["-c", "ruff check \"$@\" && ruff format \"$@\"", "--"]
+includes = ["*.py", "*.pyi", "*.ipynb"]
+
+[formatter.typstyle]
+command = "typstyle"
+options = ["-i"]
+includes = ["*.typ"]
+
+[formatter.fprettify]
+command = "fprettify"
+includes = ["*.f90", "*.F90"]

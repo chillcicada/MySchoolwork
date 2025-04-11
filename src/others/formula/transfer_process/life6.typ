@@ -17,10 +17,10 @@
 
 $
   u_z = 1 / (4 mu) (dif p) / (dif r) (r^2 - R^2) \
-  dif Q = 2 pi r u_z dif r  \
+  dif Q = 2 pi r u_z dif r \
   (dif p) / (dif z) = - (8 mu u_m) / (R^2) \
-  lambda = (4 R) / (rho u_m^2) (dif p) /(dif z) \
-  dif F_f = (4 pi R^3) / (rho u_m^2) (dif p) /(dif z) dif r
+  lambda = (4 R) / (rho u_m^2) (dif p) / (dif z) \
+  dif F_f = (4 pi R^3) / (rho u_m^2) (dif p) / (dif z) dif r
 $
 
 将平均速度 $u_m$ 视作定值，可以得出血流量的大小与血管两端的压力差成正比，与血管对血流的阻力成反比的关系。

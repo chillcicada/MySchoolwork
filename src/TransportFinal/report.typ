@@ -436,7 +436,7 @@ $<12>
 
 $eta$ 越接近 1，说明保温效果越好。
 
-我计算了 $delta_2 = 0.03 upright(m)$ 和 $ 0.3 upright(m)$ 的 $eta$ 值（最终温度如上图所示），并统计了达到此保温效果的平衡时间，结果如下表所示：
+我计算了 $delta_2 = 0.03 upright(m)$ 和 $0.3 upright(m)$ 的 $eta$ 值（最终温度如上图所示），并统计了达到此保温效果的平衡时间，结果如下表所示：
 
 #let data_eta = csv("assets/data_eta.csv")
 

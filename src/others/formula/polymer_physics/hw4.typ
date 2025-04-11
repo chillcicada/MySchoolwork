@@ -2,7 +2,7 @@
 
 2. 由题可知，$overline(h_0^2) = 165 "nm"^2$
 
-从而 $l = sqrt(overline(h_0^2) / (6.76 n) ) 0.22 "nm"$
+从而 $l = sqrt(overline(h_0^2) / (6.76 n)) 0.22 "nm"$
 
 刚性因子：$sigma = 3.38$
 

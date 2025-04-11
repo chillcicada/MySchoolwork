@@ -117,7 +117,10 @@ $
   K = 1 / (A_m / (alpha_1 A_1) + 1 / (alpha_2 A_2) + delta / lambda)
 $
 
-#figure(image("ch2/流体的热交换.png", width: 6cm), caption: [流体的热交换（热流体 $->$ 壁面 $->$ 冷流体）])
+#figure(
+  image("ch2/流体的热交换.png", width: 6cm),
+  caption: [流体的热交换（热流体 $->$ 壁面 $->$ 冷流体）],
+)
 
 从管外到管内依次列出传热过程，管壁外部：
 

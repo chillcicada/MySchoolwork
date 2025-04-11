@@ -44,6 +44,7 @@
               gfortran
               valgrind
               qt6.full
+              fprettify
 
               parallel # parallelize shell commands
               imagemagick # image manipulation

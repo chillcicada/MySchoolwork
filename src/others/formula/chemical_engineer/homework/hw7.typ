@@ -110,8 +110,16 @@ $
   grid(
     columns: 2,
     gutter: 1em,
-    figure(image("hw7/离心泵.png", height: 5cm), caption: [a) 离心泵示意图], numbering: none),
-    figure(image("hw7/离心泵特性曲线.png", height: 5cm), caption: [b) 离心泵特性曲线图], numbering: none),
+    figure(
+      image("hw7/离心泵.png", height: 5cm),
+      caption: [a) 离心泵示意图],
+      numbering: none,
+    ),
+    figure(
+      image("hw7/离心泵特性曲线.png", height: 5cm),
+      caption: [b) 离心泵特性曲线图],
+      numbering: none,
+    ),
   ),
   caption: [往复泵示意图和 $H - Q$ 曲线图],
 ) <fig:离心泵>
@@ -120,8 +128,16 @@ $
   grid(
     columns: 2,
     gutter: 1em,
-    figure(image("hw7/往复泵.png", height: 5cm), caption: [a) 往复泵示意图], numbering: none),
-    figure(image("hw7/往复泵h-q图.png", height: 5cm), caption: [b) 往复泵 $H - Q$ 曲线图], numbering: none),
+    figure(
+      image("hw7/往复泵.png", height: 5cm),
+      caption: [a) 往复泵示意图],
+      numbering: none,
+    ),
+    figure(
+      image("hw7/往复泵h-q图.png", height: 5cm),
+      caption: [b) 往复泵 $H - Q$ 曲线图],
+      numbering: none,
+    ),
   ),
   caption: [往复泵示意图和 $H - Q$ 曲线图],
 ) <fig:往复泵>

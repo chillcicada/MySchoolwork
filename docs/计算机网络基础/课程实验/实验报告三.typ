@@ -48,9 +48,9 @@
   + 进行文件共享操作，或使用远程桌面连接测试网络传输速率。
 + 结果与分析：
   + 安装注意事项进行配置时，`ping` 测试正常。 下图为 HUB 设备的级联。
-    // #image("https://img.chillcicada.com/i/2024/05/26/665340eb52b4e.jpg")
+  // #image("https://img.chillcicada.com/i/2024/05/26/665340eb52b4e.jpg")
   + 下图为命令行共享文件夹操作及关闭共享操作。
-    // #image("https://img.chillcicada.com/i/2024/05/26/665340f81be46.jpg")
+  // #image("https://img.chillcicada.com/i/2024/05/26/665340f81be46.jpg")
   + 文件传输测试速率结果如下图所示，传输带宽在 10MB/s 左右。
     // #image("https://img.chillcicada.com/i/2024/05/26/665341026eb82.jpg")
     需要说明的是，上述数据为两台设备之间单项文件传输时测试得到的传输速率。由于使用的是 HUB
@@ -86,10 +86,10 @@
 + 结果与分析：
   + 安装注意事项进行配置时，`ping` 测试正常。
   + 文件传输测试速率结果如下图所示，传输带宽在 100MB/s 左右
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653410e274df.jpg")
+  // #image("https://img.chillcicada.com/i/2024/05/26/6653410e274df.jpg")
   + 下图为交换器配置界面和计算机启用 DHCP 后返回的信息。
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653411c3f192.jpg")
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653411c3f192.jpg")
+// #image("https://img.chillcicada.com/i/2024/05/26/6653411c3f192.jpg")
+// #image("https://img.chillcicada.com/i/2024/05/26/6653411c3f192.jpg")
 
 #text(14pt)[=== iv. 实验任务 四]
 
@@ -104,9 +104,12 @@
       columns: (auto, auto),
       [网线的用途], [网线的类型],
       [HUB 普通口 $<-->$ HUB 普通口 \
-      计算机 $<-->$ 计算机 / HUB Uplink 口], [反线],
+        计算机 $<-->$ 计算机 / HUB Uplink 口],
+      [反线],
+
       [HUB 普通口 $<-->$ HUB Uplink 口 \
-      计算机 $<-->$ HUB 普通口], [正线]
+        计算机 $<-->$ HUB 普通口],
+      [正线],
     )
     连接交换机时，不用考虑正反线的问题
 - 集线器（Hub）、交换机（Switch）和路由器（Router）

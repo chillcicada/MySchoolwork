@@ -18,7 +18,7 @@ $
   cases(
     1 / R (partial u_theta) / (partial theta) = 0,
     u_theta^2 / R = 1 / rho (partial p) / (partial r),
-    1 / (rho R) (partial p) / (partial theta) = nu [1 /R partial / (partial R) (R (partial u_theta) / partial R) - u_theta / R^2] = 0,
+    1 / (rho R) (partial p) / (partial theta) = nu [1 / R partial / (partial R) (R (partial u_theta) / partial R) - u_theta / R^2] = 0,
     (partial p) / (partial z) = 0 => p = f(r)
   )
 $
@@ -90,7 +90,10 @@ $
 
 == 题 2
 
-#figure(image("hw1/linear_bingham_plastic.png", width: 40%), caption: "线性宾汉塑性流体")
+#figure(
+  image("hw1/linear_bingham_plastic.png", width: 40%),
+  caption: "线性宾汉塑性流体",
+)
 
 以轴心建立柱坐标系，设圆柱的内半径为 $R$，不考虑屈服应力和滑移。
 
@@ -193,7 +196,10 @@ $
 
 由测量到的 $dot(gamma)$ 和 $tau_w$，使用幂律定律的对数形式 $ln(tau_w) = n ln(dot(gamma)) + ln(K)$ 拟合 $n$ 和 $K$，其中 $n$ 为非牛顿流体指数，$K$ 为稠度系数，拟合图像如下图所示。
 
-#figure(image("hw1/non-newton_index.png", width: 40%), caption: "非牛顿流体指数")
+#figure(
+  image("hw1/non-newton_index.png", width: 40%),
+  caption: "非牛顿流体指数",
+)
 
 根据拟合结果，得到 $n = 0.5$，$K = 3162 "Pa" dot "s"^0.5$，其中拟合系数 $R^2 = 1.0000$。
 

@@ -16,7 +16,7 @@ $
 
 式中 $P$ 为聚合度，满足 $P prop overline(M)_n$，$overline(M)_n$ 为聚合物分子量，$T_m^0$ 为无限大聚合度时的熔点，$R$ 为气体常数，$Delta H_f$ 为熔化焓。
 
-由此可知，绘制 $1/T_m$ 与 $1/overline(M)_n$ 拟合图像，根据纵轴截距，即可得到 $T_m^0$。
+由此可知，绘制 $1 / T_m$ 与 $1 / overline(M)_n$ 拟合图像，根据纵轴截距，即可得到 $T_m^0$。
 
 初次拟合图像如下图所示：
 
@@ -24,7 +24,10 @@ $
 
 其中拟合系数 $R^2 = 0.6133$，可见此次拟合效果并不好，注意到图像第三个点（对应第二组数据）明显偏离拟合直线，因此考虑将其剔除，重新拟合，得到如下图像：
 
-#figure(image("hw2/final_output.png", width: 60%), caption: "剔除第三个点后的拟合图像")
+#figure(
+  image("hw2/final_output.png", width: 60%),
+  caption: "剔除第三个点后的拟合图像",
+)
 
 其中拟合系数 $R^2 = 0.9895$，可见此次拟合效果较好。
 
@@ -32,7 +35,10 @@ $
 
 == 题二
 
-#figure(image("hw2/dsc.png", width: 80%), caption: "热流型 DSC（左图）和功率补偿 DSC（右图）")
+#figure(
+  image("hw2/dsc.png", width: 80%),
+  caption: "热流型 DSC（左图）和功率补偿 DSC（右图）",
+)
 
 相同点：
 

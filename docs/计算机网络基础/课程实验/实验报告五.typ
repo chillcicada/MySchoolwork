@@ -68,7 +68,7 @@
 + 任务内容：配置 DNS 服务器的正向解析
 + 实验过程：
   + 删除已有记录。在“DNS 管理器”控制台下，打卡“根提示”界面，并删除里面的所有记录。
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653413ade933.jpg")
+  // #image("https://img.chillcicada.com/i/2024/05/26/6653413ade933.jpg")
   + 新建正向区域。在“正向查找区域”中新建区域，按默认选项即可（主要区域-不允许动态更新），并指定区域名称。
     本次实验中，将区域名称指定为 pku.edu.cn。
   + 新建主机。在新建好的区域中，新建主机，指定主机名和 IP 地址。
@@ -98,10 +98,10 @@
   + 在本机新建区域 aaa.com。
   + 右键 aaa.com，选择“新建委派”，在“受委派域名”界面中填入“bbb”，按默认选项即可。
   + 进入“名称服务器”页面，在“新建名称服务器记录”页面中，“服务器完全限定的域名”处填入“bbb.aaa.com”，在 IP 地址处填入邻机地址（192.168.20.217），单机确认退出。
-    // #image("https://img.chillcicada.com/i/2024/05/26/665341549a6b9.jpg")
+  // #image("https://img.chillcicada.com/i/2024/05/26/665341549a6b9.jpg")
   + 在邻机新建区域 bbb.aaa.com。接着在该区域中新建主机“www”，设置 IP 地址。
     在本次实验中，“www.bbb.aaa.com” 的 IP 地址被设置为 192.168.20.216 （此设备为关机状态）。
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653415cb99f8.jpg")
+  // #image("https://img.chillcicada.com/i/2024/05/26/6653415cb99f8.jpg")
   + 在命令提示符下使用 `ping` 或 `nslookup` 命令测试域名解析。
     本次实验中，使用 `ping www.pku.edu.cn` 命令测试域名解析。
 + 结果与分析：
@@ -138,7 +138,7 @@
   + 进入控制台界面，运行 `ipconfig /flushdns` 清除 DNS 缓存，然后运行 `nslookup 192.168.20.217`，查看解析结果。（注意此处不能使用 `ping` 命令。）
 + 结果与分析：
   + 返回得到 IP 地址 `192.168.20.217` 的名称为 `www.tsinghua.edu.cn`，结果如下图所示。
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653417737ed3.jpg")
+// #image("https://img.chillcicada.com/i/2024/05/26/6653417737ed3.jpg")
 
 #text(14pt)[=== vii. 实验任务 七]
 

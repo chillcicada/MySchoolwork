@@ -50,7 +50,9 @@ $ dif x = ((r + dif r) (omega + dif omega) - (r + dif r) omega) dif t $
 
 $ dif x = r dif omega dif t $
 
-$ dot(gamma) = (dif x \/ dif t) / (dif r) = r (dif omega) / (dif r) = r dif (v_theta / r) \/ dif r $
+$
+  dot(gamma) = (dif x \/ dif t) / (dif r) = r (dif omega) / (dif r) = r dif (v_theta / r) \/ dif r
+$
 
 #line(length: 100%)
 

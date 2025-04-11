@@ -95,7 +95,7 @@ $
   = (4 times 1.389 times 10^(-4)) / (pi times 0.015^2) "m/s" = 0.786 "m/s" \
 $
 
-水的平均温度为 20 #degC，查询得 20 #degC 时水的粘度约为 $mu = 0.893 mPa dot "s"$，密度为 $rho = 997 unit("kg/m^3")$，热导率为 $lambda = 0.59 "W/(m·K)"$，比热容为 $c_p  = 4.18 "kJ/(kg·K)"$，此时流体流动的雷诺数大致为：
+水的平均温度为 20 #degC，查询得 20 #degC 时水的粘度约为 $mu = 0.893 mPa dot "s"$，密度为 $rho = 997 unit("kg/m^3")$，热导率为 $lambda = 0.59 "W/(m·K)"$，比热容为 $c_p = 4.18 "kJ/(kg·K)"$，此时流体流动的雷诺数大致为：
 
 $
   "Re" = (rho u D) / mu = (997 times 0.786 times 0.015) / (0.893 times 10^(-3)) = 13163 > 10^4
@@ -149,7 +149,7 @@ $
 
 壁面输送的热流量满足 $phi.alt_T = alpha A (T_w - T)$，流体的吸热量满足 $Q_T = c_p rho Q Delta T$。
 
-相比流量降低前，由于 $Delta T$ 不变，令 $phi.alt_T = Q_T $ 可得：
+相比流量降低前，由于 $Delta T$ 不变，令 $phi.alt_T = Q_T$ 可得：
 
 $
   T_w - T prop Q dot alpha^(-1)
@@ -184,7 +184,7 @@ $
   = (4 times 8.333 times 10^(-4)) / (3 pi times 0.04^2) = 0.221 "m/s" \
 $
 
-苯的平均温度为 $t = 1/2 (30+70) degC = 50 degC$，查询资料得，苯在 50 #degC 的物性数据如下：
+苯的平均温度为 $t = 1 / 2 (30+70) degC = 50 degC$，查询资料得，苯在 50 #degC 的物性数据如下：
 
 $
   rho &= 860 unit("kg/m^3") \

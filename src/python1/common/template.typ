@@ -12,27 +12,23 @@
 
   set par(justify: true)
 
-  show heading.where(
-    level: 1,
-  ): it => block(
+  show heading.where(level: 1): it => block(
     align(
       center,
       text(
         14pt,
         weight: "bold",
         smallcaps(it.body),
-      )
-    )
+      ),
+    ),
   )
 
-  show heading.where(
-    level: 2
-  ): it => box(
+  show heading.where(level: 2): it => box(
     text(
       12pt,
       weight: "regular",
       it.body + [:],
-    )
+    ),
   )
 
   set align(center)

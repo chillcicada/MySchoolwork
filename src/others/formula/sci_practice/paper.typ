@@ -22,10 +22,10 @@ _>hint: If the influence of external charge distribution is not considered, the 
 $
   cases(
     (e^2 f^2 g_"el"^2) / (epsilon xi_"el") approx k_B T \
-    xi_"el" = b g_"el"^(1/2)
+    xi_"el" = b g_"el"^(1 / 2)
   ) => cases(
-    xi_"el" = b (u f^2)^(-1/3) \
-    g_"el" = (u f^2)^(-2/3)
+    xi_"el" = b (u f^2)^(-1 / 3) \
+    g_"el" = (u f^2)^(-2 / 3)
   )
 $
 
@@ -104,7 +104,7 @@ $
 
 _> hint: the electrostatic potential need more refinement_
 
-For the head, since the $Delta N << N$, we have: $R_"gl" approx R_"head"$, notice that the right-hand side of the equation (10) is proportional to the linear charge density of the tail $(g_"el" f_"-") / xi_"el" tilde (xi_"el" f_"-") / b^2 tilde f_"-" (u f_"-"^2)^(-1/3)/b$
+For the head, since the $Delta N << N$, we have: $R_"gl" approx R_"head"$, notice that the right-hand side of the equation (10) is proportional to the linear charge density of the tail $(g_"el" f_"-") / xi_"el" tilde (xi_"el" f_"-") / b^2 tilde f_"-" (u f_"-"^2)^(-1 / 3) / b$
 
 Then we have:
 

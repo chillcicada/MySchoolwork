@@ -41,13 +41,18 @@
   + 设计的路由表如下：（路由器 R1）
     #table(
       columns: (auto, auto, auto, auto, auto),
-      [Destination LAN IP], [Subnet Mask], [Default Gateway], [Hop Count], [Interface],
+      [Destination LAN IP],
+      [Subnet Mask],
+      [Default Gateway],
+      [Hop Count],
+      [Interface],
+
       [0.0.0.0], [0.0.0.0], [192.168.1.1], [1], [Internet],
       [192.168.1.0], [255.255.255.0], [0.0.0.0], [0], [Local],
-      [192.168.2.0], [255.255.255.0], [0.0.0.0], [1], [Local]
+      [192.168.2.0], [255.255.255.0], [0.0.0.0], [1], [Local],
     )
     设计的路由示意图如下：
-    // #image("https://img.chillcicada.com/i/2024/05/26/665340232094d.png")
+  // #image("https://img.chillcicada.com/i/2024/05/26/665340232094d.png")
   + 根据示意图完成物理连接，检查指示灯确认连接成功。同时设置好路由器和本机电脑的网络配置，注意需要关闭所有防火墙。
   + 通过网络测试命令互相测试两个主机之间的通信是否正常。
     本次实验使用 `ping` 命令进行测试。
@@ -61,7 +66,7 @@
     - 连接多个网络：路由器可以连接不同的网络，如局域网（LAN）、广域网（WAN）等，实现不同网络之间的通信。
   - 路由表中各项属性含义（仅 IPv4 路由表）
     // #image("https://img.chillcicada.com/i/2024/05/26/6653404fcdc24.png")
-    - 网络目标（Destination LAN IP）：指示数据包要前往的目标网络的地址。它表示了目标网络的IP地址范围。 
+    - 网络目标（Destination LAN IP）：指示数据包要前往的目标网络的地址。它表示了目标网络的IP地址范围。
     - 网络掩码（Subnet Mask）：用于确定目标网络的范围。它和网络目标一起使用，通过对目标IP地址进行按位与操作，可以得出目标网络的地址。
     - 网关（Default Gateway）：指示数据包在当前路由器上的下一跳地址，也就是数据包下一个要到达的路由器的IP地址。当数据包的目标网络不在当前路由器所在的网络中时，需要通过网关进行转发。
     - 接口（Interface）：指示数据包应该通过哪个物理接口转发，以便到达下一个路由器或者目标网络。接口表示了路由器和其他设备之间的连接。
@@ -75,23 +80,33 @@
     - 路由器 R1：
       #table(
         columns: (auto, auto, auto, auto, auto),
-        [Destination LAN IP], [Subnet Mask], [Default Gateway], [Hop Count], [Interface],
+        [Destination LAN IP],
+        [Subnet Mask],
+        [Default Gateway],
+        [Hop Count],
+        [Interface],
+
         [0.0.0.0], [0.0.0.0], [192.168.3.1], [1], [Internet],
         [192.168.1.0], [255.255.255.0], [0.0.0.0], [1], [Local],
         [192.168.2.0], [255.255.255.0], [192.168.3.1], [0], [Internet],
-        [192.168.3.0], [255.255.255.0], [0.0.0.0], [1], [Local]
+        [192.168.3.0], [255.255.255.0], [0.0.0.0], [1], [Local],
       )
     - 路由器 R2：
       #table(
         columns: (auto, auto, auto, auto, auto),
-        [Destination LAN IP], [Subnet Mask], [Default Gateway], [Hop Count], [Interface],
+        [Destination LAN IP],
+        [Subnet Mask],
+        [Default Gateway],
+        [Hop Count],
+        [Interface],
+
         [0.0.0.0], [0.0.0.0], [192.168.2.2], [1], [Internet],
         [192.168.1.0], [255.255.255.0], [192.168.3.2], [0], [Local],
         [192.168.2.0], [255.255.255.0], [0.0.0.0], [1], [Local],
-        [192.168.3.0], [255.255.255.0], [0.0.0.0], [1], [Internet]
+        [192.168.3.0], [255.255.255.0], [0.0.0.0], [1], [Internet],
       )
     设计的路由示意图如下：
-    // #image("https://img.chillcicada.com/i/2024/05/26/6653405d03c7c.png")
+  // #image("https://img.chillcicada.com/i/2024/05/26/6653405d03c7c.png")
   + 根据示意图完成物理连接，检查指示灯确认连接成功。同时设置好路由器和本机电脑的网络配置，注意需要关闭所有防火墙。
     注意：组网连线前确保 R1 路由器的接口 1 地址和 R2 路由器的接口 0 地址的 IP 地址不能相应，否则会造成 IP 冲突。
   + 通过网络测试命令互相测试两个主机之间的通信是否正常。
