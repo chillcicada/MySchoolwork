@@ -1,19 +1,23 @@
-excludes = ["LICENSE", "*.lock", "**/.*", "**/node_modules/"]
+excludes = ["**/*.lock", "**/.*", "**/node_modules/"]
 
+# nix
 [formatter.nixfmt-rfc-style]
 command = "nixfmt"
 includes = ["*.nix"]
 
+# python
 [formatter.ruff]
 command = "sh"
 options = ["-c", "ruff check \"$@\" && ruff format \"$@\"", "--"]
 includes = ["*.py", "*.pyi", "*.ipynb"]
 
+# typst
 [formatter.typstyle]
 command = "typstyle"
 options = ["-i"]
 includes = ["*.typ"]
 
+# fortran
 [formatter.fprettify]
 command = "fprettify"
 includes = ["*.f90", "*.F90"]
