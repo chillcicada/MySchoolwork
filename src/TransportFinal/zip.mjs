@@ -14,7 +14,9 @@ output.on('close', () => {
   console.log('archiver has been finalized and the output file descriptor has closed.')
 })
 
-output.on('end', () => { console.log('Data has been drained') })
+output.on('end', () => {
+  console.log('Data has been drained')
+})
 
 archive.on('warning', err => console.warn(err))
 

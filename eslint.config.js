@@ -8,8 +8,8 @@ export default antfu({
   jsonc: false,
 
   ignores: [
+    '**/*.md',
     '**/pyproject.toml',
-    '**/zip.mjs',
     '.github/workflows/*.yml',
   ],
 })
