@@ -21,21 +21,21 @@
   "devDependencies": {
     "@antfu/eslint-config": "4.12.0",
     "@shikijs/vitepress-twoslash": "3.2.2",
+    "@slidev/cli": "51.4.0",
+    "@slidev/theme-seriph": "0.25.0",
     "@types/node": "22.14.0",
     "archiver": "7.0.1",
     "eslint": "9.24.0",
     "eslint-plugin-format": "1.0.1",
+    "http-server": "14.1.1",
     "lint-staged": "15.5.1",
+    "playwright-chromium": "1.51.1",
     "prettier-plugin-slidev": "1.0.5",
     "rimraf": "6.0.1",
     "simple-git-hooks": "2.12.1",
     "typescript": "5.8.3",
     "vitepress": "1.6.3",
-    "vue-tsc": "2.2.8",
-    "@slidev/cli": "51.4.0",
-    "@slidev/theme-seriph": "0.25.0",
-    "http-server": "14.1.1",
-    "playwright-chromium": "1.51.1"
+    "vue-tsc": "2.2.8"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
