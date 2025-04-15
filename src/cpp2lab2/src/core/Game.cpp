@@ -175,7 +175,7 @@ void Game::update(float deltaTime) {
     float newDistance =
         currentDistance + BALL_SPEED * deltaTime; // 计算球在路径上的新位置
     QPointF newPos = path.getPointAtDistance(newDistance); // 计算球的新位置
-    ballList[i].setPosition(newPos); // 设置球的新位置
+    ballList[i].setPosition(newPos);                       // 设置球的新位置
     if (i < ballList.size() - 1 &&
         ballList[i].distanceTo(ballList[i + 1]) > BALL_RADIUS * 2 + EPS)
       break; // 如果这个球和下一个球之间有空隙，则后面的所有球都不移动

@@ -42,6 +42,7 @@
 
               doxygen
               gfortran
+              libclang
               valgrind
               qt6.full
               fprettify

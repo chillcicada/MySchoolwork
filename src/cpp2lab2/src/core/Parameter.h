@@ -4,7 +4,7 @@
 static constexpr float EPS = 1e-6;                 // 浮点数精度
 static constexpr float BALL_RADIUS = 15.0f;        // 球的半径
 static constexpr float COLLISION_THRESHOLD = 1.0f; // 碰撞检测阈值
-static constexpr float BALL_SPEED = 30.0f; // 轨道上球的移动速度
+static constexpr float BALL_SPEED = 30.0f;         // 轨道上球的移动速度
 static constexpr float SHOOTING_BALL_SPEED =
     BALL_SPEED * 20;                       // 正在飞行的球的飞行速度
 static constexpr float SCREEN_MIN_X = 0;   // 屏幕最小x坐标

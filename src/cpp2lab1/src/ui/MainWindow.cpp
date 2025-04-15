@@ -12,12 +12,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
   connectSignals();
 }
 
-std::shared_ptr<Game> MainWindow::getGame() const {
-    return game_;
-}
+std::shared_ptr<Game> MainWindow::getGame() const { return game_; }
 
 std::shared_ptr<OperationWidget> MainWindow::getOperationWidget() const {
-    return operationWidget_;
+  return operationWidget_;
 }
 
 void MainWindow::setupUi() {

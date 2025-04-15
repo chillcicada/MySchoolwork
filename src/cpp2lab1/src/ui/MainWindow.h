@@ -14,8 +14,8 @@ class MainWindow : public QMainWindow {
 public:
   MainWindow(QWidget *parent = nullptr);
 
-    std::shared_ptr<Game> getGame() const;
-    std::shared_ptr<OperationWidget> getOperationWidget() const;
+  std::shared_ptr<Game> getGame() const;
+  std::shared_ptr<OperationWidget> getOperationWidget() const;
 
 private:
   std::shared_ptr<Game> game_;

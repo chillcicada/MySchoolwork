@@ -1,5 +1,4 @@
 excludes = [
-  "**/*.lock",
   "**/.*",
   "**/node_modules/"
 ]
@@ -35,4 +34,22 @@ command = "fprettify"
 includes = [
   "*.f90",
   "*.F90"
+]
+
+# c language family
+[formatter.clang-format]
+command = "clang-format"
+options = [
+  "-i",
+  "--style=file"
+]
+includes = [
+  "*.c",
+  "*.h",
+  "*.cpp",
+  "*.hpp",
+  "*.cc",
+  "*.hh",
+  "*.cxx",
+  "*.hxx"
 ]
