@@ -45,6 +45,10 @@ target_sheet_names = [
 ]
 
 # load the data
+if not os.path.exists(data_dir):
+  logging.error(f'Directory {data_dir} does not exist.')
+  raise FileNotFoundError(f'Directory {data_dir} does not exist.')
+
 data: Dict[Literal['expt1', 'expt2.1', 'expt2.2', 'expt2.3', 'expt3', 'expt4'], pd.DataFrame] = {}
 for sheet_name in target_sheet_names:
   data[sheet_name] = pd.read_excel(

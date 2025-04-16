@@ -135,6 +135,10 @@ def resolve(expt_data, expt_name):
 
 
 def main():
+  if not os.path.exists(data_dir):
+    logging.error(f'Data directory {data_dir} does not exist.')
+    return None
+
   os.makedirs(output_dir, exist_ok=True)
   data = load_data()
 
