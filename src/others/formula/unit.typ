@@ -19,6 +19,11 @@
 
 #let kW = "kW"
 
+#let mol = "mol"
+#let kmol = "kmol"
+
+#let kN = "kN"
+
 #let mL = "mL"
 
 #let rpm = "rpm"
