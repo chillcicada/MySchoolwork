@@ -13,21 +13,21 @@ os.makedirs(output_dir, exist_ok=True)
 
 # 数据集
 rows = [
-  (0, ['-', '-', '-', '-', '-']),
-  (1.53, ['-', '-', '-', '-', '-']),
-  (3.06, ['-', 'C', 'L', 'C', '-']),
-  (4.59, ['S', 'C', 'L', 'C', 'S']),
-  (6.12, ['S', 'G', 'L', 'G', 'S']),
-  (7.65, ['S', 'G', 'G', 'G', 'S']),
-  (9.17, ['S', 'G', 'G', 'G', 'S']),
-  (10.7, ['S', 'G', 'G', 'G', 'S']),
+    (0, ['-', '-', '-', '-', '-']),
+    (1.53, ['-', '-', '-', '-', '-']),
+    (3.06, ['-', 'C', 'L', 'C', '-']),
+    (4.59, ['S', 'C', 'L', 'C', 'S']),
+    (6.12, ['S', 'G', 'L', 'G', 'S']),
+    (7.65, ['S', 'G', 'G', 'G', 'S']),
+    (9.17, ['S', 'G', 'G', 'G', 'S']),
+    (10.7, ['S', 'G', 'G', 'G', 'S']),
 ]
 x_values = [0.1125, 0.3, 0.5, 0.7, 0.8875]
 
 data = []
 for y, labels in rows:
-  for x, label in zip(x_values, labels):
-    data.append([x, y, label])
+    for x, label in zip(x_values, labels):
+        data.append([x, y, label])
 
 # 转换为特征和标签
 X = np.array([[d[0], d[1]] for d in data])
@@ -65,10 +65,10 @@ plt.contourf(xx, yy, Z, cmap=cmap, levels=len(classes) - 1)
 
 # 绘制原始数据点（排除无相区域）
 for i, cls in enumerate(classes):
-  if cls == '-':
-    continue
-  mask = y == cls
-  plt.scatter(X[mask, 0], X[mask, 1], label=cls, edgecolor='k', s=80, linewidths=1)
+    if cls == '-':
+        continue
+    mask = y == cls
+    plt.scatter(X[mask, 0], X[mask, 1], label=cls, edgecolor='k', s=80, linewidths=1)
 
 plt.legend(loc='upper right')
 plt.xlabel('fraction of A')

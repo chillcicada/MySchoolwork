@@ -37,8 +37,12 @@ grid = np.c_[xx.ravel(), yy.ravel()]
 Z = model.predict(grid)
 Z = Z.reshape(xx.shape)
 # 将网格坐标还原到原始尺度
-xx_orig = scaler.inverse_transform(np.c_[xx.ravel(), yy.ravel()])[:, 0].reshape(xx.shape)
-yy_orig = scaler.inverse_transform(np.c_[xx.ravel(), yy.ravel()])[:, 1].reshape(yy.shape)
+xx_orig = scaler.inverse_transform(np.c_[xx.ravel(), yy.ravel()])[:, 0].reshape(
+    xx.shape
+)
+yy_orig = scaler.inverse_transform(np.c_[xx.ravel(), yy.ravel()])[:, 1].reshape(
+    yy.shape
+)
 # 绘制相图
 
 plt.figure(figsize=(10, 8))
