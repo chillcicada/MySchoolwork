@@ -6,54 +6,59 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      ...
-    }:
+    { nixpkgs, ... }:
     let
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-        "aarch64-linux"
-      ];
+      supportedSystems = [ "x86_64-linux" ];
       forEachSupportedSystem =
-        f:
-        nixpkgs.lib.genAttrs supportedSystems (
-          system:
-          f {
-            pkgs = import nixpkgs {
-              inherit system;
-            };
-          }
-        );
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
     in
     {
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
           default = pkgs.mkShell {
+            shellHook = ''
+              export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+            '';
+          };
+
+          cpp = pkgs.mkShell {
             packages = with pkgs; [
-              ovito # visualizing crystal structures
-              quarto # convert jupyter notebooks to pdf
-
-              mpi
-              llvmPackages.openmp
-
               doxygen
-              gfortran
               libclang
               valgrind
               qt6.full
-              fprettify
+            ];
+          };
 
+          fortran = pkgs.mkShell {
+            packages = with pkgs; [
+              mpi
+              llvmPackages.openmp
+
+              gfortran
+              fprettify
+            ];
+          };
+
+          ml = pkgs.mkShell {
+            packages = with pkgs; [
               parallel # parallelize shell commands
               imagemagick # image manipulation
 
               cairo # required by anylabeling
               openssl # required by requests
+            ];
 
-              pkg-config # pkg-config, required by rust
+            shellHook = ''
+              export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+            '';
+          };
+
+          misc = pkgs.mkShell {
+            packages = with pkgs; [
+              ovito # visualizing crystal structures
+              quarto # convert jupyter notebooks to pdf
             ];
 
             shellHook = ''
