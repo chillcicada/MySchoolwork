@@ -23,7 +23,7 @@
     "@shikijs/vitepress-twoslash": "3.3.0",
     "@slidev/cli": "51.6.0",
     "@slidev/theme-seriph": "0.25.0",
-    "@types/node": "22.15.2",
+    "@types/node": "22.15.3",
     "archiver": "7.0.1",
     "eslint": "9.25.1",
     "eslint-plugin-format": "1.0.1",

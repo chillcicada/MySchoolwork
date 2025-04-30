@@ -5,11 +5,11 @@ description = "Cc's final homework for the course of Python"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     # cli
-    "typer>=0.15.2",
+    "typer>=0.15.3",
     "colorama>=0.4.6",
 ]
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">=3.13.3"
 
 [project.scripts]
 cli = "src:main"
