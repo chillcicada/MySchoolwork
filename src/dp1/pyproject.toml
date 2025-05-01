@@ -4,14 +4,14 @@ version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-    "ultralytics>=8.3.117",
-    "albumentations>=2.0.5",
+    "ultralytics>=8.3.122",
+    "albumentations>=2.0.6",
     "pandas>=2.2.3",
     "transformers>=4.51.3",
     "scikit-learn>=1.6.1",
 ]
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">=3.13.3"
 
 [build-system]
 requires = ["hatchling"]
