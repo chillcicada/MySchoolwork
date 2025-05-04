@@ -25,7 +25,7 @@
     "@slidev/theme-seriph": "0.25.0",
     "@types/node": "22.15.3",
     "archiver": "7.0.1",
-    "eslint": "9.25.1",
+    "eslint": "9.26.0",
     "eslint-plugin-format": "1.0.1",
     "http-server": "14.1.1",
     "lint-staged": "15.5.1",
