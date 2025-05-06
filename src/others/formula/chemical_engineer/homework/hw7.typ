@@ -1,7 +1,7 @@
 #import "@preview/tablem:0.2.0": tablem
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 = 化学工程基础 - 第七次作业
 

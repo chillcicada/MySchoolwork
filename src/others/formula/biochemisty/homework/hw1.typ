@@ -1,6 +1,6 @@
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 #align(center)[= CAR-T 细胞技术与评述]
 

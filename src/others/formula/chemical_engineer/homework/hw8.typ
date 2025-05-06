@@ -1,6 +1,6 @@
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 = 化学工程基础 - 第八次作业
 

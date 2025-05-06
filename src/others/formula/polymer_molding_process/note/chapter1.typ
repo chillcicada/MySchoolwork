@@ -1,6 +1,6 @@
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 剪切应力与剪切应变的关系由材料的剪切模量（G）决定，具体如下：
 

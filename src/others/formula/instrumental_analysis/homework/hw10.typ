@@ -1,6 +1,6 @@
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 #set par(first-line-indent: (amount: 2em, all: true))
 

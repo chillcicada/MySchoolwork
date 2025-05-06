@@ -1,7 +1,7 @@
 #import "../../template.typ": *
 #import "@preview/tablem:0.2.0": tablem, three-line-table
 
-#show: defineConfig.with(margin-style: "normal")
+#show: define-config.with(margin-style: "normal")
 
 #show heading.where(level: 1): it => {
   align(center, text(size: font-size.三号, it))

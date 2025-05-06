@@ -1,6 +1,6 @@
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 = 聚合物成型加工作业 - 第六周
 

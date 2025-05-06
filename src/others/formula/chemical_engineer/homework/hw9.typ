@@ -1,7 +1,7 @@
 #import "../../template.typ": *
 #import "@preview/tablem:0.2.0": three-line-table
 
-#show: defineConfig
+#show: define-config
 
 = 化学工程基础 - 第九次作业
 

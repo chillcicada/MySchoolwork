@@ -1,7 +1,7 @@
 #import "@preview/tablem:0.2.0": three-line-table
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 = 高分子材料仪器分析 - 第三周
 

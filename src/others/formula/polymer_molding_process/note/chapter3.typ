@@ -1,7 +1,7 @@
 #import "@preview/tablem:0.2.0": three-line-table
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 == Cor-Merz 关系式
 

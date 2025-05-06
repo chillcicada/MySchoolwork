@@ -1,6 +1,6 @@
 #import "../../template.typ": *
 
-#show: defineConfig
+#show: define-config
 
 #figure(image("ch2/流变仪的选用.png", width: 80%), caption: "流变仪的选用")
 

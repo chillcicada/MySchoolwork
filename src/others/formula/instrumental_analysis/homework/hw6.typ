@@ -2,7 +2,7 @@
 #import "@preview/tablem:0.2.0": tablem
 #import "@preview/typsium:0.0.3": ce
 
-#show: defineConfig
+#show: define-config
 
 #set par(first-line-indent: (amount: 2em, all: true))
 #set math.equation(numbering: "(1)")

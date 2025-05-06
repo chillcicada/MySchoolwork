@@ -1,7 +1,7 @@
 #import "../../template.typ": *
 #import "@preview/tablem:0.2.0": tablem
 
-#show: defineConfig
+#show: define-config
 
 #set par(first-line-indent: (amount: 2em, all: true))
 #set math.equation(numbering: "(1)")

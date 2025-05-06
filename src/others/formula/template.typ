@@ -1,6 +1,9 @@
+/// common template for all doc in the formula folder
+
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "unit.typ": *
 
+/// word compatible font-size
 #let font-size = (
   初号: 42pt,
   小初: 36pt,
@@ -21,6 +24,7 @@
   小七: 5pt,
 )
 
+/// common font-family config for device with windows font and windows Simplified Chinese supplement font download
 #let font-family = (
   SongTi: (
     (name: "Times New Roman", covers: "latin-in-cjk"),
@@ -42,7 +46,7 @@
   ),
 )
 
-#let defineConfig(
+#let define-config(
   lang: "zh",
   region: "cn",
   doctype: "bachelor",
@@ -55,8 +59,7 @@
 
   assert(
     _page_margin_style.contains(margin-style),
-    message: "Unsupported margin style, only support: "
-      + _page_margin_style.join(", "),
+    message: "Unsupported margin style, only support: " + _page_margin_style.join(", "),
   )
 
   let _page_margin = if margin-style == "narrow" {
@@ -84,9 +87,10 @@
 
   assert(
     _support_doctype.contains(doctype),
-    message: "Unsupported doctype, only support: "
-      + _support_doctype.join(", "),
+    message: "Unsupported doctype, only support: " + _support_doctype.join(", "),
   )
+
+  set par(justify: true)
 
   doc
 }
