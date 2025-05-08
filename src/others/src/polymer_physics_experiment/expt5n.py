@@ -2,7 +2,7 @@
 Experiment 5: Rheology
 
 @author: Liu Kuan
-@date: 2025-04-10
+@date: 2025-05-08
 """
 
 import glob
@@ -33,20 +33,22 @@ handler.setFormatter(
 logging.basicConfig(level=logging.INFO, handlers=[handler])
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-data_dir = os.path.join(current_dir, 'expt5-data')
-output_dir = os.path.join(current_dir, 'expt5-results')
+data_dir = os.path.join(current_dir, 'expt5n-data')
+output_dir = os.path.join(current_dir, 'expt5n-results')
 
 
 def load_data():
     data_raw: Dict[
         Literal[
-            'pre-expt',
-            'sampleA-1',
-            'sampleA-2',
-            'sampleB',
-            'sampleC',
-            'sampleD',
-            'sampleE',
+            '口香糖1-振幅',
+            '口香糖2-频率',
+            '口香糖3-频率',
+            '口香糖4-频率',
+            '口香糖5-频率',
+            '口香糖2-稳态',
+            '口香糖3-稳态',
+            '口香糖4-稳态',
+            '口香糖5-稳态',
         ],
         pd.DataFrame,
     ] = {}
@@ -63,13 +65,15 @@ def load_data():
 
     data: Dict[
         Literal[
-            'pre-expt',
-            'sampleA-1',
-            'sampleA-2',
-            'sampleB',
-            'sampleC',
-            'sampleD',
-            'sampleE',
+            '口香糖1-振幅',
+            '口香糖2-频率',
+            '口香糖3-频率',
+            '口香糖4-频率',
+            '口香糖5-频率',
+            '口香糖2-稳态',
+            '口香糖3-稳态',
+            '口香糖4-稳态',
+            '口香糖5-稳态',
         ],
         np.ndarray,
     ] = {}
@@ -80,98 +84,22 @@ def load_data():
     return data
 
 
-def resolve_pre_expt_data(expt_data):
-    (
-        strain,
-        stress,
-        storage_modulus,
-        loss_modulus,
-        loss_factor,
-        torque,
-        status,
-    ) = expt_data.T
-
-    strain = strain * 100  # convert to percentage
-
-    # plot modulus vs strain
-    plt.figure(figsize=(10, 6))
-    plt.plot(strain, storage_modulus, label='Storage Modulus', color='blue')
-    plt.plot(strain, loss_modulus, label='Loss Modulus', color='green')
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.xlabel('Strain (%)')
-    plt.ylabel('Modulus (Pa)')
-    plt.title('Modulus vs Strain')
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, 'pre-expt.png'))
-    plt.close()
-
-    logging.info('Pre-experiment data processed and saved.')
-
-    return
-
-
-def resolve(expt_data, expt_name):
-    (
-        angular_frequency,
-        storage_modulus,
-        loss_modulus,
-        loss_factor,
-        strain,
-        stress,
-        torque,
-        status,
-    ) = expt_data.T
-
-    frequency = angular_frequency / (2 * np.pi)  # convert to frequency in Hz
-
-    # plot modulus vs frequency and loss factor vs frequency
-    plt.figure(figsize=(10, 6))
-
-    plt.subplot(2, 1, 1)
-    plt.plot(frequency, storage_modulus, label='Storage Modulus', color='blue')
-    plt.plot(frequency, loss_modulus, label='Loss Modulus', color='green')
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Modulus (Pa)')
-    plt.title(f'Modulus vs Frequency - {expt_name}')
-    plt.legend()
-
-    plt.subplot(2, 1, 2)
-    plt.plot(frequency, loss_factor, label='Loss Factor', color='red')
-    plt.xscale('log')
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Loss Factor')
-    plt.title(f'Loss Factor vs Frequency - {expt_name}')
-    plt.legend()
-
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'{expt_name}.png'))
-    plt.close()
-
-    return
-
-
-def resolve_all(expt_data, expt_name):
-    """
-    Plot all experiments' result in one figure
-    """
-
-    data_list = list(expt_data.values())
+def resolve_all_frequency(expt_data, expt_name):
+    frequency_data_list = list(expt_data.values())
 
     frequency = []
     storage_modulus = []
     loss_modulus = []
     loss_factor = []
 
-    for i in range(len(data_list)):
-        data_list[i] = data_list[i].T
-        frequency.append(data_list[i][0] / (2 * np.pi))  # convert to frequency in Hz
-        storage_modulus.append(data_list[i][1])
-        loss_modulus.append(data_list[i][2])
-        loss_factor.append(data_list[i][3])
+    for i in range(len(frequency_data_list)):
+        frequency_data_list[i] = frequency_data_list[i].T
+        frequency.append(
+            frequency_data_list[i][0] / (2 * np.pi)
+        )  # convert to frequency in Hz
+        storage_modulus.append(frequency_data_list[i][1])
+        loss_modulus.append(frequency_data_list[i][2])
+        loss_factor.append(frequency_data_list[i][3])
         pass
 
     _, (ax1, ax2, ax3) = plt.subplots(
@@ -179,18 +107,18 @@ def resolve_all(expt_data, expt_name):
     )
 
     # plot storage modulus vs frequency
-    for i in range(len(data_list)):
+    for i in range(len(frequency_data_list)):
         ax1.plot(
             frequency[i],
             storage_modulus[i] * 10**i,
             label=expt_name[i],
             color=f'C{i}',
         )
-        ax1.axhline(y=10 ** (5 + i), color=f'C{i}', linestyle='--')
+        ax1.axhline(y=10 ** (4.5 + i), color=f'C{i}', linestyle='--')
         pass
     ax1.set_xscale('log')
     ax1.set_yscale('log')
-    ax1.set_ylim(1e4, 1e10)
+    ax1.set_ylim(1e4, 1e8)
     ax1.set_xlabel('Frequency (Hz)')
     ax1.set_ylabel('Modulus (Pa)')
     ax1.set_title('Storage Modulus')
@@ -206,18 +134,18 @@ def resolve_all(expt_data, expt_name):
     )
 
     # plot loss modulus vs frequency
-    for i in range(len(data_list)):
+    for i in range(len(frequency_data_list)):
         ax2.plot(
             frequency[i],
             loss_modulus[i] * 10**i,
             label=expt_name[i],
             color=f'C{i}',
         )
-        ax2.axhline(y=10 ** (5 + i), color=f'C{i}', linestyle='--')
+        ax2.axhline(y=10 ** (4.5 + i), color=f'C{i}', linestyle='--')
         pass
     ax2.set_xscale('log')
     ax2.set_yscale('log')
-    ax2.set_ylim(1e4, 1e10)
+    ax2.set_ylim(1e4, 1e8)
     ax2.set_xlabel('Frequency (Hz)')
     ax2.set_ylabel('Modulus (Pa)')
     ax2.set_title('Loss Modulus')
@@ -233,7 +161,7 @@ def resolve_all(expt_data, expt_name):
     )
 
     # plot loss factor vs frequency
-    for i in range(len(data_list)):
+    for i in range(len(frequency_data_list)):
         ax3.plot(
             frequency[i],
             loss_factor[i] + i,
@@ -265,6 +193,45 @@ def resolve_all(expt_data, expt_name):
     return
 
 
+def resolve_all_homeostasis(expt_data, expt_name):
+    homeostasis_data_list = list(expt_data.values())
+
+    rate = []
+    viscosity = []
+
+    for i in range(len(homeostasis_data_list)):
+        homeostasis_data_list[i] = homeostasis_data_list[i].T
+        rate.append(homeostasis_data_list[i][0])
+        viscosity.append(homeostasis_data_list[i][2])
+
+        pass
+
+    plt.figure(figsize=(8, 6))
+    for i in range(len(homeostasis_data_list)):
+        plt.plot(
+            rate[i],
+            viscosity[i] * 10**i,
+            label=expt_name[i],
+            color=f'C{i}',
+        )
+        pass
+    plt.xscale('log')
+    plt.yscale('log')
+    plt.xlabel('Rate (s$^{-1}$)')
+    plt.ylabel('Viscosity (mPa.s)')
+    plt.title('Viscosity vs Rate')
+    plt.legend(loc='upper right')
+
+    ax = plt.gca()
+    ax.yaxis.set_ticklabels([])
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'homeostasis.png'))
+    plt.close()
+
+    return
+
+
 def main():
     if not os.path.exists(data_dir):
         logging.error(f'Data directory {data_dir} does not exist.')
@@ -273,20 +240,17 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     data = load_data()
 
-    resolve_pre_expt_data(data['pre-expt'])
+    picked_names = ['Item 2', 'Item 3', 'Item 4', 'Item 5']
 
-    # batch resolve
-    for key in ['sampleA-1', 'sampleA-2', 'sampleB', 'sampleC', 'sampleD', 'sampleE']:
-        resolve(data[key], key)
-        pass
+    frequency_data = {key: value for key, value in data.items() if key.endswith('频率')}
 
-    picked_data_labels = ['sampleA-1', 'sampleB', 'sampleC', 'sampleD', 'sampleE']
+    homeostasis_data = {
+        key: value for key, value in data.items() if key.endswith('稳态')
+    }
 
-    picked_data = {key: data[key] for key in picked_data_labels}
+    resolve_all_frequency(frequency_data, picked_names)
 
-    picked_names = ['A', 'B', 'C', 'D', 'E']
-
-    resolve_all(picked_data, picked_names)
+    resolve_all_homeostasis(homeostasis_data, picked_names)
 
     logging.info('All experiments completed successfully.')
 
