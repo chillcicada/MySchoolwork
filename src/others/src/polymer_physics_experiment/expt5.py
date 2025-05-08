@@ -154,6 +154,117 @@ def resolve(expt_data, expt_name):
     return
 
 
+def resolve_all(expt_data, expt_name):
+    """
+    Plot all experiments' result in one figure
+    """
+
+    data_list = list(expt_data.values())
+
+    frequency = []
+    storage_modulus = []
+    loss_modulus = []
+    loss_factor = []
+
+    for i in range(len(data_list)):
+        data_list[i] = data_list[i].T
+        frequency.append(data_list[i][0] / (2 * np.pi))  # convert to frequency in Hz
+        storage_modulus.append(data_list[i][1])
+        loss_modulus.append(data_list[i][2])
+        loss_factor.append(data_list[i][3])
+        pass
+
+    _, (ax1, ax2, ax3) = plt.subplots(
+        1, 3, figsize=(11, 8), gridspec_kw={'width_ratios': [4, 4, 3]}
+    )
+
+    # plot storage modulus vs frequency
+    for i in range(len(data_list)):
+        ax1.plot(
+            frequency[i],
+            storage_modulus[i] * 10**i,
+            label=expt_name[i],
+            color=f'C{i}',
+        )
+        ax1.axhline(y=10 ** (5 + i), color=f'C{i}', linestyle='--')
+        pass
+    ax1.set_xscale('log')
+    ax1.set_yscale('log')
+    ax1.set_ylim(1e4, 1e10)
+    ax1.set_xlabel('Frequency (Hz)')
+    ax1.set_ylabel('Modulus (Pa)')
+    ax1.set_title('Storage Modulus')
+    ax1.yaxis.set_ticklabels([])
+    ax1.legend(loc='upper right')
+    ax1.text(
+        x=0.04,
+        y=0.98,
+        s='(a)',
+        transform=ax1.transAxes,  # 关键参数：使用相对坐标
+        fontsize=18,
+        va='top',
+    )
+
+    # plot loss modulus vs frequency
+    for i in range(len(data_list)):
+        ax2.plot(
+            frequency[i],
+            loss_modulus[i] * 10**i,
+            label=expt_name[i],
+            color=f'C{i}',
+        )
+        ax2.axhline(y=10 ** (5 + i), color=f'C{i}', linestyle='--')
+        pass
+    ax2.set_xscale('log')
+    ax2.set_yscale('log')
+    ax2.set_ylim(1e4, 1e10)
+    ax2.set_xlabel('Frequency (Hz)')
+    ax2.set_ylabel('Modulus (Pa)')
+    ax2.set_title('Loss Modulus')
+    ax2.yaxis.set_ticklabels([])
+    ax2.legend(loc='upper right')
+    ax2.text(
+        x=0.04,
+        y=0.98,
+        s='(b)',
+        transform=ax2.transAxes,  # 关键参数：使用相对坐标
+        fontsize=18,
+        va='top',
+    )
+
+    # plot loss factor vs frequency
+    for i in range(len(data_list)):
+        ax3.plot(
+            frequency[i],
+            loss_factor[i] + i,
+            label=expt_name[i],
+            color=f'C{i}',
+        )
+        pass
+    ax3.axvline(x=1, color='red', linestyle='--')
+    ax3.set_xscale('log')
+    ax3.set_ylim(0, 5)
+    ax3.set_xlabel('Frequency (Hz)')
+    ax3.set_ylabel('Loss Factor')
+    ax3.set_title('Loss Factor')
+    ax3.yaxis.set_ticklabels([])
+    ax3.legend(loc='upper right')
+    ax3.text(
+        x=0.04,
+        y=0.98,
+        s='(c)',
+        transform=ax3.transAxes,  # 关键参数：使用相对坐标
+        fontsize=18,
+        va='top',
+    )
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'all.png'))
+    plt.close()
+
+    return
+
+
 def main():
     if not os.path.exists(data_dir):
         logging.error(f'Data directory {data_dir} does not exist.')
@@ -168,6 +279,14 @@ def main():
     for key in ['sampleA-1', 'sampleA-2', 'sampleB', 'sampleC', 'sampleD', 'sampleE']:
         resolve(data[key], key)
         pass
+
+    picked_data_tags = ['sampleA-1', 'sampleB', 'sampleC', 'sampleD', 'sampleE']
+
+    picked_data = {key: data[key] for key in picked_data_tags}
+
+    picked_names = ['A', 'B', 'C', 'D', 'E']
+
+    resolve_all(picked_data, picked_names)
 
     logging.info('All experiments completed successfully.')
 
