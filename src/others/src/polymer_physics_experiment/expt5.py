@@ -15,6 +15,9 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
+plt.rcParams['font.sans-serif'] = ['Maple Mono NF CN']
+plt.rcParams['axes.unicode_minus'] = False
+
 handler = colorlog.StreamHandler()
 handler.setFormatter(
     colorlog.ColoredFormatter(
@@ -284,7 +287,7 @@ def main():
 
     picked_data = {key: data[key] for key in picked_data_labels}
 
-    picked_names = ['A', 'B', 'C', 'D', 'E']
+    picked_names = ['酷滋', '炫迈', '绿箭', '比巴卜', '大大']
 
     resolve_all(picked_data, picked_names)
 

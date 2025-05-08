@@ -15,6 +15,9 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
+plt.rcParams['font.sans-serif'] = ['Maple Mono NF CN']
+plt.rcParams['axes.unicode_minus'] = False
+
 handler = colorlog.StreamHandler()
 handler.setFormatter(
     colorlog.ColoredFormatter(
@@ -240,7 +243,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     data = load_data()
 
-    picked_names = ['Item 2', 'Item 3', 'Item 4', 'Item 5']
+    picked_names = ['大大', '绿箭', '炫迈', '益达']
 
     frequency_data = {key: value for key, value in data.items() if key.endswith('频率')}
 
