@@ -247,9 +247,17 @@ def main():
 
     frequency_data = {key: value for key, value in data.items() if key.endswith('频率')}
 
+    logging.info(f'Picked frequency_data names: {sorted(frequency_data)}')
+
+    frequency_data = dict(sorted(frequency_data.items()))
+
     homeostasis_data = {
         key: value for key, value in data.items() if key.endswith('稳态')
     }
+
+    logging.info(f'Picked homeostasis_data names: {sorted(homeostasis_data)}')
+
+    homeostasis_data = dict(sorted(homeostasis_data.items()))
 
     resolve_all_frequency(frequency_data, picked_names)
 

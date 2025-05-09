@@ -287,6 +287,8 @@ def main():
 
     picked_data = {key: data[key] for key in picked_data_labels}
 
+    logging.info(f'Picked data: {picked_data.keys()}')
+
     picked_names = ['酷滋', '炫迈', '绿箭', '比巴卜', '大大']
 
     resolve_all(picked_data, picked_names)
