@@ -14,7 +14,7 @@ dependencies = [
     "colorlog>=6.9.0",
 ]
 readme = "README.md"
-requires-python = ">=3.13.3"
+requires-python = ">=3.12.3"
 
 [tool.ruff]
 exclude = [".venv"]
