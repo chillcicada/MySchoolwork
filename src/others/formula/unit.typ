@@ -1,5 +1,6 @@
 #import "@preview/unify:0.7.1": unit as _unit
 
+#let μm = "μm"
 #let mm = "mm"
 #let cm = "cm"
 #let dm = "dm"
