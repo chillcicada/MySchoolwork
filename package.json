@@ -16,19 +16,19 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
-    "vue": "3.5.13"
+    "vue": "3.5.14"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.12.0",
-    "@shikijs/vitepress-twoslash": "3.3.0",
-    "@slidev/cli": "51.6.0",
+    "@antfu/eslint-config": "4.13.1",
+    "@shikijs/vitepress-twoslash": "3.4.2",
+    "@slidev/cli": "51.6.2",
     "@slidev/theme-seriph": "0.25.0",
-    "@types/node": "22.15.3",
+    "@types/node": "22.15.18",
     "archiver": "7.0.1",
     "eslint": "9.26.0",
     "eslint-plugin-format": "1.0.1",
     "http-server": "14.1.1",
-    "lint-staged": "15.5.1",
+    "lint-staged": "15.5.2",
     "playwright-chromium": "1.52.0",
     "prettier-plugin-slidev": "1.0.5",
     "rimraf": "6.0.1",
