@@ -1,5 +1,5 @@
-path: ./scratches
+path: ./data
 train: images/train
 val: images/val
 
-names: [crazing, inclusion, patches, pitted_surface, rolled-in_scale, scratches]
+names: [white zone, white point, black zone, striped zone]

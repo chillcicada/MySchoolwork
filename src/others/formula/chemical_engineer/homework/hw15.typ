@@ -66,7 +66,7 @@ $
   A_0
   &= 2 (pi (h + d_o / 2)^2 - pi d_o^2 / 4) + 2 pi (h + d_o / 2) delta \
   &= 2 times (pi times (0.015 + 0.025 / 2)^2 - pi times 0.025^2 / 4) + 2 times pi times (0.015 + 0.025 / 2) times 0.0005 "m"^2 \
-  &= 3.848 times 10^(-3) "m"^3
+  &= 3.848 times 10^(-3) "m"^2
 $
 
 翅片扩展的总面积为 $A = N A_0 = 545 times 1.971 times 10^(-3) "m"^2 = 2.097 "m"^2$；
