@@ -29,4 +29,6 @@
 
 #let rpm = "rpm"
 
+#let Hz = "Hz"
+
 #let unit(str) = _unit(str, per: "\/")
