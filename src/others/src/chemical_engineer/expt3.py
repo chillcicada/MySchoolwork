@@ -33,6 +33,11 @@ output_dir = os.path.join(current_dir, 'expt3-results')
 
 # plot data
 def plot_data(water_flow, air_rate, k_xa_1, k_xa_2):
+    water_flow = np.log10(water_flow)
+    air_rate = np.log10(air_rate)
+    k_xa_1 = np.log10(k_xa_1)
+    k_xa_2 = np.log10(k_xa_2)
+
     # analyze water flow vs k_xa_1
     linear_fit_1 = np.polyfit(water_flow, k_xa_1, 1)
     r2_1 = np.corrcoef(water_flow, k_xa_1)[0, 1] ** 2
@@ -41,17 +46,18 @@ def plot_data(water_flow, air_rate, k_xa_1, k_xa_2):
     water_flow_fit_1 = np.linspace(min(water_flow), max(water_flow), 100)
     k_xa_1_fit = np.polyval(linear_fit_1, water_flow_fit_1)
     logging.info(
-        f'Linear fit for water flow vs k_xa_1: y = {linear_fit_1[0]:.4f}x + {linear_fit_1[1]:.4f}'
+        f'Linear fit for log water flow vs log k_xa_1: y = {linear_fit_1[0]:.4f}x + {linear_fit_1[1]:.4f}'
     )
 
     # plot water flow vs k_xa_1
     plt.figure(figsize=(10, 6))
-    plt.plot(water_flow, k_xa_1, 'o', label='$K_x a$')
+    plt.plot(water_flow, k_xa_1, 'o', label='Data')
     plt.plot(water_flow_fit_1, k_xa_1_fit, 'r-', label=f'Linear Fit, R$^2$={r2_1:.4f}')
-    plt.xlabel('Water Flow (L/h)')
-    plt.ylabel('$K_x a$ (koml/(m$^3$ h))')
-    plt.title('Water Flow vs $K_x a$')
+    plt.xlabel('lg(L) [lg(L/h)]')
+    plt.ylabel('lg($K_x a$) [lg(koml/(m$^3$ h))]')
+    plt.title('lg(L) vs lg($K_x a$)')
     plt.legend()
+    plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'water_flow_vs_k_xa.png'))
     plt.close()
 
@@ -63,17 +69,18 @@ def plot_data(water_flow, air_rate, k_xa_1, k_xa_2):
     air_rate_fit_2 = np.linspace(min(air_rate), max(air_rate), 100)
     k_xa_2_fit = np.polyval(linear_fit_2, air_rate_fit_2)
     logging.info(
-        f'Linear fit for air rate vs k_xa_2: y = {linear_fit_2[0]:.4f}x + {linear_fit_2[1]:.4f}'
+        f'Linear fit for log air rate vs log k_xa_2: y = {linear_fit_2[0]:.4f}x + {linear_fit_2[1]:.4f}'
     )
 
     # plot air rate vs k_xa_2
     plt.figure(figsize=(10, 6))
-    plt.plot(air_rate, k_xa_2, 'o', label='$K_x a$')
+    plt.plot(air_rate, k_xa_2, 'o', label='Data')
     plt.plot(air_rate_fit_2, k_xa_2_fit, 'r-', label=f'Linear Fit, R$^2$={r2_2:.4f}')
-    plt.xlabel('Air Rate (L/h)')
-    plt.ylabel('$K_x a$ (koml/(m$^3$ h))')
-    plt.title('Air Rate vs $K_x a$')
+    plt.xlabel('lg(u) [lg(L/h)]')
+    plt.ylabel('lg($K_x a$) [lg(koml/(m$^3$ h))]')
+    plt.title('lg(u) vs lg($K_x a$)')
     plt.legend()
+    plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'air_rate_vs_k_xa.png'))
     plt.close()
 
