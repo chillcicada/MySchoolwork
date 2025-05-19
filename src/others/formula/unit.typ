@@ -16,6 +16,8 @@
 
 #let cP = "cP"
 
+#let ppm = "ppm"
+
 #let degC = "°C"
 
 #let kW = "kW"
