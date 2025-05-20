@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-plt.rcParams['font.sans-serif'] = ['Maple Mono NF CN']
+plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC', 'Maple Mono NF CN']
 plt.rcParams['axes.unicode_minus'] = False
 
 handler = colorlog.StreamHandler()
@@ -174,7 +174,7 @@ def resolve_all_frequency(expt_data, expt_name):
         pass
     ax3.axvline(x=1, color='red', linestyle='--')
     ax3.set_xscale('log')
-    ax3.set_ylim(0, 5)
+    ax3.set_ylim(0, 4)
     ax3.set_xlabel('Frequency (Hz)')
     ax3.set_ylabel('Loss Factor')
     ax3.set_title('Loss Factor')
@@ -213,7 +213,7 @@ def resolve_all_homeostasis(expt_data, expt_name):
     for i in range(len(homeostasis_data_list)):
         plt.plot(
             rate[i],
-            viscosity[i] * 10**i,
+            viscosity[i],
             label=expt_name[i],
             color=f'C{i}',
         )
@@ -224,9 +224,6 @@ def resolve_all_homeostasis(expt_data, expt_name):
     plt.ylabel('Viscosity (mPa.s)')
     plt.title('Viscosity vs Rate')
     plt.legend(loc='upper right')
-
-    ax = plt.gca()
-    ax.yaxis.set_ticklabels([])
 
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'homeostasis.png'))
