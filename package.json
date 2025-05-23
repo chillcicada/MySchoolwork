@@ -19,13 +19,13 @@
     "vue": "3.5.14"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.13.1",
+    "@antfu/eslint-config": "4.13.2",
     "@shikijs/vitepress-twoslash": "3.4.2",
-    "@slidev/cli": "51.6.2",
+    "@slidev/cli": "51.7.1",
     "@slidev/theme-seriph": "0.25.0",
-    "@types/node": "22.15.18",
+    "@types/node": "22.15.21",
     "archiver": "7.0.1",
-    "eslint": "9.26.0",
+    "eslint": "9.27.0",
     "eslint-plugin-format": "1.0.1",
     "http-server": "14.1.1",
     "lint-staged": "15.5.2",
