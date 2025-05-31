@@ -1028,10 +1028,8 @@ def main():
     )
     text_result.config(state='disabled')
     text_result.pack(fill='both')
-    # root/frame_right/frame_right_4
     frame_right_4 = tk.Frame(frame_right, borderwidth=5, relief='sunken')
     frame_right_4.pack(fill='both', expand=True)
-    # root/frame_right/frame_right_4/canvas_Reynolds
     global P, canvas_Reynolds
     canvas_Reynolds = FigureCanvasTkAgg(P, master=frame_right_4)
     canvas_Reynolds.draw()
