@@ -5,15 +5,15 @@ description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     "jupyter>=1.1.1",
-    "numpy>=2.2.6",
+    "numpy>=2.3.0",
     "matplotlib>=3.10.3",
-    "pandas>=2.2.3",
+    "pandas>=2.3.0",
     "scipy>=1.15.3",
-    "scikit-learn>=1.6.1",
+    "scikit-learn>=1.7.0",
     "pdfminer>=20191125",
 ]
 readme = "README.md"
-requires-python = ">=3.13.3"
+requires-python = ">=3.13.5"
 
 [tool.ruff]
 exclude = [".venv"]

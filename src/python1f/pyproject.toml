@@ -3,9 +3,9 @@ name = "final-homework"
 version = "0.0.1"
 description = "Cc's final homework for the course of Python"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
-dependencies = ["typer>=0.15.4", "colorama>=0.4.6"]
+dependencies = ["typer>=0.16.0", "colorama>=0.4.6"]
 readme = "README.md"
-requires-python = ">=3.13.3"
+requires-python = ">=3.13.5"
 
 [project.scripts]
 cli = "src:main"

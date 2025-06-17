@@ -3,9 +3,9 @@ name = "course4py"
 version = "0.5.0"
 description = "The source code of the python course."
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
-dependencies = ["jupyter>=1.0.0", "pytest>=8.1.0", "python-dotenv>=1.1.0"]
+dependencies = ["jupyter>=1.1.1", "pytest>=8.4.0", "python-dotenv>=1.1.0"]
 readme = "README.md"
-requires-python = ">=3.13.3"
+requires-python = ">=3.13.5"
 
 [tool.ruff]
 exclude = [".venv"]
