@@ -6,15 +6,15 @@ authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     "scipy>=1.15.3",
     "jupyter>=1.1.1",
-    "scikit-learn>=1.6.1",
+    "scikit-learn>=1.7.0",
     "matplotlib>=3.10.3",
     "seaborn>=0.13.2",
-    "pandas>=2.2.3",
+    "pandas>=2.3.0",
     "tensorflow>=2.19.0",
-    "bayesian-optimization>=2.0.4",
+    "bayesian-optimization>=3.0.0",
 ]
 readme = "README.md"
-requires-python = "==3.10.14"
+requires-python = "==3.13.5"
 
 [tool.ruff]
 exclude = [".ipynb_checkpoints", ".venv"]
