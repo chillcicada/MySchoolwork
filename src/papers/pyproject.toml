@@ -14,27 +14,13 @@ dependencies = [
     "bayesian-optimization>=2.0.4",
 ]
 readme = "README.md"
-requires-python = ">=3.13.3"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["doi"]
+requires-python = "==3.10.14"
 
 [tool.ruff]
 exclude = [".ipynb_checkpoints", ".venv"]
 line-length = 120
 indent-width = 2
-target-version = "py311"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]

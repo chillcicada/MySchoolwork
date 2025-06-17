@@ -1,5 +1,5 @@
 [project]
-name = "python-qa"
+name = "python-summer-qa"
 version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
@@ -19,7 +19,7 @@ requires-python = ">=3.13.3"
 exclude = [".venv"]
 line-length = 120
 indent-width = 4
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]
