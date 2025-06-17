@@ -33,4 +33,6 @@
 
 #let Hz = "Hz"
 
+#let Gs = "Gs"
+
 #let unit(str) = _unit(str, per: "\/")

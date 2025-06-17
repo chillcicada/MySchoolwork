@@ -1,0 +1,8 @@
+#include "note/ch1.typ"
+#include "note/ch2.typ"
+#include "note/ch3.typ"
+#include "note/ch4.typ"
+#include "note/ch5.typ"
+#include "note/ch6.typ"
+#include "note/ch7.typ"
+#include "note/ch8.typ"

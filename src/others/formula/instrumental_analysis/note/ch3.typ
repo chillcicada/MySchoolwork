@@ -60,3 +60,25 @@ $
 $
 
 其中 $P_i$ 为柱入口压力，$P_o$ 为柱出口压力。
+
+#line(length: 100%)
+
+Kovats 插值法：
+
+$
+  I = 100(z + (lg t'_R(x) - lg'_R(z)) / (lg'_R(z + 1) - lg'_R(z)))
+$
+
+#line(length: 100%)
+
+数均分子量：
+
+$
+  M_n = (sum_(i=1)^N (N_i * M_i) ) / (sum_(i=1)^N N_i)
+$
+
+重均分子量：
+
+$
+  M_w = (sum_(i=1)^N (N_i * M_i^2) ) / (sum_(i=1)^N N_i * M_i)
+$
