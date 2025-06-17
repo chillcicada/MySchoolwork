@@ -8,3 +8,6 @@
 #include "homework/hw24.typ"
 #include "homework/hw25.typ"
 #include "homework/hw26.typ"
+#include "homework/hw27.typ"
+#include "homework/hw28.typ"
+#include "homework/hw29.typ"

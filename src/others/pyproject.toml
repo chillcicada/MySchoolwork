@@ -10,11 +10,12 @@ dependencies = [
     "pandas>=2.2.3",
     "scikit-learn>=1.6.1",
     "python-slugify>=8.0.4",
-    "openpyxl>=3.1.5",       # required by pandas to read/write Excel files
+    "openpyxl>=3.1.5", # required by pandas to read/write Excel files
     "colorlog>=6.9.0",
+    "sympy>=1.14.0",
 ]
 readme = "README.md"
-requires-python = ">=3.13.3"
+requires-python = ">=3.12.3"
 
 [tool.ruff]
 exclude = [".venv"]
