@@ -16,7 +16,7 @@
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
-          # use `nix develop .#<name>` to enter the difference shell
+          # use `nix develop .#<name> -c zsh` to enter the difference shell
           cpp = pkgs.mkShell {
             packages = with pkgs; [
               doxygen
@@ -68,6 +68,10 @@
               fprettify
               clang-tools
             ];
+          };
+
+          bayes = pkgs.mkShell {
+            buildInputs = with pkgs; [ graphviz ];
           };
         }
       );
