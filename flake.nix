@@ -16,12 +16,7 @@
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
-          default = pkgs.mkShell {
-            shellHook = ''
-              export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
-            '';
-          };
-
+          # use `nix develop .#<name>` to enter the difference shell
           cpp = pkgs.mkShell {
             packages = with pkgs; [
               doxygen
@@ -64,6 +59,15 @@
             shellHook = ''
               export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
             '';
+          };
+
+          fmt = pkgs.mkShell {
+            packages = with pkgs; [
+              ruff
+              typstyle
+              fprettify
+              clang-tools
+            ];
           };
         }
       );
