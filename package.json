@@ -21,7 +21,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "4.16.1",
     "@shikijs/vitepress-twoslash": "3.7.0",
-    "@slidev/cli": "51.8.2",
+    "@slidev/cli": "52.0.0",
     "@slidev/theme-seriph": "0.25.0",
     "@types/node": "22.15.32",
     "archiver": "7.0.1",
