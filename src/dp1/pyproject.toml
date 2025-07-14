@@ -9,7 +9,7 @@ dependencies = [
     "pandas>=2.3.1",
     "transformers>=4.53.2",
     "scikit-learn>=1.7.0",
-    "datasets>=3.6.0",
+    "datasets>=4.0.0",
     "jupyter>=1.1.1",
 ]
 readme = "README.md"
