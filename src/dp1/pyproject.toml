@@ -4,11 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
-    "ultralytics>=8.3.165",
+    "ultralytics>=8.3.168",
     "albumentations>=2.0.8",
     "pandas>=2.3.1",
     "transformers>=4.53.2",
-    "scikit-learn>=1.7.0",
+    "scikit-learn>=1.7.1",
     "datasets>=4.0.0",
     "jupyter>=1.1.1",
 ]

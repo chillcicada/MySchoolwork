@@ -6,7 +6,7 @@ authors = [{ name = "chillcicada", email = "2210227279@qq.com" }]
 dependencies = [
     "scipy>=1.16.0",
     "jupyter>=1.1.1",
-    "scikit-learn>=1.7.0",
+    "scikit-learn>=1.7.1",
     "matplotlib>=3.10.3",
     "pandas>=2.3.1",
     "python-slugify>=8.0.4",

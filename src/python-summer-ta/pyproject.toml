@@ -9,7 +9,7 @@ dependencies = [
     "matplotlib>=3.10.3",
     "pandas>=2.3.1",
     "scipy>=1.16.0",
-    "scikit-learn>=1.7.0",
+    "scikit-learn>=1.7.1",
     "pdfminer>=20191125",
 ]
 readme = "README.md"
